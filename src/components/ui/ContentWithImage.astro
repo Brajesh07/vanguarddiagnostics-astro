@@ -1,0 +1,137 @@
+---
+import BulletList from "./BulletList.astro";
+
+export interface Props {
+  title?: string;
+  titleAlign?: "left" | "center" | "right";
+  titleImg?: {
+    src: string;
+    alt: string;
+  };
+  paragraphs?: string[];
+  bullets?: string[];
+  footerParagraphs?: string[];
+  image?: {
+    src: string;
+    alt: string;
+  };
+  button?: {
+    text: string;
+    triggerId?: string;
+    href?: string;
+  };
+  imagePosition?: "left" | "right";
+  className?: string;
+}
+
+const {
+  title,
+  titleAlign = "left",
+  titleImg,
+  paragraphs = [],
+  bullets = [],
+  footerParagraphs = [],
+  image,
+  button,
+  imagePosition = "right",
+  className = "",
+} = Astro.props;
+
+// If there's absolutely no content, render nothing
+if (
+  !title &&
+  !titleImg &&
+  paragraphs.length === 0 &&
+  bullets.length === 0 &&
+  footerParagraphs.length === 0 &&
+  !image
+) {
+  return null;
+}
+---
+
+<section class={`py-8 ${className}`}>
+  <div class="mx-auto flex w-full max-w-[1120px] gap-8 px-4 flex-col md:px-6">
+    <div class={`flex flex-col text-${titleAlign} ${titleAlign === 'center' ? 'items-center' : titleAlign === 'right' ? 'items-end' : 'items-start'}`}>
+      {
+        titleImg && (
+          <div class="mb-4">
+            <img
+              alt={titleImg.alt}
+              class="h-[135px] w-auto object-contain"
+              src={titleImg.src}
+            />
+          </div>
+        )
+      }
+      {
+        title && (
+          <h2
+            class="text-[30px] font-medium text-black"
+            set:html={title}
+          />
+        )
+      }
+    </div>
+
+    <div
+      class={`flex flex-col gap-8 ${imagePosition === "right" ? "md:flex-row" : "md:flex-row-reverse"} items-center`}
+    >
+      {
+        paragraphs.length > 0 ||
+        bullets.length > 0 ||
+        footerParagraphs.length > 0 ||
+        button ? (
+          <div class="flex flex-col gap-4 flex-1">
+            {paragraphs.map((para) => (
+              <p class="text-[15px] leading-7 text-[#555555]" set:html={para} />
+            ))}
+
+            {bullets.length > 0 && (
+              <div class="my-2">
+                <BulletList items={bullets} />
+              </div>
+            )}
+
+            {footerParagraphs.map((para) => (
+              <p class="text-[15px] leading-7 text-[#555555]" set:html={para} />
+            ))}
+
+            {button && (
+              <div class="mt-4">
+                {button.triggerId ? (
+                  <button
+                    class="inline-flex w-fit items-center justify-center rounded border border-primary px-5 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    data-team-popup-trigger={button.triggerId === "ivd-industry" ? undefined : button.triggerId}
+                    data-industry-popup-trigger={button.triggerId === "ivd-industry" ? "" : undefined}
+                  >
+                    {button.text}
+                  </button>
+                ) : (
+                  <a
+                    href={button.href}
+                    class="inline-flex w-fit items-center justify-center rounded border border-primary px-5 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  >
+                    {button.text}
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        ) : null
+      }
+
+      {
+        image && (
+          <div class="flex-1">
+            <img
+              alt={image.alt}
+              class="h-auto w-full object-cover shadow-sm"
+              src={image.src}
+            />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>

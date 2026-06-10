@@ -1,0 +1,152 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { manufacturingContent } from "../data/content";
+import BulletList from "../components/ui/BulletList.astro";
+import CertificationItem from "../components/ui/CertificationItem.astro";
+
+const {
+  metadata,
+  hero,
+  expandingHorizons,
+  technology,
+  certifications,
+  process,
+} = manufacturingContent;
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+  <main class="text-foreground">
+    <!-- Section 1: Two-Column Hero with side-by-side text and video -->
+    <section class="relative overflow-hidden">
+      <!-- Background blueprint image -->
+      <div
+        class="absolute inset-0 bg-no-repeat bg-right-top -z-10"
+        style={`background-image: url('${hero.backgroundImage}'); background-size: contain;`}
+      >
+      </div>
+
+      <div class="vanguard-shell">
+        <div class="flex items-center">
+          <!-- LEFT column: Styled Slogan -->
+
+          <!-- RIGHT column: Video banner -->
+          <div class="">
+            <video autoplay loop muted playsinline class="h-auto w-full">
+              <source src={hero.video} type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Annual Capacity Info (Centered) -->
+    <section class="py-12 md:py-16 bg-white border-t border-[#eee]">
+      <div class="vanguard-shell">
+        <h2
+          class="text-[34px] font-semibold text-[#008E9E] leading-[1.3em] text-center"
+          set:html={hero.capacity}
+        />
+        <h3
+          class="mt-4 text-[18px] font-normal text-[#3a3a3a] leading-[1.4em] text-justify"
+          set:html={hero.title}
+        />
+        <p
+          class="mx-auto mt-6 max-w-[1050px] text-[16px] font-normal leading-[1.5em] text-[#000000] text-justify"
+          set:html={hero.description}
+        />
+      </div>
+    </section>
+
+    <!-- Section 3: Expanding Horizons -->
+    <section class="py-12 bg-white">
+      <div class="vanguard-shell grid gap-12 md:grid-cols-2 md:items-start">
+        <img
+          alt="Lab technician working"
+          class="h-auto w-full object-cover shadow-md rounded-sm"
+          src={expandingHorizons.image}
+        />
+        <article>
+          <h2
+            class="text-2xl font-semibold text-gray-800 leading-tight font-sans mb-1"
+            set:html={expandingHorizons.title}
+          />
+          <div>
+            {
+              expandingHorizons.paragraphs.map((p) => (
+                <p
+                  class="text-base text-black leading-relaxed text-justify font-sans mb-3"
+                  set:html={p}
+                />
+              ))
+            }
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section 4: Technology Adoption -->
+    <section class="py-12 bg-white">
+      <div class="vanguard-shell">
+        <h2
+          class="text-[34px] font-semibold text-[#008E9E] leading-[1.3em]"
+          set:html={technology.title}
+        />
+        <BulletList items={technology.bullets} class="mt-8" />
+      </div>
+    </section>
+
+    <!-- Section 5: Certifications -->
+    <section class="py-16 bg-[#EFEFEF]">
+      <div class="vanguard-shell text-center">
+        <img
+          alt="Certification badge"
+          class="mx-auto h-24 w-auto mb-6"
+          src={certifications.topIcon}
+        />
+        <h2
+          class="text-[34px] font-semibold leading-[1.3em] mb-12"
+          set:html={certifications.title}
+        />
+
+        <div
+          class="flex flex-wrap items-center justify-center gap-8 md:gap-16 mb-16"
+        >
+          {
+            certifications.items.map((cert) => (
+              <CertificationItem name={cert.name} icon={cert.icon} />
+            ))
+          }
+        </div>
+
+        <img
+          alt="CPCB and CDSCO Certifications"
+          class="mx-auto h-auto w-full shadow-sm border border-[#eee]"
+          src="/images/vanguard/manufacturing/certification-1.png"
+        />
+      </div>
+    </section>
+
+    <!-- Section 6: Process -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="vanguard-shell grid gap-10 md:grid-cols-2 md:items-stretch">
+        <img
+          alt="Industrial manufacturing equipment"
+          class="h-full w-full object-cover shadow-lg rounded-sm"
+          src={process.image}
+        />
+        <div class="flex flex-col gap-5 justify-center">
+          {
+            process.tiles.map((title) => (
+              <div class="flex items-center justify-center border-t-4 border-b-2 border-l border-r border-[#008E9E] bg-[#f5f5f5] p-6 text-center shadow-md transition-transform hover:-translate-y-1">
+                <span
+                  class="text-[20px] font-bold text-[#3a3a3a]"
+                  set:html={title}
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

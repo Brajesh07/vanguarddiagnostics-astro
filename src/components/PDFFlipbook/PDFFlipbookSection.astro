@@ -1,0 +1,43 @@
+---
+import PDFFlipbookViewer from "./PDFFlipbookViewer.jsx";
+
+interface Props {
+  pdfUrl: string;
+  title?: string;
+  description?: string;
+  pageWidth?: number;
+  pageHeight?: number;
+}
+
+const {
+  pdfUrl,
+  title,
+  description,
+  pageWidth = 450,
+  pageHeight = 630,
+} = Astro.props;
+---
+
+<section class="pdf-flipbook-section py-16 bg-[#3a3a3a] overflow-x-hidden">
+  <div class="container mx-auto px-4">
+    {
+      title && (
+        <h2 class="text-white text-3xl font-bold text-center mb-4">{title}</h2>
+      )
+    }
+    {
+      description && (
+        <p class="text-gray-300 text-center mb-10 max-w-2xl mx-auto">
+          {description}
+        </p>
+      )
+    }
+    <PDFFlipbookViewer
+      client:only="react"
+      pdfUrl={pdfUrl}
+      pageWidth={pageWidth}
+      pageHeight={pageHeight}
+      isPopup={false}
+    />
+  </div>
+</section>

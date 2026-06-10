@@ -1,0 +1,31 @@
+---
+export interface Props {
+  name?: string;
+  icon: string;
+  url?: string;
+}
+
+const { name, icon, url = "#" } = Astro.props;
+---
+
+<div class="flex items-center gap-4">
+  <figure>
+    <a href={url} target="_blank">
+      <img
+        src={icon}
+        alt={name || "Certification"}
+        class="h-16 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      />
+    </a>
+  </figure>
+  {name && (
+    <h2 class="m-0">
+      <a
+        href={url}
+        target="_blank"
+        class="text-[18px] font-medium text-black leading-[1.3em] hover:text-[#008E9E] transition-colors no-underline font-sans"
+        set:html={name}
+      />
+    </h2>
+  )}
+</div>

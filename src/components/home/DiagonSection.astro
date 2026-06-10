@@ -1,0 +1,26 @@
+---
+// Diagon partnership section
+import { homeContent } from "../../data/content";
+const { diagon } = homeContent;
+---
+
+<section class="bg-[#f1f2f2] py-12 md:py-16">
+  <div class="vanguard-shell text-center">
+    <img
+      alt="Diagon Vanguard"
+      class="mx-auto mb-6 h-auto w-[680px] max-w-full"
+      src={diagon.logo}
+    />
+    <p class="mx-auto max-w-[920px] text-[20px] leading-[1.45] text-[#000000]">
+      {diagon.title}
+    </p>
+    <p class="mx-auto mt-1 max-w-[920px] text-[16px] leading-[1.65] text-foreground">
+      {diagon.subtitle}
+    </p>
+    <img
+      alt="Diagon product range"
+      class="mx-auto mt-8 h-auto w-[900px] max-w-full"
+      src={diagon.banner}
+    />
+  </div>
+</section>

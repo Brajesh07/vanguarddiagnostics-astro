@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { webinars, newsItems } from "../data/news";
+
+function ytThumb(id: string): string {
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+}
+---
+
+<Layout
+  title="News & Webinars | Vanguard Diagnostics"
+  description="Stay updated with Vanguard Diagnostics – watch our latest webinars and read news coverage across leading publications."
+>
+  <main class="bg-white text-foreground">
+
+    <!-- ─────────────────────────── HERO BANNER ────────────────────────────── -->
+    <section class="py-7">
+      <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
+        <img
+          alt="News & Webinars banner"
+          class="h-auto w-full object-cover"
+          src="/images/news/news-banner-1.jpg"
+        />
+      </div>
+    </section>
+
+    <!-- ───────────────────────── WEBINARS SECTION ──────────────────────────── -->
+    <section id="webinars" class="py-10 border-t-2 border-primary">
+      <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
+
+        <!-- Heading -->
+        <h1 class="mb-8 text-center text-[26px] font-semibold text-primary tracking-wide">
+          Webinars
+        </h1>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {webinars.map((item) => {
+            const thumb = item.youtubeId ? ytThumb(item.youtubeId) : null;
+            return (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group block overflow-hidden border border-border bg-white shadow-sm transition-shadow hover:shadow-md"
+              >
+                <!-- Thumbnail / Placeholder -->
+                <div class="relative aspect-video overflow-hidden bg-gray-100">
+                  {thumb ? (
+                    <img
+                      src={thumb}
+                      alt={item.title}
+                      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/10 to-accent/20">
+                      <div class="text-center px-4">
+                        <svg class="mx-auto mb-2 h-10 w-10 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-[12px] font-medium text-primary/60">Webinar Recording</span>
+                      </div>
+                    </div>
+                  )}
+                  {/* Play button overlay */}
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-black/55 transition-transform duration-200 group-hover:scale-110 group-hover:bg-black/70">
+                      <svg class="ml-1 h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card body -->
+                <div class="px-3 py-3 border-t border-border/60">
+                  <p class="text-[10px] font-semibold uppercase tracking-widest text-primary">
+                    {item.date}
+                  </p>
+                  <p class="mt-1 line-clamp-2 text-[13px] font-medium leading-[1.45] text-gray-800 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- ────────────────────────── NEWS SECTION ─────────────────────────────── -->
+    <section id="news" class="border-t border-border py-10">
+      <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
+
+        <!-- Heading -->
+        <h2 class="mb-8 text-center text-[26px] font-semibold text-primary tracking-wide">
+          News
+        </h2>
+
+        <!-- Grid: 1 col → 2 on sm → 3 on md -->
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+          {newsItems.map((item) => (
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex flex-col items-center border border-border bg-white text-center shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/30 overflow-hidden"
+            >
+              <!-- Full-width publication image -->
+              <img
+                src={`/images/news/${item.logo}`}
+                alt={item.publication}
+                class="w-full object-contain transition-opacity duration-200 group-hover:opacity-80"
+                loading="lazy"
+              />
+
+              <!-- Date I Publication label -->
+              <p class="px-3 py-2 text-[11px] font-semibold text-primary tracking-wide">
+                {item.date} &nbsp;I&nbsp; {item.publication}
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>

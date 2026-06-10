@@ -1,0 +1,249 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PDFDocumentGrid from "../../components/PDFFlipbook/PDFDocumentGrid.jsx";
+
+const title = "Reliable Biochemistry Reagents | Vanguard Diagnostics";
+const description =
+  "Exceptional Quality & Accuracy: Vanguard Diagnostics' Biochemistry Reagents for Reliable Laboratory Diagnostic Results.";
+
+const allBiochemistryProducts = [
+  {
+    label: "Albumin with human protein calibrator",
+    href: "/pdfs/Albumin-IFU.pdf",
+  },
+  {
+    label: "Alkaline Phosphatase, Liquid Stable",
+    href: "/pdfs/Alkaline-Phosphatase-IFU.pdf",
+  },
+  { label: "Amylase, Single Reagent", href: "/pdfs/Amylase-IFU.pdf" },
+  { label: "Ammonia, Liquid Stable", href: "/pdfs/Ammonia-IFU.pdf" },
+  { label: "Adenosine Deaminase Liquid Stable", href: "/pdfs/ADA-IFU.pdf" },
+  {
+    label: "Bilirubin, Total & Direct",
+    href: "/pdfs/VDx-Bilirubin-TD-Insert-4-reagents.pdf",
+  },
+  {
+    label: "Calcium, Arsenazo III (available in micro-vials also)",
+    href: "/pdfs/Calcium-IFU.pdf",
+  },
+  { label: "Cholesterol, Single Reagent", href: "/pdfs/Cholesterol-IFU.pdf" },
+  {
+    label: "Creatinine, Single Reagent & Two Reagents",
+    href: "/pdfs/Creatinine-IFU.pdf",
+  },
+  { label: "Creatine Kinase, Liquid Stable", href: "/pdfs/CK-NAC-IFU.pdf" },
+  { label: "Creatine Kinase MB, Liquid Stable", href: "/pdfs/CK-MB-IFU.pdf" },
+  { label: "Chloride, Single Reagent", href: "/pdfs/Chloride-IFU.pdf" },
+  { label: "D-Dimer", href: "/pdfs/D-Dimer-IFU.pdf" },
+  { label: "Gamma GT, Liquid Stable", href: "/pdfs/Gamma-GT-IFU.pdf" },
+  { label: "Glucose, Single Reagent", href: "/pdfs/Glucose-IFU.pdf" },
+  {
+    label: "HDL Cholesterol Direct, Enzymatic",
+    href: "/pdfs/HDL-cholesterol-IFU.pdf",
+  },
+  { label: "Immunoturbidity Method RF", href: "/pdfs/RF-Insert_Final.pdf" },
+  { label: "Immunoturbidity Method CRP", href: "/pdfs/CRP-Insert_Final.pdf" },
+  { label: "Immunoturbidity Method ASO", href: "/pdfs/ASO-Insert_Final.pdf" },
+  {
+    label: "LDL Cholesterol Direct, Enzymatic",
+    href: "/pdfs/LDL-Cholesterol-IFU.pdf",
+  },
+  { label: "Lipase", href: "/pdfs/Lipase-IFU.pdf" },
+  { label: "Microprotein, Pyrogallol Red", href: "/pdfs/Microprotein-IFU.pdf" },
+  { label: "Magnesium, Single Reagent", href: "/pdfs/Magnesium-IFU.pdf" },
+  { label: "Phosphorus, Single Reagent", href: "/pdfs/Phosphorus-IFU.pdf" },
+  { label: "Potassium, Single Reagent", href: "/pdfs/Potassium-IFU.pdf" },
+  { label: "SGOT, Highly stable NADH based", href: "/pdfs/SGOT-AST-IFU.pdf" },
+  { label: "SGPT, Highly stable NADH based", href: "/pdfs/SGPT-ALT-IFU.pdf" },
+  { label: "Sodium, Single Reagent", href: "/pdfs/Sodium-IFU.pdf" },
+  {
+    label: "Total Protein with human protein calibrator",
+    href: "/pdfs/Total-Protein-IFU.pdf",
+  },
+  {
+    label: "Triglycerides, Single Reagent",
+    href: "/pdfs/Triglycerides-IFU.pdf",
+  },
+  { label: "Urea UV, Berthelot & Salicylate", href: "/pdfs/Urea_UV_IFU.pdf" },
+  { label: "Uric Acid, Single Reagent", href: "/pdfs/Uric_Acid_Inserts.pdf" },
+];
+
+const technicalReports = [
+  {
+    label: "Report A",
+    href: "/pdfs/5A.-Accuracy-of-the-reagent-performance-and-results.pdf",
+  },
+  {
+    label: "Report B",
+    href: "/pdfs/5B.-Accuracy-of-the-reagent-performance-and-results.pdf",
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <main class="bg-[#efefef] text-foreground pb-20">
+    <!-- Hero Banner -->
+    <section class="bg-white pt-6">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="block h-auto w-full"
+        src="/images/vanguard/products-solutions/vanguarddiagnostics-product-page-banner.mp4"
+      ></video>
+    </section>
+
+    <!-- Accent bar -->
+    <div class="h-[3px] bg-primary"></div>
+
+    <!-- Main Content -->
+    <section class="max-w-[1120px] mx-auto px-4 md:px-8 py-16">
+      <!-- Page Title -->
+      <div class="flex flex-col items-start mb-10">
+        <div class="flex items-center gap-4 mb-4">
+          <img
+            src="/images/vanguard/product-clinical-chemistry-icon-2.png"
+            alt="Biochemistry Reagents Icon"
+            class="w-16 h-auto object-contain"
+          />
+          <h1 class="text-3xl md:text-4xl font-bold text-[#222222]">
+            Biochemistry Reagents
+          </h1>
+        </div>
+      </div>
+
+      <!-- Introduction -->
+      <div class="text-[15px] leading-7 text-[#555555] space-y-5 mb-14">
+        <p>
+          Vanguard Diagnostics, a renowned name in the <strong
+            class="text-[#222222]">diagnostics sector</strong
+          >, offers a variety of high-quality
+          <strong class="text-primary">Biochemistry Reagents</strong>. These
+          products offer single reagents in the liquid stable format. We offer
+          <strong class="text-[#222222]">human serum calibrators</strong> in place
+          of simple standards in order to ensure matrix parity and accuracy of results.
+        </p>
+        <p>
+          Our <strong class="text-primary">Biochemistry Reagents</strong> are rigorously
+          formulated and quality tested, often surpassing industry standards. They
+          are crucial for determining biochemical markers for diabetes, lipid profile,
+          liver function, kidney function amongst others. Vanguard Diagnostics' Reagents
+          are compatible with a wide spectrum of Biochemistry analyzers. This compatibility
+          ensures seamless integration into any lab's testing processes, enhancing
+          both efficiency and accuracy.
+        </p>
+        <p>
+          Biochemistry reagents, a specialized sector of medical science, plays
+          an instrumental role in diagnosing various diseases, understanding
+          patient metabolism, and evaluating treatment effectiveness. Central to
+          these processes are Biochemistry reagents, which facilitate the
+          analysis of body fluids, predominantly blood and urine, to determine
+          their chemical composition.
+        </p>
+      </div>
+
+      <!-- Why are Biochemistry Reagents needed? -->
+      <div class="mb-14">
+        <h2 class="text-[22px] font-bold text-[#222222] mb-5">
+          Why are Biochemistry Reagents needed?
+        </h2>
+        <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+          <p>
+            <strong class="text-[#222222] font-bold"
+              >Diagnostic Accuracy:</strong
+            > Biochemistry reagents interact with specific compounds in patient samples,
+            allowing for precise measurements. This precision helps healthcare professionals
+            accurately diagnose a range of conditions, from diabetes to liver and
+            kidney disorders, amongst others.
+          </p>
+          <p>
+            <strong class="text-[#222222] font-bold"
+              >Broad Spectrum Analysis:</strong
+            > Modern medicine recognizes the complexity of human health and the myriad
+            of factors affecting it. Biochemistry reagents help in analyzing a wide
+            range of metabolites, proteins, and enzymes, presenting a comprehensive
+            health overview. Biochemistry reagents help in analyzing a wide range
+            of metabolites, proteins, and enzymes, presenting a comprehensive health
+            overview.
+          </p>
+          <p>
+            <strong class="text-[#222222] font-bold">Swift Results:</strong> Quick
+            diagnosis leads to timely treatment. Using these reagents, many automated
+            analyzers can provide rapid results, essential for critical care situations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Importance of Biochemistry Reagents -->
+      <div class="mb-16">
+        <h2 class="text-[22px] font-bold text-[#222222] mb-5">
+          Importance of Biochemistry Reagents
+        </h2>
+        <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+          <p>
+            <strong class="text-[#222222] font-bold"
+              >Reliable Health Assessments:</strong
+            > The efficacy of Biochemistry reagents ensures that test results are
+            consistent and reliable, which is pivotal for accurate health assessments.
+            Any discrepancies can lead to misdiagnosis, potentially jeopardizing patient
+            health.
+          </p>
+          <p>
+            <strong class="text-[#222222] font-bold"
+              >Informed Clinical Decisions:</strong
+            > Clinicians rely on data-driven insights. The results derived from these
+            reagents provide crucial biochemical insights, guiding doctors in prescribing
+            the right treatment, adjusting medication doses, or recommending lifestyle
+            changes.
+          </p>
+          <p>
+            <strong class="text-[#222222] font-bold"
+              >Monitoring Disease Progression:</strong
+            > Many conditions, like kidney diseases or certain types of cancers, require
+            regular monitoring. Biochemistry reagents offer consistent evaluations,
+            helping doctors track disease progression or regression.
+          </p>
+        </div>
+      </div>
+
+      <!-- Product List -->
+      <div
+        class="bg-white rounded-xl border border-gray-100 shadow-sm p-8 mb-16"
+      >
+        <h2
+          class="text-2xl font-bold text-[#222222] mb-8 flex items-center gap-3"
+        >
+          Our Products
+          <div class="h-px flex-1 bg-gray-100"></div>
+        </h2>
+
+        <div class="flex flex-col lg:flex-row gap-12">
+          <!-- Two-column product grid -->
+          <div class="flex-1">
+            <PDFDocumentGrid client:load docs={allBiochemistryProducts} />
+          </div>
+
+          <!-- Side image -->
+          <div class="lg:w-[260px] shrink-0 flex items-start justify-center">
+            <img
+              src="/images/vanguard/uploads/new-img-open-models.png"
+              alt="biochemistry reagents"
+              class="w-full max-w-[260px] h-auto object-contain"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Reports -->
+      <div class="bg-gray-50 rounded-xl p-8">
+        <h2 class="text-[22px] font-bold text-[#222222] mb-8">
+          Technical Reports <span class="text-primary"
+            >(Accuracy, Precision, Performance, Accelerated Stability)</span
+          >
+        </h2>
+        <PDFDocumentGrid client:load docs={technicalReports} />
+      </div>
+    </section>
+  </main>
+</Layout>

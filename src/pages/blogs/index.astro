@@ -1,0 +1,290 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import VanguardButton from "../../components/ui/VanguardButton.astro";
+import { blogPosts, recentPosts, archives, categories } from "../../data/blogs";
+
+// Search is client-side; all posts are rendered
+---
+
+<Layout
+  title="Blogs & Resources | Vanguard Diagnostics"
+  description="Read the latest blogs and resources from Vanguard Diagnostics – covering hematology, typhoid, HIV diagnostics, and more."
+>
+  <main class="bg-[#f7f7f7] text-foreground">
+    <!-- ─────────────────────────── PAGE TITLE ────────────────────────────── -->
+    <section class="bg-white pt-6">
+      <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
+        <h1
+          id="page-heading"
+          class="text-[26px] font-semibold text-primary tracking-wide"
+        >
+          Blogs
+        </h1>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────── MAIN LAYOUT ───────────────────────────── -->
+    <section class="py-10">
+      <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-10 gap-8 lg:items-start">
+          <!-- ══════════════════ LEFT: BLOG POSTS (70%) ═══════════════════ -->
+          <div class="lg:col-span-7" id="blog-posts">
+            {
+              blogPosts.map((post) => (
+                <article class="mb-8 bg-white border-b border-border">
+                  {/* Featured image (only if present) */}
+                  {post.image && (
+                    <a href={post.link}>
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                      />
+                    </a>
+                  )}
+
+                  <div class="px-6 py-5">
+                    {/* Meta row */}
+                    <div class="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-gray-400 uppercase tracking-wide">
+                      <span class="text-primary font-semibold">
+                        {post.dateLabel}
+                      </span>
+                      <span>|</span>
+                      <a
+                        href="/blogs"
+                        class="hover:text-primary transition-colors"
+                      >
+                        {post.category}
+                      </a>
+                      <span>|</span>
+                      <span>{post.author}</span>
+                    </div>
+
+                    {/* Title */}
+                    <h2 class="mb-3 text-[17px] font-semibold leading-snug text-gray-800 hover:text-primary transition-colors">
+                      <a href={post.link}>{post.title}</a>
+                    </h2>
+
+                    {/* Excerpt */}
+                    <p class="text-[13.5px] leading-relaxed text-gray-600 line-clamp-4">
+                      {post.excerpt}
+                    </p>
+
+                    {/* Read More */}
+                    <div class="mt-4">
+                      <VanguardButton
+                        href={post.link}
+                        class="px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider"
+                      >
+                        Read More »
+                      </VanguardButton>
+                    </div>
+                  </div>
+                </article>
+              ))
+            }
+
+            <!-- No Results Message -->
+            <div
+              id="no-results-message"
+              class="hidden bg-white p-6 border-b border-border"
+            >
+              <p class="text-[15px] text-gray-700 mb-4">
+                Sorry, but nothing matched your search terms. Please try again
+                with some different keywords.
+              </p>
+              <button
+                id="clear-search-btn"
+                type="button"
+                class="inline-flex items-center justify-center rounded font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 bg-primary text-white hover:bg-[#017d8c] px-5 py-2 text-[14px]"
+              >
+                Back to Blogs
+              </button>
+            </div>
+          </div>
+
+          <!-- ══════════════════ RIGHT: SIDEBAR (30%) ═════════════════════ -->
+          <aside class="lg:col-span-3 lg:sticky lg:top-6 flex flex-col gap-6">
+            <!-- Search -->
+            <div class="bg-white border-b border-border p-4">
+              <form
+                id="blog-search-form"
+                class="flex items-center border border-gray-300 rounded-[2px] bg-white transition-colors focus-within:border-primary overflow-hidden"
+              >
+                <input
+                  id="blog-search-input"
+                  type="text"
+                  placeholder="Search..."
+                  class="flex-1 px-4 py-2.5 text-[14px] text-gray-700 placeholder-gray-500 focus:outline-none bg-transparent"
+                />
+                <button
+                  type="submit"
+                  class="px-4 py-2.5 text-gray-600 hover:text-gray-900 transition-colors bg-transparent border-none outline-none cursor-pointer"
+                  aria-label="Search"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><circle cx="11" cy="11" r="8"></circle><path
+                      d="m21 21-4.3-4.3"></path></svg
+                  >
+                </button>
+              </form>
+            </div>
+
+            <!-- Recent Posts -->
+            <div class="bg-white border-b border-border p-4">
+              <h3
+                class="mb-3 border-b border-border pb-2 text-[14px] font-semibold uppercase tracking-wide text-primary"
+              >
+                Recent Posts
+              </h3>
+              <ul class="flex flex-col gap-2">
+                {
+                  recentPosts.map((p) => (
+                    <li class="flex items-start gap-2 text-[13px] text-gray-600">
+                      <span class="mt-[5px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/60" />
+                      <a
+                        href={p.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="leading-snug hover:text-primary transition-colors"
+                      >
+                        {p.title}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <!-- Recent Comments -->
+            <div class="bg-white border-b border-border p-4">
+              <h3
+                class="mb-3 border-b border-border pb-2 text-[14px] font-semibold uppercase tracking-wide text-primary"
+              >
+                Recent Comments
+              </h3>
+              <p class="text-[13px] text-gray-400 italic">No comments yet.</p>
+            </div>
+
+            <!-- Archives -->
+            <div class="bg-white border-b border-border p-4">
+              <h3
+                class="mb-3 border-b border-border pb-2 text-[14px] font-semibold uppercase tracking-wide text-primary"
+              >
+                Archives
+              </h3>
+              <ul class="flex flex-col gap-1.5">
+                {
+                  archives.map((a) => (
+                    <li class="flex items-center gap-2 text-[13px] text-gray-600">
+                      <span class="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/60" />
+                      <a
+                        href={a.link}
+                        class="hover:text-primary transition-colors"
+                      >
+                        {a.label}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <!-- Categories -->
+            <div class="bg-white border-b border-border p-4">
+              <h3
+                class="mb-3 border-b border-border pb-2 text-[14px] font-semibold uppercase tracking-wide text-primary"
+              >
+                Categories
+              </h3>
+              <ul class="flex flex-col gap-1.5">
+                {
+                  categories.map((c) => (
+                    <li class="flex items-center gap-2 text-[13px] text-gray-600">
+                      <span class="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/60" />
+                      <a
+                        href={c.link}
+                        class="hover:text-primary transition-colors"
+                      >
+                        {c.label}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<!-- ─────────────── CLIENT-SIDE SEARCH FILTER ─────────────── -->
+<script>
+  const form = document.getElementById("blog-search-form") as HTMLFormElement;
+  const input = document.getElementById(
+    "blog-search-input",
+  ) as HTMLInputElement;
+  const articles = document.querySelectorAll<HTMLElement>(
+    "#blog-posts article",
+  );
+  const pageHeading = document.getElementById("page-heading");
+  const noResultsMsg = document.getElementById("no-results-message");
+  const clearSearchBtn = document.getElementById("clear-search-btn");
+
+  const performSearch = (query: string) => {
+    const q = query.toLowerCase();
+    let matchCount = 0;
+
+    articles.forEach((article) => {
+      const text = article.innerText.toLowerCase();
+      if (!q || text.includes(q)) {
+        article.style.display = "";
+        matchCount++;
+      } else {
+        article.style.display = "none";
+      }
+    });
+
+    if (pageHeading) {
+      pageHeading.innerText = query
+        ? `Blogs : Search Results for: ${query}`
+        : "Blogs";
+    }
+
+    if (noResultsMsg) {
+      if (matchCount === 0 && query) {
+        noResultsMsg.classList.remove("hidden");
+      } else {
+        noResultsMsg.classList.add("hidden");
+      }
+    }
+  };
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    performSearch(input.value.trim());
+  });
+
+  input?.addEventListener("input", () => {
+    if (!input.value.trim()) {
+      performSearch("");
+    }
+  });
+
+  clearSearchBtn?.addEventListener("click", () => {
+    if (input) input.value = "";
+    performSearch("");
+  });
+</script>

@@ -1,0 +1,360 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BulletList from "../components/ui/BulletList.astro";
+import VanguardButton from "../components/ui/VanguardButton.astro";
+import ContentWithImage from "../components/ui/ContentWithImage.astro";
+import { aboutContent } from "../data/content";
+
+const {
+  metadata,
+  hero,
+  philosophy,
+  team,
+  model,
+  sections,
+  ivdIndustry,
+  servingBanner,
+} = aboutContent;
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+  <main class="bg-[#ffffff] text-foreground">
+    <!-- Banner -->
+    <section class="py-7">
+      <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
+        <img
+          alt="About us banner"
+          class="h-auto w-full object-cover"
+          src={hero.banner}
+        />
+      </div>
+    </section>
+
+    <!-- About intro -->
+    <section class="border-t-2 border-primary pb-10 pt-8">
+      <div
+        class="mx-auto flex w-full max-w-[1120px] gap-8 px-4 flex-col md:px-6"
+      >
+        <img
+          alt="about icon"
+          class="h-auto w-20 object-contain"
+          src={hero.icon}
+        />
+        <article>
+          <h1 class="text-2xl font-medium">
+            {hero.title.split("Vanguard")[0]}
+            <span class="text-primary">Vanguard Diagnostics</span>
+          </h1>
+          <p class="mb-2 leading-[1.5] text-black text-base">
+            {hero.definition}
+          </p>
+          <p class="mb-2 leading-[1.5] text-black text-base">
+            {hero.p1}
+          </p>
+          <p class="mb-2 leading-[1.5] text-black text-base">
+            {hero.p2}
+          </p>
+          <VanguardButton
+            href={hero.cta.href}
+            variant="outline"
+            class="px-5 py-2 text-sm"
+          >
+            {hero.cta.text}
+          </VanguardButton>
+        </article>
+        <div class="hidden md:block"></div>
+      </div>
+    </section>
+
+    <!-- Team heading -->
+    <section id="Team" class="py-2">
+      <div class="mx-auto w-full max-w-[1120px] px-4 text-center md:px-6">
+        <img
+          alt="Team icon"
+          class="mx-auto h-[82px] w-auto"
+          src={philosophy.icon}
+        />
+        <h2 class="mt-2 text-[30px] font-medium text-black">
+          Our <span class="text-primary">Team</span>
+        </h2>
+      </div>
+    </section>
+
+    <!-- Team members -->
+    <section class="pb-7">
+      <div
+        class="mx-auto flex w-full max-w-[1120px] flex-col gap-7 px-4 md:px-6"
+      >
+        {
+          team.map((member) => (
+            <article class="border-t-2 border-primary bg-white px-4 py-4 flex flex-col md:flex-row md:gap-5">
+              <div class="flex flex-col gap-1 items-center justify-center w-full max-w-full md:max-w-[322px]">
+                <img
+                  alt={member.name}
+                  class="h-auto max-w-full md:max-w-[322px] object-cover"
+                  src={member.image}
+                />
+                <h3 class="text-[22px] font-semibold text-primary">
+                  {member.name}
+                </h3>
+                <p class="text-[14px] font-semibold text-[#333333]">
+                  {member.role}
+                </p>
+              </div>
+
+              <div class="mt-3 md:mt-0">
+                <p
+                  class="mt-2 text-base leading-6 text-[#555555]"
+                  set:html={member.bio}
+                />
+                {member.hasPopup ? (
+                  <button
+                    class="mt-3 inline-flex items-center justify-center rounded border border-primary px-5 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    data-team-popup-trigger={member.id}
+                  >
+                    Read More
+                  </button>
+                ) : null}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Our Model -->
+    <section class="py-7">
+      <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
+        <h2 class="text-[30px] font-medium text-black">
+          Our <span class="text-primary">Model</span>
+        </h2>
+        <BulletList class="mt-4" items={model.bullets} />
+      </div>
+    </section>
+
+    <!-- Dynamic Content Sections -->
+    {
+      sections.map((section, index) => (
+        <ContentWithImage
+          {...section}
+          imagePosition={index % 2 === 0 ? "right" : "left"}
+        />
+      ))
+    }
+
+    <!-- Serving banner -->
+    <section class="pt-8">
+      <img
+        alt="Serving you well"
+        class="mx-auto h-auto w-full object-cover"
+        src={servingBanner}
+      />
+    </section>
+  </main>
+
+  <!-- Industry Popup Dialog -->
+  <div
+    data-industry-popup-overlay
+    class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"
+    aria-modal="true"
+    role="dialog"
+  >
+    <div
+      data-industry-popup-box
+      class="relative w-full max-w-[800px] h-auto min-h-[500px] mx-4 overflow-hidden rounded-sm shadow-2xl p-8 md:p-12 flex items-center"
+      style={`background-image: url('${ivdIndustry.popup.bg}'); background-size: cover; background-position: center; background-repeat: no-repeat;`}
+    >
+      <!-- Close button -->
+      <button
+        data-industry-popup-close
+        aria-label="Close popup"
+        class="absolute top-4 right-4 z-10 flex h-9 w-9 items-center justify-center text-black"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div>
+        <h2
+          class="text-[28px] md:text-[35px] font-semibold leading-[1.3] text-[#00A4B2] mb-6"
+        >
+          {ivdIndustry.popup.title.split("Industry")[0]}
+          <em>in-vitro</em> Diagnostics Industry {
+            ivdIndustry.popup.title.split("Diagnostics Industry")[1]
+          }
+        </h2>
+        <div
+          class="text-[16px] font-semibold leading-[1.5] text-black text-justify"
+        >
+          {
+            ivdIndustry.popup.paragraphs.map((p, i) => (
+              <p
+                class={
+                  i < ivdIndustry.popup.paragraphs.length - 1
+                    ? "mb-[1.75em]"
+                    : ""
+                }
+              >
+                {p}
+              </p>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Popup Dialog -->
+  <div
+    data-team-popup-overlay
+    class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"
+    aria-modal="true"
+    role="dialog"
+  >
+    <div
+      data-team-popup-box
+      class="relative w-full max-w-[700px] bg-white mx-4 overflow-hidden rounded-sm shadow-2xl max-h-[90vh] overflow-y-auto"
+    >
+      <!-- Close button -->
+      <button
+        data-team-popup-close
+        aria-label="Close popup"
+        class="absolute top-4 right-4 z-10 flex h-9 w-9 items-center justify-center text-gray-500 hover:text-black transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div id="team-popup-content">
+        {
+          team
+            .filter((m) => m.hasPopup)
+            .map((member) => (
+              <div data-team-popup-id={member.id} class="hidden">
+                <h2 class="text-[28px] md:text-[34px] font-semibold text-primary mb-6 p-4 bg-[#e5e9ef]">
+                  {member.name}
+                </h2>
+                <div
+                  class="text-base leading-7 text-gray-700 p-4"
+                  set:html={member.extraBio}
+                />
+              </div>
+            ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Team Popup Logic
+    const teamOverlay = document.querySelector(
+      "[data-team-popup-overlay]",
+    ) as HTMLElement;
+    const teamPopupBox = document.querySelector(
+      "[data-team-popup-box]",
+    ) as HTMLElement;
+    const teamCloseBtn = document.querySelector(
+      "[data-team-popup-close]",
+    ) as HTMLElement;
+
+    function openTeamPopup(memberId: string) {
+      document.querySelectorAll("[data-team-popup-id]").forEach((panel) => {
+        panel.classList.add("hidden");
+      });
+      const active = document.querySelector(
+        `[data-team-popup-id="${memberId}"]`,
+      );
+      active?.classList.remove("hidden");
+
+      teamOverlay.classList.remove("opacity-0", "pointer-events-none");
+      teamOverlay.classList.add("opacity-100");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeTeamPopup() {
+      teamOverlay.classList.add("opacity-0", "pointer-events-none");
+      teamOverlay.classList.remove("opacity-100");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("[data-team-popup-trigger]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const memberId = (btn as HTMLElement).dataset.teamPopupTrigger ?? "";
+        openTeamPopup(memberId);
+      });
+    });
+
+    teamCloseBtn.addEventListener("click", closeTeamPopup);
+    teamOverlay.addEventListener("click", (e) => {
+      if (!teamPopupBox.contains(e.target as Node)) {
+        closeTeamPopup();
+      }
+    });
+
+    // Industry Popup Logic
+    const industryOverlay = document.querySelector(
+      "[data-industry-popup-overlay]",
+    ) as HTMLElement;
+    const industryPopupBox = document.querySelector(
+      "[data-industry-popup-box]",
+    ) as HTMLElement;
+    const industryCloseBtn = document.querySelector(
+      "[data-industry-popup-close]",
+    ) as HTMLElement;
+    const industryTrigger = document.querySelector(
+      "[data-industry-popup-trigger]",
+    );
+
+    function openIndustryPopup() {
+      industryOverlay.classList.remove("opacity-0", "pointer-events-none");
+      industryOverlay.classList.add("opacity-100");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeIndustryPopup() {
+      industryOverlay.classList.add("opacity-0", "pointer-events-none");
+      industryOverlay.classList.remove("opacity-100");
+      document.body.style.overflow = "";
+    }
+
+    industryTrigger?.addEventListener("click", openIndustryPopup);
+    industryCloseBtn.addEventListener("click", closeIndustryPopup);
+    industryOverlay.addEventListener("click", (e) => {
+      if (!industryPopupBox.contains(e.target as Node)) {
+        closeIndustryPopup();
+      }
+    });
+
+    // Global Escape Key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeTeamPopup();
+        closeIndustryPopup();
+      }
+    });
+  </script>
+</Layout>

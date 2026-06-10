@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VanguardButton from "../components/ui/VanguardButton.astro";
+---
+
+<Layout title="404 - Page Not Found | Vanguard Diagnostics">
+  <main class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center">
+    <div class="mb-8">
+      <img
+        src="/images/vanguard/logo.png"
+        alt="Vanguard Diagnostics"
+        class="mx-auto h-16 w-auto md:h-20"
+      />
+    </div>
+    
+    <h1 class="mb-4 text-6xl font-bold text-primary">404</h1>
+    <h2 class="mb-6 text-2xl font-semibold text-gray-800">Oops! Page not found.</h2>
+    <p class="mb-10 max-w-md text-gray-600">
+      The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+    </p>
+    
+    <div class="flex flex-col gap-4 sm:flex-row">
+      <VanguardButton href="/">
+        Go to Homepage
+      </VanguardButton>
+      <VanguardButton href="/contact-us" variant="secondary">
+        Contact Us
+      </VanguardButton>
+    </div>
+  </main>
+</Layout>

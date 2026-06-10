@@ -1,0 +1,17 @@
+---
+export interface Props {
+  subtitle?: string;
+  class?: string;
+}
+
+const { subtitle, class: className = '' } = Astro.props;
+---
+
+<div class={`mb-6 ${className}`}>
+  {subtitle && (
+    <p class="font-sans text-base font-medium leading-[1.2] text-primary">{subtitle}</p>
+  )}
+  <h2 class="vanguard-section-title text-[36px] md:text-[44px]">
+    <slot />
+  </h2>
+</div>

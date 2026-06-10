@@ -1,0 +1,31 @@
+---
+export interface Props {
+  href: string;
+  variant?: 'solid' | 'outline';
+  external?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  variant = 'solid',
+  external = false,
+  class: className = '',
+} = Astro.props;
+
+const base = 'inline-flex items-center justify-center rounded font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2';
+const variants = {
+  solid: 'bg-primary text-white hover:bg-[#017d8c]',
+  outline: 'border border-primary text-primary hover:bg-primary hover:text-white',
+};
+
+const classes = `${base} ${variants[variant]} ${className}`;
+---
+
+<a
+  href={href}
+  class={classes}
+  {...external ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+>
+  <slot />
+</a>

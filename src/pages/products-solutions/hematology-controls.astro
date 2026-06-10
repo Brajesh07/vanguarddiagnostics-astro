@@ -1,0 +1,266 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { specificProductsContent } from "../../data/content";
+import PDFDocumentGrid from "../../components/PDFFlipbook/PDFDocumentGrid.jsx";
+import BrochureImageWithPopup from "../../components/PDFFlipbook/BrochureImageWithPopup.jsx";
+import ImageGalleryWithPopup from "../../components/react/ImageGalleryWithPopup.jsx";
+import PDFThumbnailWithPopup from "../../components/PDFFlipbook/PDFThumbnailWithPopup.jsx";
+
+const { hematologyControls } = specificProductsContent;
+const { hero, ifus } = hematologyControls;
+---
+
+<Layout
+  title={hematologyControls.title}
+  description={hematologyControls.description}
+>
+  <main class="bg-[#efefef] text-foreground pb-20">
+    <!-- Top graphic section -->
+    <section class="bg-white pt-6">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="block h-auto w-full"
+        src={hero.video}></video>
+    </section>
+
+    <!-- Accent bar -->
+    <div class="h-[3px] bg-primary"></div>
+
+    <section class="max-w-[1120px] mx-auto px-4 md:px-8 py-16">
+      <!-- Page Title -->
+      <div class="flex flex-col items-center mb-12">
+        <img
+          src="/images/vanguard/uploads/product-hematology-controls-icon-2.jpg"
+          alt="India Map"
+          class="w-20 mb-3"
+        />
+        <h1 class="text-3xl md:text-4xl font-bold">
+          <span class="text-primary">Hematology</span> Controls
+        </h1>
+      </div>
+
+      <!-- Main intro content -->
+      <div class="flex flex-col md:flex-row gap-8 items-start mb-16">
+        <div class="md:w-[35%] shrink-0">
+          <img
+            src="/images/vanguard/hematology-controls-products-1.jpg"
+            alt="Hematology Controls Tubes"
+            class="w-full h-auto object-contain rounded-md"
+          />
+        </div>
+        <div class="md:w-[65%] text-[15px] leading-7 text-[#555555] space-y-5">
+          <p>
+            <strong class="text-primary font-bold">Hematology controls</strong> are
+            crucial for accurate and reliable blood counts and tests in clinical labs.
+            Vanguard Diagnostics, in partnership with Diagon of Hungary, offers exceptional
+            3-part and 5-part <strong class="text-[#222222] font-bold"
+              >Hematology Controls</strong
+            >, positioning us as leaders in quality control. Diagon is one of
+            only two manufacturers of <strong class="text-[#222222] font-bold"
+              >Hematology Controls</strong
+            > globally. Our joint efforts have revolutionized the field with controls
+            boasting unprecedented shelf lives and open vial stabilities. This advancement
+            enables labs of all sizes in India to achieve highly reliable results
+            comparable to international standards.
+          </p>
+          <p>
+            Vanguard Diagnostics’ dedication to quality control in hematology is
+            evident through our 3-part controls, now with an extended six-month
+            shelf life, surpassing competitors’ three-month offering. Likewise,
+            our 5-part controls offer a significant advantage with a four-month
+            shelf life, compared to competitors’ two months. These achievements
+            establish Vanguard Diagnostics as a reputable leader, delivering
+            premium <strong class="text-[#222222] font-bold"
+              >Hematology Controls</strong
+            > to clinical labs worldwide.
+          </p>
+          <p>
+            Hematology, a branch of medicine concerned with the study of blood,
+            its diseases, and the involved organs and tissues, demands precise
+            and accurate results for optimal patient care. Central to achieving
+            this precision in laboratories are hematology controls.
+          </p>
+        </div>
+      </div>
+
+      <!-- Why Hematology Controls are needed? -->
+      <div class="mb-14">
+        <h2 class="text-[22px] font-bold text-[#222222] mb-5">
+          Why Hematology Controls are needed?
+        </h2>
+        <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+          <p>
+            <strong class="text-[#222222] font-bold">Quality Assurance:</strong> Hematology
+            controls are essential to ensuring that hematology analyzers are working
+            correctly. These controls contain known amounts of different blood components,
+            and when tested, they should produce consistent results if the machine
+            is working accurately.
+          </p>
+          <p>
+            <strong class="text-[#222222] font-bold"
+              >Accuracy and Precision:</strong
+            > To ensure that the results produced by hematology analyzers are both
+            accurate (close to the true value) and precise (reproducible), controls
+            are used regularly. Any deviation from expected results can indicate a
+            problem with the instrument or the procedure.
+          </p>
+          <p>
+            <strong class="text-[#222222] font-bold"
+              >Regulatory Compliance:</strong
+            > Clinical laboratories are subjected to stringent standards and regulations.
+            Using controls ensures that these laboratories comply with the guidelines
+            set by regulatory bodies, ensuring patient safety.
+          </p>
+          <p>
+            <strong class="text-[#222222] font-bold">Cost Efficiency:</strong> Inaccurate
+            results can lead to misdiagnoses and mistreatments, which can be costly.
+            By using hematology controls, laboratories can potentially save on costs
+            related to retesting and reduce the chances of misdiagnoses.
+          </p>
+        </div>
+      </div>
+
+      <!-- Importance of Hematology Controls -->
+      <div class="mb-16">
+        <h2 class="text-[22px] font-bold text-[#222222] mb-5">
+          Importance of Hematology Controls
+        </h2>
+        <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+          <p>
+            <strong class="text-[#222222] font-bold">Patient Safety:</strong> At the
+            core of medical diagnostics is the well-being of the patient. Hematology
+            controls provide a safeguard against inaccurate results, which can lead
+            to incorrect treatment plans, jeopardizing patient health.
+          </p>
+          <p>
+            <strong class="text-[#222222] font-bold">Lab Credibility:</strong> Regular
+            use of controls establishes the credibility of a laboratory. When clinicians
+            and patients trust the accuracy of lab results, it fosters a positive
+            reputation for the facility and ensures continued patronage.
+          </p>
+          <p>
+            <strong class="text-[#222222] font-bold"
+              >Early Detection of Instrument Issues:</strong
+            > Regular use of hematology controls can detect issues with analyzers
+            early on, allowing for timely maintenance or calibration, ensuring that
+            the machines function optimally.
+          </p>
+          <p>
+            <strong class="text-[#222222] font-bold"
+              >Consistency Across Shifts:</strong
+            > Different technicians might work at different times in a laboratory.
+            Using controls ensures that irrespective of who operates the equipment,
+            the results produced remain consistent and reliable.
+          </p>
+        </div>
+      </div>
+
+      <!-- Hematology Controls Product Brochure -->
+      <div class="mb-16">
+        <h2 class="text-[24px] font-bold text-[#222222] mb-8">
+          Hematology Controls Product Brochure
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[800px]">
+          <BrochureImageWithPopup
+            client:load
+            imageSrc="/images/vanguard/uploads/hematology-controls-3.jpg"
+            imageAlt="Hematology Controls Brochure 1"
+            pdfUrl="/pdfs/Product-Brochure-Hematology-Controls.pdf"
+          />
+          <img
+            src="https://www.vanguarddiagnostics.com/wp-content/uploads/2021/06/hematology-controls-3.jpg"
+            alt="Hematology Controls Brochure 1"
+            class="w-full h-auto object-contain"
+          />
+          <img
+            src="/images/vanguard/uploads/hematology-controls-4.jpg"
+            alt="Hematology Controls Brochure 2"
+            class="w-full h-auto object-contain"
+          />
+        </div>
+      </div>
+
+      <!-- Our Specific Hematology Controls -->
+      <div class="mb-16">
+        <h2 class="text-[24px] font-bold text-[#222222] mb-8">
+          Our Specific Hematology Controls
+        </h2>
+        <ImageGalleryWithPopup
+          client:load
+          images={[
+            {
+              src: "/images/vanguard/hematology/D-Check-D.jpg",
+              alt: "D-Check D",
+              title: "quality control in hematology",
+            },
+            {
+              src: "/images/vanguard/hematology/D-Check-D-Plus.jpg",
+              alt: "D-Check D Plus",
+              title: "quality control in hematology",
+            },
+            {
+              src: "/images/vanguard/hematology/D-Check-5Diff.jpg",
+              alt: "D-Check 5Diff",
+              title: "quality control in hematology",
+            },
+            {
+              src: "/images/vanguard/hematology/D-Check-5Diff-Plus.jpg",
+              alt: "D-Check 5Diff Plus",
+              title: "quality control in hematology",
+            },
+            {
+              src: "/images/vanguard/hematology/5-Open-Vial-Stability.jpg",
+              alt: "Shelf Life (D-Cell 60) - WBC Change",
+              title: "quality control in hematology",
+            },
+            {
+              src: "/images/vanguard/hematology/6-Open-Vial-Stability.jpg",
+              alt: "Open Vial Stability (D-Cell 60) - HGB Change",
+              title: "quality control in hematology",
+            },
+          ]}
+        />
+      </div>
+
+      <!-- Control Value Sheet -->
+      <div class="mb-16">
+        <h2 class="text-[24px] font-bold mb-8">
+          <span class="text-primary">Control Value</span> Sheet
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <PDFThumbnailWithPopup
+            client:visible
+            pdfUrl="/pdfs/1-Control-Value-Sheet.pdf"
+            title="Control Value Sheet 1"
+          />
+          <PDFThumbnailWithPopup
+            client:visible
+            pdfUrl="/pdfs/2-Control-Value-Sheet.pdf"
+            title="Control Value Sheet 2"
+          />
+          <PDFThumbnailWithPopup
+            client:visible
+            pdfUrl="/pdfs/3-Control-Value-Sheet.pdf"
+            title="Control Value Sheet 3"
+          />
+          <PDFThumbnailWithPopup
+            client:visible
+            pdfUrl="/pdfs/4-Control-Value-Sheet.pdf"
+            title="Control Value Sheet 4"
+          />
+        </div>
+      </div>
+
+      <!-- IFUs (Instructions For Use) -->
+      <div>
+        <h2 class="text-[24px] font-bold text-primary mb-8">
+          IFUs (Instructions For Use)
+        </h2>
+        <PDFDocumentGrid client:load docs={ifus} />
+      </div>
+    </section>
+  </main>
+</Layout>

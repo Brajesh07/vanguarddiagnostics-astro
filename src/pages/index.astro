@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+import QuickLinks from "../components/home/QuickLinks.astro";
+import AboutSection from "../components/home/AboutSection.astro";
+import DiagonSection from "../components/home/DiagonSection.astro";
+import HeroCarousel from "../components/react/HeroCarousel";
+import MilestoneCarousel from "../components/react/MilestoneCarousel";
+import HorizontalCarousel from "../components/react/HorizontalCarousel";
+import AwardsCarousel from "../components/react/AwardsCarousel";
+import PDFFlipbookSection from "../components/PDFFlipbook/PDFFlipbookSection.astro";
+import { homeContent } from "../data/content";
+
+const { metadata, milestones, awards, pictureBook } = homeContent;
+---
+
+<Layout title={metadata.title} description={metadata.description}>
+  <main class="overflow-x-hidden">
+    <!-- Hero carousel (React island — has useState/useEffect) -->
+    <HeroCarousel client:load />
+
+    <!-- Quick links (static Astro) -->
+    <QuickLinks />
+
+    <!-- About us + cards (static Astro) -->
+    <AboutSection />
+
+    <PDFFlipbookSection
+      pdfUrl="/pdfs/vanguard-diagnostics-hand-book-print.pdf"
+      title="Our Handbook"
+      description="Explore our comprehensive handbook for detailed information about our diagnostics services and solutions."
+    />
+
+    <!-- Milestones heading -->
+    <section class="py-12 md:py-14" id="Milestones">
+      <div class="vanguard-shell text-center">
+        <img
+          alt="Milestone icon"
+          class="mx-auto h-20 w-auto"
+          src={milestones.icon}
+        />
+        <h2
+          class="mt-2 text-[44px] font-bold leading-tight text-foreground md:text-[52px]"
+        >
+          {milestones.title}
+        </h2>
+        <p
+          class="mx-auto mt-4 max-w-[1000px] text-[16px] leading-[1.7] text-muted-foreground"
+        >
+          {milestones.p1}
+        </p>
+        <p
+          class="mx-auto mt-2 max-w-[1000px] text-[16px] leading-[1.7] text-muted-foreground"
+        >
+          {milestones.p2}
+        </p>
+        <p
+          class="mx-auto mt-2 max-w-[1000px] text-[16px] leading-[1.7] text-muted-foreground"
+        >
+          {milestones.p3}
+        </p>
+      </div>
+    </section>
+
+    <!-- Milestone carousel (React island — Swiper) -->
+    <section class="pb-14">
+      <MilestoneCarousel milestones={milestones.timeline} client:visible />
+    </section>
+
+    <!-- Diagon section (static Astro) -->
+    <DiagonSection />
+
+    <!-- Awards carousel (React island — Swiper coverflow) -->
+    <div id="Awards">
+      <AwardsCarousel client:load />
+    </div>
+
+    <!-- Picture Book heading -->
+    <section id="PictureBook">
+      <div class="flex flex-col gap-2 items-center">
+        <img alt="Picture icon" src={pictureBook.icon} />
+        <h2 class="mt-2 text-3xl font-medium leading-tight text-foreground">
+          Picture <span class="text-[#019cad]">Book</span>
+        </h2>
+      </div>
+    </section>
+
+    <!-- Picture book carousel (React island) -->
+    <HorizontalCarousel
+      title={pictureBook.title}
+      items={pictureBook.items}
+      itemHeight="h-64 md:h-80"
+      client:visible
+    />
+  </main>
+</Layout>

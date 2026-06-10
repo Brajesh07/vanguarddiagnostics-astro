@@ -1,0 +1,549 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Training | Vanguard Diagnostics";
+const description = "Good training doesn't cost, it pays. Vanguard Diagnostics Training Academy offers customized programs for laboratory professionals.";
+
+const trainingAcademyBullets = [
+  "Classroom training programs",
+  "Practical hands-on sessions and workshops",
+  "Online and blended learning programs",
+  "Field-based training for sales and service teams",
+  "E-learning modules and training capsules",
+  "Train-the-Trainer programs",
+  "Assessment and certification",
+];
+
+const capsulesBullets = [
+  "The Academy will work closely with IVD companies to provide ongoing training support.",
+  "The Academy will conduct multi-city programs to educate the laboratory fraternity about latest developments.",
+  "The Academy will conduct company specific programs for MIS, Diagnostic Chains and Pathology Labs.",
+  "The Academy will organize symposia and continuing education for clinical laboratory scientists.",
+];
+
+const trainingModelPoints = [
+  "Field based / On-the-job training",
+  "Classroom based training programs",
+  "Online / blended learning programs",
+  "Assessment / Certification",
+];
+
+const kpiPoints = [
+  "Number of training programs conducted",
+  "Number of people trained",
+  "Pre and Post Training Assessments",
+  "Customer satisfaction scores",
+  "* Repeat business from trained customers",
+];
+
+const capsules = [
+  { number: "1", label: "Product & Benefit Selling" },
+  { number: "2", label: "Customer Relationship Management" },
+  { number: "3", label: "Territory Management" },
+  { number: "4", label: "Channel & Distribution Management" },
+  { number: "5", label: "The Art of Selling & Sales Process" },
+  { number: "6", label: "Finance for non-finance" },
+  { number: "7", label: "cGMP, Quality Systems, Cold Chain & Logistics" },
+];
+---
+
+<Layout title={title} description={description}>
+  <main class="bg-white text-foreground pb-0">
+
+    <!-- Hero Banner: "Good training doesn't cost, it pays." -->
+    <section class="bg-white">
+      <img
+        src="/images/vanguard/products-solutions/training-banner-top.jpg"
+        alt="Good training doesn't cost, it pays – Vanguard Diagnostics Training"
+        class="block w-full h-auto object-cover"
+      />
+    </section>
+
+    <!-- Accent bar -->
+    <div class="h-[3px] bg-primary"></div>
+
+    <!-- Two top icon cards: Training Academy / Training Capsules -->
+    <section class="bg-[#f7f7f7] py-10">
+      <div class="max-w-[1120px] mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[700px] mx-auto">
+
+          <!-- Card: Training Academy -->
+          <a href="#training-academy"
+            class="flex flex-col items-center justify-center gap-3 bg-white border border-gray-200 rounded-lg px-8 py-7 text-center shadow-sm hover:shadow-md hover:border-primary transition-all duration-200 group">
+            <img
+              src="/images/vanguard/products-solutions/training-academy.jpg"
+              alt="Training Academy"
+              class="w-16 h-16 object-contain"
+            />
+            <span class="text-[15px] font-semibold text-[#333] group-hover:text-primary transition-colors">Training Academy</span>
+          </a>
+
+          <!-- Card: Training Capsules -->
+          <a href="#training-capsules"
+            class="flex flex-col items-center justify-center gap-3 bg-white border border-gray-200 rounded-lg px-8 py-7 text-center shadow-sm hover:shadow-md hover:border-primary transition-all duration-200 group">
+            <img
+              src="/images/vanguard/products-solutions/Training-Capsules.jpg"
+              alt="Training Capsules"
+              class="w-16 h-16 object-contain"
+            />
+            <span class="text-[15px] font-semibold text-[#333] group-hover:text-primary transition-colors">Training Capsules</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Training Academy Section -->
+    <section id="training-academy" class="py-14 bg-white">
+      <div class="max-w-[1120px] mx-auto px-4 md:px-8">
+        <div class="flex flex-col md:flex-row gap-10 items-start">
+
+          <!-- Left: photo -->
+          <div class="w-full md:w-[360px] shrink-0">
+            <img
+              src="/images/vanguard/products-solutions/training-academy-1.jpg"
+              alt="Training Academy – classroom session"
+              class="w-full h-auto object-cover rounded-lg shadow-sm"
+            />
+          </div>
+
+          <!-- Right: content -->
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-4">
+              <img
+                src="/images/vanguard/products-solutions/training-academy.jpg"
+                alt="Training Academy icon"
+                class="w-10 h-10 object-contain"
+              />
+              <h1 class="text-2xl md:text-[28px] font-bold text-[#222]">Training Academy</h1>
+            </div>
+            <div class="h-[2px] w-14 bg-primary mb-6"></div>
+
+            <p class="text-[15px] leading-7 text-[#555] mb-5">
+              Vanguard Diagnostics has established a <strong class="text-[#222]">Training Academy</strong> to help
+              laboratory professionals, IVD companies, and diagnostic chains build the knowledge and skills required
+              to deliver superior patient outcomes. Our academy offers a wide range of structured programs tailored
+              to the needs of the modern in-vitro diagnostic industry.
+            </p>
+
+            <ul class="space-y-2">
+              {trainingAcademyBullets.map((item) => (
+                <li class="flex items-start gap-2 text-[14px] text-[#555]">
+                  <span class="text-primary mt-[5px] shrink-0">
+                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 5L4 8L9 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Training Capsules Section -->
+    <section id="training-capsules" class="py-14 bg-[#f7f7f7]">
+      <div class="max-w-[1120px] mx-auto px-4 md:px-8">
+
+        <div class="flex items-center gap-3 mb-2">
+          <img
+            src="/images/vanguard/products-solutions/Training-Capsules.jpg"
+            alt="Training Capsules icon"
+            class="w-10 h-10 object-contain"
+          />
+          <h2 class="text-[22px] font-bold text-[#222]">
+            Training Capsules <span class="text-[#888] font-normal text-[18px]">(Customized Programs)</span>
+          </h2>
+        </div>
+        <div class="h-[2px] w-14 bg-primary mb-6"></div>
+
+        <div class="text-[15px] leading-7 text-[#555] space-y-4 mb-8">
+          <p>
+            Vanguard Diagnostics training capsules are short, focused and modular training sessions specifically
+            designed for the IVD industry. These sessions are designed to provide comprehensive and relevant education
+            to laboratory personnel and IVD company staff in a time-efficient manner.
+          </p>
+          <p>
+            These training capsules can be delivered in multiple formats including classroom, field-based, online,
+            and blended learning approaches and can be customized to meet the requirements of individual organizations.
+            At the end of each program, participants will receive a certificate of completion.
+          </p>
+          <p>
+            The Vanguard Diagnostics Training Academy is committed to providing the highest quality of training
+            programs to the IVD industry. For more information about our training programs, please{' '}
+            <a href="/contact-us" class="text-primary hover:underline underline-offset-2">contact us.</a>
+          </p>
+        </div>
+
+        <ul class="space-y-3">
+          {capsulesBullets.map((item) => (
+            <li class="flex items-start gap-3 text-[14px] text-[#555] bg-white border-l-4 border-primary rounded-r-md px-4 py-3 shadow-sm">
+              <span class="text-primary mt-[3px] shrink-0">
+                <svg width="8" height="8" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 5L4 8L9 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <p class="mt-8 text-[14px] text-[#777] italic border-t border-gray-200 pt-5">
+          * Note: The Vanguard Diagnostics Training Academy will offer certifications upon completion of relevant programs. Certificates will be provided for field-based, online and classroom programs.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4 Navigation Cards -->
+    <section class="py-10 bg-white">
+      <div class="max-w-[1120px] mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+
+          <!-- Our Training Model -->
+          <a href="#our-training-model"
+            class="flex flex-col items-center gap-3 border border-gray-200 rounded-lg px-5 py-7 text-center shadow-sm hover:shadow-md hover:border-primary transition-all duration-200 group">
+            <img
+              src="/images/vanguard/products-solutions/Training-Model.jpg"
+              alt="Our Training Model"
+              class="w-14 h-14 object-contain"
+            />
+            <span class="text-[13px] font-semibold text-[#333] group-hover:text-primary transition-colors leading-snug">Our Training Model</span>
+          </a>
+
+          <!-- Our Performance Indicators -->
+          <a href="#performance-indicators"
+            class="flex flex-col items-center gap-3 border border-gray-200 rounded-lg px-5 py-7 text-center shadow-sm hover:shadow-md hover:border-primary transition-all duration-200 group">
+            <img
+              src="/images/vanguard/products-solutions/Performance-Indicators.jpg"
+              alt="Our Performance Indicators"
+              class="w-14 h-14 object-contain"
+            />
+            <span class="text-[13px] font-semibold text-[#333] group-hover:text-primary transition-colors leading-snug">Our Performance Indicators</span>
+          </a>
+
+          <!-- Training Programs -->
+          <a href="#training-programs"
+            class="flex flex-col items-center gap-3 border border-gray-200 rounded-lg px-5 py-7 text-center shadow-sm hover:shadow-md hover:border-primary transition-all duration-200 group">
+            <img
+              src="/images/vanguard/products-solutions/Training-Programs-150x150.jpg"
+              alt="Training Programs"
+              class="w-14 h-14 object-contain"
+            />
+            <span class="text-[13px] font-semibold text-[#333] group-hover:text-primary transition-colors leading-snug">Training Programs</span>
+          </a>
+
+          <!-- Benefits of Training Programs -->
+          <a href="#benefits"
+            class="flex flex-col items-center gap-3 border border-gray-200 rounded-lg px-5 py-7 text-center shadow-sm hover:shadow-md hover:border-primary transition-all duration-200 group">
+            <img
+              src="/images/vanguard/products-solutions/Training-Programs-Benefits-1.jpg"
+              alt="Benefits of Training Programs"
+              class="w-14 h-14 object-contain"
+            />
+            <span class="text-[13px] font-semibold text-[#333] group-hover:text-primary transition-colors leading-snug">Benefits of Training Programs</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Training Model -->
+    <section id="our-training-model" class="py-14 bg-[#f7f7f7]">
+      <div class="max-w-[1120px] mx-auto px-4 md:px-8">
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+
+          <!-- Left: large walking-figure banner -->
+          <div class="w-full lg:w-[380px] shrink-0">
+            <img
+              src="/images/vanguard/products-solutions/training-banner-3.jpg"
+              alt="Training model – connected professional"
+              class="w-full h-auto object-contain"
+            />
+          </div>
+
+          <!-- Right: content -->
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <img
+                src="/images/vanguard/products-solutions/Training-Model-1.jpg"
+                alt="Training Model icon"
+                class="w-10 h-10 object-contain"
+              />
+              <h2 class="text-[22px] font-bold text-[#222]">Our Training Model</h2>
+            </div>
+            <div class="h-[2px] w-14 bg-primary mb-6"></div>
+
+            <div class="text-[15px] leading-7 text-[#555] space-y-4 mb-6">
+              <p>
+                The Vanguard Diagnostics Training Model has been specifically designed for the needs of the in-vitro
+                diagnostics industry. Our model is designed to provide a high quality, consistent and cost-effective
+                training experience for all stakeholders.
+              </p>
+              <p>
+                Our Training Model incorporates different training methodologies to ensure effective learning.
+                We adopt a blend of field-based, classroom, and online learning approaches.
+              </p>
+            </div>
+
+            <ul class="space-y-3">
+              {trainingModelPoints.map((item) => (
+                <li class="flex items-center gap-3 text-[14px] text-[#555]">
+                  <span class="inline-flex items-center justify-center w-6 h-6 rounded-full border-2 border-primary text-primary shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Performance Indicators -->
+    <section id="performance-indicators" class="py-14 bg-white">
+      <div class="max-w-[1120px] mx-auto px-4 md:px-8">
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+
+          <!-- Left: content -->
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <img
+                src="/images/vanguard/products-solutions/Performance-Indicators-1.jpg"
+                alt="Key Performance Indicators icon"
+                class="w-10 h-10 object-contain"
+              />
+              <h2 class="text-[22px] font-bold text-[#222]">Key Performance Indicators of Vanguard Diagnostics</h2>
+            </div>
+            <div class="h-[2px] w-14 bg-primary mb-6"></div>
+
+            <p class="text-[15px] leading-7 text-[#555] mb-6">
+              We consistently track and measure the effectiveness of all our training programs using a set of well-defined
+              Key Performance Indicators. This allows us to continuously improve the quality and impact of every session.
+            </p>
+
+            <ul class="space-y-2">
+              {kpiPoints.map((item) => (
+                <li class="flex items-start gap-2 text-[14px] text-[#555]">
+                  <span class="text-primary mt-[5px] shrink-0">
+                    <svg width="8" height="8" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 5L4 8L9 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Right: graph image -->
+          <div class="w-full lg:w-[380px] shrink-0">
+            <img
+              src="/images/vanguard/products-solutions/Performance-Indicators-banner-1.jpg"
+              alt="Performance Indicators – growth chart"
+              class="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Training Programs & Benefits Row -->
+    <section id="training-programs" class="py-14 bg-[#f7f7f7]">
+      <div class="max-w-[1120px] mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+          <!-- Card 1: Training Programs – image + teal title only -->
+          <div class="bg-white rounded-lg border border-gray-300 flex flex-col items-center justify-center text-center px-6 py-10 min-h-[220px]">
+            <img
+              src="/images/vanguard/products-solutions/Training-Programs-1.jpg"
+              alt="Training Programs"
+              class="w-28 h-28 object-contain mb-5"
+            />
+            <span class="text-[18px] font-bold text-primary leading-snug">Training<br/>Programs</span>
+          </div>
+
+          <!-- Card 2: Customized Training Modules text + Capsules button -->
+          <div class="bg-white rounded-lg border border-gray-300 flex flex-col overflow-hidden min-h-[220px]">
+            <div class="flex-1 flex items-center justify-center px-6 py-8 text-center">
+              <p class="text-[14px] text-[#444] leading-7">
+                Customized Training Modules to benefit the Sales &amp; Product Management teams of Diagnostics and Healthcare companies.
+              </p>
+            </div>
+            <a href="#training-capsules" class="block bg-primary text-white text-center text-[14px] font-semibold py-3 hover:bg-primary/90 transition-colors">
+              Capsules &gt;
+            </a>
+          </div>
+
+          <!-- Card 3: Consulting services text + Capsules button -->
+          <div class="bg-white rounded-lg border border-gray-300 flex flex-col overflow-hidden min-h-[220px]">
+            <div class="flex-1 flex items-center justify-center px-6 py-8 text-center">
+              <p class="text-[14px] text-[#444] leading-7">
+                Consulting services on Quality and Manufacturing for Healthcare companies.
+              </p>
+            </div>
+            <a href="#training-capsules" class="block bg-primary text-white text-center text-[14px] font-semibold py-3 hover:bg-primary/90 transition-colors">
+              Capsules &gt;
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Strip -->
+    <!-- Benefits of the Training Capsules -->
+    <section
+      class="relative overflow-hidden py-16"
+      style="background-image: url('/images/vanguard/products-solutions/training-bg-2.jpg'); background-size: cover; background-position: center;"
+    >
+      <!-- subtle white overlay to lighten bg slightly -->
+      <div class="absolute inset-0 bg-white/40 pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-[1120px] mx-auto px-4 md:px-8">
+
+        <!-- Checkmark icon -->
+        <div class="flex justify-center mb-4">
+          <img
+            src="/images/vanguard/products-solutions/Training-Programs-Benefits-1.jpg"
+            alt="Benefits checkmark"
+            class="w-20 h-20 object-contain"
+          />
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-center text-[20px] font-semibold text-primary mb-10">
+          Benefits of the Training Capsules
+        </h2>
+
+        <!-- Swiper Capsule Carousel -->
+        <div class="capsules-swiper-wrapper mb-12">
+          <div class="swiper capsules-swiper">
+            <div class="swiper-wrapper">
+              {capsules.map((cap) => (
+                <div class="swiper-slide">
+                  <div class="capsule-card">
+                    <div class="capsule-card-inner">
+                      <span class="capsule-number">{cap.number}</span>
+                      <span class="capsule-label">{cap.label}</span>
+                    </div>
+                    <div class="capsule-line"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination capsules-pagination"></div>
+          </div>
+        </div>
+
+        <style>
+          .capsules-swiper-wrapper {
+            padding-bottom: 40px;
+          }
+          .capsules-swiper {
+            width: 100%;
+            padding-bottom: 36px !important;
+          }
+          .capsules-swiper .swiper-slide {
+            height: 200px;
+            display: flex;
+            align-items: stretch;
+          }
+          .capsule-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            padding: 12px 16px 0;
+            background: transparent;
+          }
+          .capsule-card-inner {
+            display: flex;
+            align-items: flex-start;
+            gap: 4px;
+            flex: 1;
+          }
+          .capsule-number {
+            font-size: 52px;
+            font-weight: 700;
+            color: #019cad;
+            line-height: 1;
+            flex-shrink: 0;
+            font-family: 'Roboto', sans-serif;
+          }
+          .capsule-label {
+            font-size: 12px;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.4;
+            padding-top: 6px;
+            font-family: 'Roboto', sans-serif;
+          }
+          .capsule-line {
+            height: 2px;
+            background-color: rgba(1, 156, 173, 0.35);
+            margin-top: 12px;
+          }
+          /* Pagination dots */
+          .capsules-pagination {
+            bottom: 0 !important;
+          }
+          .capsules-pagination .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background: rgba(1, 156, 173, 0.3);
+            opacity: 1;
+          }
+          .capsules-pagination .swiper-pagination-bullet-active {
+            background: #019cad;
+          }
+        </style>
+
+        <script>
+          import Swiper from 'swiper';
+          import { Pagination, Autoplay } from 'swiper/modules';
+          import 'swiper/css';
+          import 'swiper/css/pagination';
+
+          new Swiper('.capsules-swiper', {
+            modules: [Pagination, Autoplay],
+            slidesPerView: 5,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+            },
+            pagination: {
+              el: '.capsules-pagination',
+              clickable: true,
+            },
+            breakpoints: {
+              0: { slidesPerView: 1 },
+              480: { slidesPerView: 2 },
+              768: { slidesPerView: 3 },
+              1024: { slidesPerView: 5 },
+            },
+          });
+        </script>
+
+        <!-- Closing bold teal quote -->
+        <div class="max-w-[680px] mx-auto text-center">
+          <p class="text-[17px] md:text-[19px] font-bold text-primary leading-8">
+            The proposed training solutions will create a stronger scientific and<br />
+            professional culture that will help build loyal relationships<br />
+            with your customers and a better environment for your employees.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</Layout>
