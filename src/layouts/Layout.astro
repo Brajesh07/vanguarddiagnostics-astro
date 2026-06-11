@@ -2,16 +2,46 @@
 import "../styles/globals.css";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter.astro";
+import { siteData } from "../data/site";
 
 export interface Props {
   title?: string;
   description?: string;
+  pageSchema?: object | object[];
 }
 
 const {
   title = "Vanguard Diagnostics",
   description = "Vanguard Diagnostics – Manufacturing high-quality diagnostic products at affordable prices.",
+  pageSchema,
 } = Astro.props;
+
+const BASE_URL = "https://vanguarddiagnostics.com";
+
+const globalOrgSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "MedicalOrganization"],
+  "@id": `${BASE_URL}/#organization`,
+  "name": siteData.fullName,
+  "url": BASE_URL,
+  "logo": `${BASE_URL}${siteData.logo}`,
+  "telephone": siteData.phone,
+  "email": siteData.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C-123, Phase-I, Okhla Industrial Area",
+    "addressLocality": "New Delhi",
+    "postalCode": "110020",
+    "addressCountry": "IN",
+  },
+  "sameAs": [siteData.linkedin],
+};
+
+const pageSchemas = pageSchema
+  ? Array.isArray(pageSchema)
+    ? pageSchema
+    : [pageSchema]
+  : [];
 ---
 
 <!doctype html>
@@ -28,6 +58,12 @@ const {
       rel="stylesheet"
     />
     <title>{title}</title>
+    <!-- Global Organization schema (every page) -->
+    <script type="application/ld+json" set:html={JSON.stringify(globalOrgSchema)} />
+    <!-- Page-level schemas -->
+    {pageSchemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
   </head>
   <body>
     <SiteHeader client:load />

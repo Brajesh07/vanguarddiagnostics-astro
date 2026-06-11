@@ -58,6 +58,12 @@ export interface FormField {
   id: string;
 }
 
+export interface PolicySection {
+  heading?: string;
+  paragraphs?: string[];
+  list?: string[];
+}
+
 /**
  * CONTENT EXPORTS
  */
@@ -159,6 +165,8 @@ export const homeContent = {
 export const aboutContent = {
   metadata: {
     title: "Vanguard Diagnostics - Quality Diagnostic Products",
+    description:
+      "Vanguard Diagnostics is a creative group active in innovation and application of new concepts and technologies in diagnostics, focusing on high-quality, affordable products.",
   },
   hero: {
     banner: "/images/vanguard/about/aboutus-banner-1.webp",
@@ -560,6 +568,10 @@ export const careerContent = {
 } as const;
 
 export const contactContent = {
+  metadata: {
+    title: "Contact Us | Vanguard Diagnostics",
+    description: "Get in touch with Vanguard Diagnostics. Contact us at our facility in New Delhi.",
+  },
   hero: {
     image: "/images/vanguard/contact/contact-banner-1.jpg",
     title: "Contact Us",
@@ -788,4 +800,118 @@ export const specificProductsContent = {
     description:
       "Introducing VANSCAN Typhoid RT PCR Test kit, the first-ever patented technology-based Typhoid RT PCR kit by Vanguard Diagnostics.",
   },
+} as const;
+
+export const footerContent = {
+  address: siteData.address,
+  phone: siteData.phoneMobile,
+  phoneLink: siteData.phoneMobileLink,
+  email: siteData.email,
+  emailLink: siteData.emailLink,
+} as const;
+
+export const privacyPolicyContent = {
+  metadata: {
+    title: "Privacy Policy | Vanguard Diagnostics",
+    description: "Privacy Policy for Vanguard Diagnostics",
+  },
+  title: "Privacy Policy",
+  sections: [
+    {
+      paragraphs: [
+        "This privacy policy tells you how we use personal information collected at this site. Please read this privacy policy before using the site or submitting any personal information. By using the site, you are accepting the practices described in this privacy policy.",
+        "These practices may be changed, but any changes will be posted and changes will only apply to activities and information on a going forward, not retroactive basis. You are encouraged to review the privacy policy whenever you visit the site to make sure that you understand how any personal information you provide will be used.",
+        "Note: the privacy practices set forth in this privacy policy are for this web site only. If you link to other web sites, please review the privacy policies at those sites.",
+      ],
+    },
+    {
+      heading: "COLLECTION OF INFORMATION",
+      paragraphs: [
+        "We collect personally identifiable information, like names, postal addresses, email addresses, etc., when voluntarily submitted by our visitors. The information you provide is used to fulfil a specific request. This information is only used to fulfil your specific request, unless you give us permission to use it in another manner, for example to add you to one of our mailing lists.",
+        "The site may use cookie and tracking technology depending on the features offered. Cookie and tracking technology are useful for gathering information such as browser type and operating system, tracking the number of visitors to the Site, and understanding how visitors use the site.",
+      ],
+    },
+    {
+      heading: "DISTRIBUTION OF INFORMATION",
+      paragraphs: [
+        "We may share information with governmental agencies or other companies assisting us in fraud prevention or investigation. We may do so when:",
+      ],
+      list: [
+        "(1) Permitted or required by law; or,",
+        "(2) trying to protect against or prevent actual or potential frau or unauthorized transactions; or,",
+        "(3) investigating fraud which has already taken place. The information is not provided to these companies for marketing purposes.",
+      ],
+    },
+    {
+      heading: "COMMITMENT TO DATA SECURITY",
+      paragraphs: [
+        "Your personally identifiable information is kept secure. Only authorized employees, agents and contractors (who have agreed to keep information secure and confidential) have access to this information. All emails and newsletters from this site allow you to opt out of further mailings.",
+      ],
+    },
+    {
+      heading: "PRIVACY CONTACT INFORMATION",
+      paragraphs: [
+        "If you have any questions, concerns, or comments about our privacy policy you may contact us using the details published in the contact page. We reserve the right to make changes to this policy. Any changes to this policy will be posted.",
+      ],
+    },
+  ] as PolicySection[],
+} as const;
+
+export const termsConditionsContent = {
+  metadata: {
+    title: "Terms and Conditions | Vanguard Diagnostics",
+    description: "Terms and Conditions for Vanguard Diagnostics",
+  },
+  title: "Terms and Conditions",
+  sections: [
+    {
+      paragraphs: [
+        "Welcome to Vanguard Diagnostics. These terms and conditions outline the rules and regulations for the use of Vanguard Diagnostics India Pvt. Ltd.'s Website.",
+        "By accessing this website we assume you accept these terms and conditions. Do not continue to use Vanguard Diagnostics if you do not agree to take all of the terms and conditions stated on this page.",
+      ],
+    },
+    {
+      heading: "LICENSE",
+      paragraphs: [
+        "Unless otherwise stated, Vanguard Diagnostics India Pvt. Ltd. and/or its licensors own the intellectual property rights for all material on Vanguard Diagnostics. All intellectual property rights are reserved. You may access this from Vanguard Diagnostics for your own personal use subjected to restrictions set in these terms and conditions.",
+        "You must not:",
+      ],
+      list: [
+        "Republish material from Vanguard Diagnostics",
+        "Sell, rent or sub-license material from Vanguard Diagnostics",
+        "Reproduce, duplicate or copy material from Vanguard Diagnostics",
+        "Redistribute content from Vanguard Diagnostics",
+      ],
+    },
+    {
+      heading: "USER COMMENTS",
+      paragraphs: [
+        "Certain parts of this website offer the opportunity for users to post and exchange opinions and information in certain areas of the website. Vanguard Diagnostics India Pvt. Ltd. does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Vanguard Diagnostics India Pvt. Ltd., its agents and/or affiliates.",
+      ],
+    },
+    {
+      heading: "HYPERLINKING TO OUR CONTENT",
+      paragraphs: [
+        "The following organizations may link to our Website without prior written approval:",
+      ],
+      list: [
+        "Government agencies;",
+        "Search engines;",
+        "News organizations;",
+        "Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses.",
+      ],
+    },
+    {
+      heading: "DISCLAIMER",
+      paragraphs: [
+        "To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.",
+      ],
+    },
+    {
+      heading: "CONTACT INFORMATION",
+      paragraphs: [
+        "If you have any queries regarding any of our terms, please contact us using the details published in the contact page.",
+      ],
+    },
+  ] as PolicySection[],
 } as const;

@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { BiSolidLeftArrow } from "react-icons/bi";
+import { BiSolidRightArrow } from "react-icons/bi";
 import { homeContent } from "../../data/content";
 
 const { hero } = homeContent;
@@ -103,22 +105,22 @@ export default function HeroCarousel() {
           </div>
         </div>
 
-        <div className="absolute inset-0 w-full xl:w-[1200px] mx-auto">
+        <div className="absolute inset-0 w-full">
           <button
             aria-label="Previous slide"
-            className="absolute left-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#8a8f95] text-xl text-white transition hover:bg-[#6f757d] md:left-4"
+            className="absolute left-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#339cae]/70 text-xl text-white transition hover:bg-[#339cae] md:left-4 cursor-pointer"
             onClick={() => handleSlideChange(activeSlide - 1)}
             type="button"
           >
-            &lt;
+            <BiSolidLeftArrow className="mx-auto" />
           </button>
           <button
             aria-label="Next slide"
-            className="absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#8a8f95] text-xl text-white transition hover:bg-[#6f757d] md:right-4"
+            className="absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#339cae]/70 text-xl text-white transition hover:bg-[#339cae] md:right-4 cursor-pointer"
             onClick={() => handleSlideChange(activeSlide + 1)}
             type="button"
           >
-            &gt;
+            <BiSolidRightArrow className="mx-auto" />
           </button>
         </div>
       </div>

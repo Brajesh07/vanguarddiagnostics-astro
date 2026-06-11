@@ -8,12 +8,40 @@ import MilestoneCarousel from "../components/react/MilestoneCarousel";
 import HorizontalCarousel from "../components/react/HorizontalCarousel";
 import AwardsCarousel from "../components/react/AwardsCarousel";
 import PDFFlipbookSection from "../components/PDFFlipbook/PDFFlipbookSection.astro";
-import { homeContent } from "../data/content";
+import { homeContent, productsContent } from "../data/content";
 
 const { metadata, milestones, awards, pictureBook } = homeContent;
+
+const BASE_URL = "https://vanguarddiagnostics.com";
+
+const pageSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Vanguard Diagnostics Product Categories",
+    "itemListElement": productsContent.categories.map((cat, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": cat.name,
+      "url": `${BASE_URL}${cat.href}`,
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": `${BASE_URL}/`,
+      },
+    ],
+  },
+];
 ---
 
-<Layout title={metadata.title} description={metadata.description}>
+<Layout title={metadata.title} description={metadata.description} pageSchema={pageSchema}>
   <main class="overflow-x-hidden">
     <!-- Hero carousel (React island — has useState/useEffect) -->
     <HeroCarousel client:load />

@@ -1,0 +1,61 @@
+---
+interface PostLink {
+  id: string;
+  title: string;
+}
+
+export interface Props {
+  prevPost?: PostLink | null;
+  nextPost?: PostLink | null;
+}
+
+const { prevPost, nextPost } = Astro.props;
+---
+
+<div class="mt-6 flex justify-between gap-4">
+  {
+    prevPost ? (
+      <a
+        href={`/blogs/${prevPost.id}`}
+        class="flex-1 bg-white p-4 sm:p-6 rounded-md border border-[#eee] shadow-sm hover:shadow-md transition-all duration-300 group flex items-center sm:items-start gap-4 text-left"
+      >
+        <span class="text-2xl text-primary group-hover:-translate-x-1.5 transition-transform duration-300 sm:mt-0.5">
+          &larr;
+        </span>
+        <div class="hidden sm:block">
+          <span class="text-[11px] text-gray-400 uppercase font-semibold tracking-wider block mb-1">
+            Previous Post
+          </span>
+          <span class="text-[14px] font-semibold text-gray-700 group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-snug">
+            {prevPost.title}
+          </span>
+        </div>
+      </a>
+    ) : (
+      <div class="flex-1" />
+    )
+  }
+
+  {
+    nextPost ? (
+      <a
+        href={`/blogs/${nextPost.id}`}
+        class="flex-1 bg-white p-4 sm:p-6 rounded-md border border-[#eee] shadow-sm hover:shadow-md transition-all duration-300 group flex items-center sm:items-start justify-end gap-4 text-right"
+      >
+        <div class="hidden sm:block">
+          <span class="text-[11px] text-gray-400 uppercase font-semibold tracking-wider block mb-1">
+            Next Post
+          </span>
+          <span class="text-[14px] font-semibold text-gray-700 group-hover:text-primary transition-colors duration-300 line-clamp-2 leading-snug">
+            {nextPost.title}
+          </span>
+        </div>
+        <span class="text-2xl text-primary group-hover:translate-x-1.5 transition-transform duration-300 sm:mt-0.5">
+          &rarr;
+        </span>
+      </a>
+    ) : (
+      <div class="flex-1" />
+    )
+  }
+</div>
