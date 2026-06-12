@@ -22,35 +22,39 @@ const pageSchema = [
   ...team.map((member) => ({
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": member.name,
-    "jobTitle": member.role,
-    "image": `${BASE_URL}${member.image}`,
-    "worksFor": {
+    name: member.name,
+    jobTitle: member.role,
+    image: `${BASE_URL}${member.image}`,
+    worksFor: {
       "@id": `${BASE_URL}/#organization`,
     },
   })),
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": `${BASE_URL}/`,
+        position: 1,
+        name: "Home",
+        item: `${BASE_URL}/`,
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "About Us",
-        "item": `${BASE_URL}/about-us`,
+        position: 2,
+        name: "About Us",
+        item: `${BASE_URL}/about-us`,
       },
     ],
   },
 ];
 ---
 
-<Layout title={metadata.title} description={metadata.description} pageSchema={pageSchema}>
+<Layout
+  title={metadata.title}
+  description={metadata.description}
+  pageSchema={pageSchema}
+>
   <main class="bg-[#ffffff] text-foreground">
     <!-- Banner -->
     <section class="py-7">
@@ -88,9 +92,10 @@ const pageSchema = [
             {hero.p2}
           </p>
           <VanguardButton
-            href={hero.cta.href}
+            href="#"
             variant="outline"
             class="px-5 py-2 text-sm"
+            data-about-popup-trigger="true"
           >
             {hero.cta.text}
           </VanguardButton>
@@ -229,7 +234,7 @@ const pageSchema = [
           }
         </h2>
         <div
-          class="text-[16px] font-semibold leading-[1.5] text-black text-justify"
+          class="text-[16px] font-semibold leading-[1.5] text-black text-left"
         >
           {
             ivdIndustry.popup.paragraphs.map((p, i) => (
@@ -238,6 +243,65 @@ const pageSchema = [
                   i < ivdIndustry.popup.paragraphs.length - 1
                     ? "mb-[1.75em]"
                     : ""
+                }
+              >
+                {p}
+              </p>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Popup Dialog -->
+  <div
+    data-about-popup-overlay
+    class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"
+    aria-modal="true"
+    role="dialog"
+  >
+    <div
+      data-about-popup-box
+      class="relative w-full max-w-[800px] h-auto min-h-[500px] mx-4 overflow-hidden rounded-sm shadow-2xl p-8 md:p-12 flex items-center"
+      style={`background-image: url('${hero.popup.bg}'); background-size: cover; background-position: center; background-repeat: no-repeat;`}
+    >
+      <!-- Close button -->
+      <button
+        data-about-popup-close
+        aria-label="Close popup"
+        class="absolute top-4 right-4 z-10 flex h-9 w-9 items-center justify-center text-black"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div>
+        <h2
+          class="text-[28px] md:text-[35px] font-semibold leading-[1.3] text-[#00A4B2] mb-6"
+        >
+          {hero.popup.title}
+        </h2>
+        <div
+          class="text-[16px] font-semibold leading-[1.5] text-black text-justify"
+        >
+          {
+            hero.popup.paragraphs.map((p, i) => (
+              <p
+                class={
+                  i < hero.popup.paragraphs.length - 1 ? "mb-[1.75em]" : ""
                 }
               >
                 {p}
@@ -303,16 +367,28 @@ const pageSchema = [
   </div>
 
   <script>
-    // Team Popup Logic
+    // --- UTILS ---
+    function togglePopup(overlay: HTMLElement | null, show: boolean) {
+      if (!overlay) return;
+      if (show) {
+        overlay.classList.remove("opacity-0", "pointer-events-none");
+        overlay.classList.add("opacity-100");
+        document.body.style.overflow = "hidden";
+      } else {
+        overlay.classList.add("opacity-0", "pointer-events-none");
+        overlay.classList.remove("opacity-100");
+        document.body.style.overflow = "";
+      }
+    }
+
+    // --- TEAM POPUP ---
     const teamOverlay = document.querySelector(
       "[data-team-popup-overlay]",
     ) as HTMLElement;
     const teamPopupBox = document.querySelector(
       "[data-team-popup-box]",
     ) as HTMLElement;
-    const teamCloseBtn = document.querySelector(
-      "[data-team-popup-close]",
-    ) as HTMLElement;
+    const teamCloseBtn = document.querySelector("[data-team-popup-close]");
 
     function openTeamPopup(memberId: string) {
       document.querySelectorAll("[data-team-popup-id]").forEach((panel) => {
@@ -322,16 +398,7 @@ const pageSchema = [
         `[data-team-popup-id="${memberId}"]`,
       );
       active?.classList.remove("hidden");
-
-      teamOverlay.classList.remove("opacity-0", "pointer-events-none");
-      teamOverlay.classList.add("opacity-100");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeTeamPopup() {
-      teamOverlay.classList.add("opacity-0", "pointer-events-none");
-      teamOverlay.classList.remove("opacity-100");
-      document.body.style.overflow = "";
+      togglePopup(teamOverlay, true);
     }
 
     document.querySelectorAll("[data-team-popup-trigger]").forEach((btn) => {
@@ -341,14 +408,16 @@ const pageSchema = [
       });
     });
 
-    teamCloseBtn.addEventListener("click", closeTeamPopup);
-    teamOverlay.addEventListener("click", (e) => {
-      if (!teamPopupBox.contains(e.target as Node)) {
-        closeTeamPopup();
+    teamCloseBtn?.addEventListener("click", () =>
+      togglePopup(teamOverlay, false),
+    );
+    teamOverlay?.addEventListener("click", (e) => {
+      if (teamPopupBox && !teamPopupBox.contains(e.target as Node)) {
+        togglePopup(teamOverlay, false);
       }
     });
 
-    // Industry Popup Logic
+    // --- INDUSTRY POPUP ---
     const industryOverlay = document.querySelector(
       "[data-industry-popup-overlay]",
     ) as HTMLElement;
@@ -357,36 +426,60 @@ const pageSchema = [
     ) as HTMLElement;
     const industryCloseBtn = document.querySelector(
       "[data-industry-popup-close]",
-    ) as HTMLElement;
-    const industryTrigger = document.querySelector(
+    );
+    const industryTriggers = document.querySelectorAll(
       "[data-industry-popup-trigger]",
     );
 
-    function openIndustryPopup() {
-      industryOverlay.classList.remove("opacity-0", "pointer-events-none");
-      industryOverlay.classList.add("opacity-100");
-      document.body.style.overflow = "hidden";
-    }
+    industryTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () =>
+        togglePopup(industryOverlay, true),
+      );
+    });
 
-    function closeIndustryPopup() {
-      industryOverlay.classList.add("opacity-0", "pointer-events-none");
-      industryOverlay.classList.remove("opacity-100");
-      document.body.style.overflow = "";
-    }
-
-    industryTrigger?.addEventListener("click", openIndustryPopup);
-    industryCloseBtn.addEventListener("click", closeIndustryPopup);
-    industryOverlay.addEventListener("click", (e) => {
-      if (!industryPopupBox.contains(e.target as Node)) {
-        closeIndustryPopup();
+    industryCloseBtn?.addEventListener("click", () =>
+      togglePopup(industryOverlay, false),
+    );
+    industryOverlay?.addEventListener("click", (e) => {
+      if (industryPopupBox && !industryPopupBox.contains(e.target as Node)) {
+        togglePopup(industryOverlay, false);
       }
     });
 
-    // Global Escape Key
+    // --- ABOUT POPUP ---
+    const aboutOverlay = document.querySelector(
+      "[data-about-popup-overlay]",
+    ) as HTMLElement;
+    const aboutPopupBox = document.querySelector(
+      "[data-about-popup-box]",
+    ) as HTMLElement;
+    const aboutCloseBtn = document.querySelector("[data-about-popup-close]");
+    const aboutTriggers = document.querySelectorAll(
+      "[data-about-popup-trigger]",
+    );
+
+    aboutTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        togglePopup(aboutOverlay, true);
+      });
+    });
+
+    aboutCloseBtn?.addEventListener("click", () =>
+      togglePopup(aboutOverlay, false),
+    );
+    aboutOverlay?.addEventListener("click", (e) => {
+      if (aboutPopupBox && !aboutPopupBox.contains(e.target as Node)) {
+        togglePopup(aboutOverlay, false);
+      }
+    });
+
+    // --- GLOBAL ---
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
-        closeTeamPopup();
-        closeIndustryPopup();
+        togglePopup(teamOverlay, false);
+        togglePopup(industryOverlay, false);
+        togglePopup(aboutOverlay, false);
       }
     });
   </script>

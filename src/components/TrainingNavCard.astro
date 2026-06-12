@@ -1,0 +1,39 @@
+---
+interface Props {
+  href: string;
+  src: string;
+  alt: string;
+  label: string;
+  /** "large" = top hero cards (bg-white, border-b-8, h-full image)
+   *  "small" = bottom nav cards (no bg, w-14 h-14 image) */
+  variant?: "large" | "small";
+}
+
+const { href, src, alt, label, variant = "small" } = Astro.props;
+
+const isLarge = variant === "large";
+---
+
+{
+  isLarge ? (
+    <a
+      href={href}
+      class="cursor-pointer flex flex-col items-center justify-center gap-3 bg-white border border-gray-200 border-b-8 border-b-primary rounded-lg px-2 pb-2 text-center shadow-sm hover:shadow-md hover:border-primary transition-all duration-200 group"
+    >
+      <img src={src} alt={alt} class="w-auto h-full object-contain" />
+      <span class="text-[15px] font-semibold text-[#333] group-hover:text-primary transition-colors">
+        {label}
+      </span>
+    </a>
+  ) : (
+    <a
+      href={href}
+      class="flex flex-col items-center gap-3 border border-gray-200 rounded-lg px-5 py-7 text-center shadow-sm hover:shadow-md hover:border-primary transition-all duration-200 group"
+    >
+      <img src={src} alt={alt} class="w-14 h-14 object-contain" />
+      <span class="text-[13px] font-semibold text-[#333] group-hover:text-primary transition-colors leading-snug">
+        {label}
+      </span>
+    </a>
+  )
+}

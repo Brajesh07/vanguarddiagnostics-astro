@@ -1,0 +1,69 @@
+---
+export interface Props {
+  docs?: ReadonlyArray<{
+    label: string;
+    href: string;
+  }>;
+  class?: string;
+}
+
+const { docs = [], class: className = "" } = Astro.props;
+---
+
+<div class={`flex flex-wrap gap-x-8 gap-y-10 justify-center ${className}`}>
+  {
+    docs.map((doc) => (
+      <a
+        href={doc.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex flex-col items-center text-center transition-transform hover:-translate-y-1 w-[120px]"
+      >
+        <div class="relative mb-3">
+          <svg
+            width="50"
+            height="64"
+            viewBox="0 0 50 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="mx-auto h-[60px] w-auto text-[#ed1c24]"
+          >
+            <path
+              d="M10 2H30L46 18V60C46 61.1046 45.1046 62 44 62H10C8.89543 62 8 61.1046 8 60V4C8 2.89543 8.89543 2 10 2Z"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="white"
+            />
+            <path
+              d="M30 2V18H46"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+            />
+            <text
+              x="27"
+              y="44"
+              font-family="sans-serif"
+              font-size="12"
+              font-weight="bold"
+              fill="currentColor"
+              text-anchor="middle"
+            >
+              PDF
+            </text>
+            <path
+              d="M16 28 C 22 25, 30 25, 36 28"
+              stroke="currentColor"
+              stroke-width="1.5"
+              fill="none"
+            />
+          </svg>
+        </div>
+        <span
+          class="text-[14px] font-bold text-[#222222] group-hover:text-primary transition-colors leading-tight"
+          set:html={doc.label}
+        />
+      </a>
+    ))
+  }
+</div>

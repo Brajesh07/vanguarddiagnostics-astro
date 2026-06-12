@@ -51,7 +51,7 @@ const {
           set:html={hero.title}
         />
         <p
-          class="mx-auto mt-6 max-w-[1050px] text-[16px] font-normal leading-[1.5em] text-[#000000] text-justify"
+          class="mt-6 text-[16px] font-normal leading-[1.5em] text-[#000000] text-justify"
           set:html={hero.description}
         />
       </div>
@@ -113,7 +113,11 @@ const {
         >
           {
             certifications.items.map((cert) => (
-              <CertificationItem name={cert.name} icon={cert.icon} />
+              <CertificationItem
+                name={cert.name}
+                icon={cert.icon}
+                url={cert.url}
+              />
             ))
           }
         </div>

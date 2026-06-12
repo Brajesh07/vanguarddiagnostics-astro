@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { contactContent } from "../data/content";
-import ContactForm from "../components/ContactForm";
+// import ContactForm from "../components/ContactForm";
+import GSContactForm from "../components/GSContactForm";
 
 const { metadata, hero, getInTouch, addressSection } = contactContent;
 
@@ -72,7 +73,15 @@ const pageSchema = [
           </h2>
         </div>
 
-        <ContactForm
+        {/* <ContactForm
+          client:load
+          nameLabel={getInTouch.form.nameLabel}
+          emailLabel={getInTouch.form.emailLabel}
+          phoneLabel={getInTouch.form.phoneLabel}
+          messageLabel={getInTouch.form.messageLabel}
+          buttonText={getInTouch.form.buttonText}
+        /> */}
+        <GSContactForm
           client:load
           nameLabel={getInTouch.form.nameLabel}
           emailLabel={getInTouch.form.emailLabel}

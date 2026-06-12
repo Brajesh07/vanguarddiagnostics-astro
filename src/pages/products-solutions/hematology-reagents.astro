@@ -1,7 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { specificProductsContent } from "../../data/content";
-import PDFDocumentGrid from "../../components/PDFFlipbook/PDFDocumentGrid.jsx";
+import PDFLinkGrid from "../../components/ui/PDFLinkGrid.astro";
+import { PDFDocumentGrid } from "../../components/PDFFlipbook";
 
 const { hematologyReagents } = specificProductsContent;
 const { intro, threePart, fivePart, ifus, technicalReports } =
@@ -162,7 +163,7 @@ const { intro, threePart, fivePart, ifus, technicalReports } =
           <h3 class="text-[26px] font-bold text-primary mb-8">
             IFUs (Instructions For Use)
           </h3>
-          <PDFDocumentGrid client:only="react" docs={ifus} />
+          <PDFLinkGrid docs={ifus} />
         </section>
 
         <!-- Technical Reports Section -->
@@ -170,7 +171,7 @@ const { intro, threePart, fivePart, ifus, technicalReports } =
           <h3 class="text-[26px] font-bold text-primary mb-8">
             Technical Reports (Accuracy, Precision, Performance)
           </h3>
-          <PDFDocumentGrid client:only="react" docs={technicalReports} />
+          <PDFLinkGrid docs={technicalReports} />
         </section>
       </div>
     </div>

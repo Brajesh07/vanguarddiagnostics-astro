@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { BiSolidLeftArrow } from "react-icons/bi";
 import { BiSolidRightArrow } from "react-icons/bi";
 import { homeContent } from "../../data/content";
+import VanguardButton from "./ui/VanguardButton";
 
 const { hero } = homeContent;
 
@@ -71,14 +72,12 @@ export default function HeroCarousel() {
                     {hero.slides[0].description}
                   </p>
                   <div className="mt-6">
-                    <a
-                      href={hero.slides[0].cta?.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-[#017d8c]"
+                    <VanguardButton
+                      href={hero.slides[0].cta?.href || "#"}
+                      className="px-6 py-3"
                     >
                       {hero.slides[0].cta?.text}
-                    </a>
+                    </VanguardButton>
                   </div>
                 </div>
               </div>
@@ -101,15 +100,15 @@ export default function HeroCarousel() {
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
-              </video>
-            </article>
+                </video>
+                </article>
           </div>
         </div>
 
-        <div className="absolute inset-0 w-full">
+        <div className="absolute inset-0 w-full pointer-events-none">
           <button
             aria-label="Previous slide"
-            className="absolute left-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#339cae]/70 text-xl text-white transition hover:bg-[#339cae] md:left-4 cursor-pointer"
+            className="absolute left-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#339cae]/70 text-xl text-white transition hover:bg-[#339cae] md:left-4 cursor-pointer pointer-events-auto"
             onClick={() => handleSlideChange(activeSlide - 1)}
             type="button"
           >
@@ -117,7 +116,7 @@ export default function HeroCarousel() {
           </button>
           <button
             aria-label="Next slide"
-            className="absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#339cae]/70 text-xl text-white transition hover:bg-[#339cae] md:right-4 cursor-pointer"
+            className="absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#339cae]/70 text-xl text-white transition hover:bg-[#339cae] md:right-4 cursor-pointer pointer-events-auto"
             onClick={() => handleSlideChange(activeSlide + 1)}
             type="button"
           >

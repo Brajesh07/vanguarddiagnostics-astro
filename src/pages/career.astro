@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { careerContent } from '../data/content';
+import GSCareerForm from '../components/GSCareerForm';
 
 const { metadata, hero, application, openings } = careerContent;
 ---
@@ -32,7 +33,7 @@ const { metadata, hero, application, openings } = careerContent;
           src={application.icon}
         />
 
-        <!-- TODO: wire up form submission -->
+        {/* Static form commented out — replaced by GSCareerForm below
         <form class="mt-6 text-left">
           <div class="grid gap-x-8 gap-y-5 md:grid-cols-2">
             {application.fields.map((field) => (
@@ -65,6 +66,8 @@ const { metadata, hero, application, openings } = careerContent;
             </button>
           </div>
         </form>
+        */}
+        <GSCareerForm client:load fields={application.fields} />
       </div>
     </section>
 

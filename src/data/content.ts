@@ -180,6 +180,14 @@ export const aboutContent = {
       text: "Read More",
       href: "/about-us",
     },
+    popup: {
+      title: "About Vanguard Diagnostics",
+      bg: "/images/homepage/home-popup-bg-2.jpg",
+      paragraphs: [
+        "Founded by a motivated group of professionals with rare skill sets covering the entire value chain of Product and Business – encompassing R&D, Manufacturing, Quality, Marketing, Supply Chain, and Business leadership, the team at the helm of Vanguard Diagnostics has over 100 years of cumulative experience under their belt. We are engaged in the manufacturing of in-vitro diagnostics reagents covering Hematology, Clinical Chemistry, and Immunology segments. In addition, we manufacture Rapid Card Tests for communicable tropical infections like Malaria, Dengue, Chikungunya, Typhoid and Leptospirosis. As it is our endeavor to be on the path of improving healthcare in India, we strive to innovate and shape the future of healthcare.",
+        "Today, Vanguard Diagnostics is amongst the leading 10 companies in India that have their own manufacturing unit for medical diagnostic solutions. Playing our part in supporting the ‘Make in India’ campaign towards an ‘Atmanirbhar Bharat’, Vanguard Diagnostics’ endeavor is to fulfil this unmet need of the industry.",
+      ],
+    },
   },
   philosophy: {
     title: "Our Team",
@@ -325,6 +333,15 @@ export const productsContent = {
       "We have developed, manufactured and marketed reagents over 20 models of Hematology analyzers, in a short span of five years.",
       "We assign value sheets for Hematology Controls on analyzers that do not have one. This was an unmet need of the market which is being fulfilled by Vanguard.",
     ],
+    popup: {
+      title: "Products Manufactured by Vanguard Diagnostics",
+      bg: "/images/homepage/home-popup-bg-2.jpg",
+      list: [
+        "In addition, we manufacture rapid card tests for communicable tropical infections like Malaria, Dengue, Chikungunya, Typhoid and Leptospirosis.",
+        "Our passion for branching into the adjacent space, led us to become the singular company in India that provides high-caliber, equivalent solutions for Flow Cytometers.",
+        "We have a basket of clinical chemistry reagents for diagnosing Diabetes, Liver & Kidney diseases.",
+      ],
+    },
   },
   categories: [
     {
@@ -365,7 +382,7 @@ export const productsContent = {
   ] as ProductCategory[],
   covid19: {
     title: "Covid-19",
-    image: "/images/vanguard/products-solutions/Covid-19-1.jpg",
+    image: "/images/vanguard/products-solutions/recent-product-3.png",
     p1: "The Covid-19 pandemic has put the technical and scientific abilities of the Indian in-vitro Diagnostics (IVD) industry to the test, since March, 2020. The industry has responded to the need of the hour swiftly, scientifically, strongly and successfully.",
     p2: "Since the month of March this year, the market started buzzing with the launch of novel Indian products for the detection of Covid-19. Today there are more than 30 Indian IVD companies that have introduced indigenous kits based on the Gold Standard, RT PCR technology and over 15 companies who have developed the antibody detection tests for Covid-19.",
     cta: {
@@ -426,7 +443,7 @@ export const manufacturingContent = {
       "Annual Capacity to Manufacture : <span class='text-[#827f7f]'>7 Million Liters</span>",
     title: "One of Its Kind – Vanguard's Diagnostic Reagents Manufacturing",
     description:
-      "Vanguard has an in-house Diagnostic Reagents Manufacturing unit based in Okhla, New Delhi. We are focused towards the development of top-notch in-vitro Diagnostic Reagents and products across the <span class='text-primary'>Hematology</span>, Clinical Chemistry, and <span class='text-primary'>Immunology segments</span>. Vanguard is an undisputed leader in <span class='text-primary'>Immunology Diagnostics</span> & advance clinical <span class='text-primary'>Diagnostic Reagents</span> manufacturers list. We are equipped with a formidable development team and high production capacity. We have a state-of-the-art automated Hematology <span class='font-bold'>Diagnostic Reagents</span> plant, with an annual capacity of producing 1.5 Million Litres of <span class='font-bold'>Diagnostic Reagents</span> per year",
+      "Vanguard has an in-house Diagnostic Reagents Manufacturing unit based in Okhla, New Delhi. We are focused towards the development of top-notch in-vitro Diagnostic Reagents and products across the <a href='/products-solutions/hematology-reagents' class='text-primary hover:underline'>Hematology</a>, Clinical Chemistry, and <a href='/products-solutions/immunology-diagnostic-tests' class='text-primary hover:underline'>Immunology segments</a>. Vanguard is an undisputed leader in <a href='/products-solutions/immunology-diagnostic-tests' class='text-primary hover:underline'>Immunology Diagnostics</a> & advance clinical <a href='/products-solutions/hematology-reagents' class='text-primary hover:underline'>Diagnostic Reagents</a> manufacturers list. We are equipped with a formidable development team and high production capacity. We have a state-of-the-art automated Hematology <span class='text-gray-500 font-bold'>Diagnostic Reagents</span> plant, with an annual capacity of producing 1.5 Million Litres of <span class='text-gray-500 font-bold'>Diagnostic Reagents</span> per year",
   },
   expandingHorizons: {
     title: "Expanding Horizons for Diagnostic Reagents Manufacturering",
@@ -455,16 +472,22 @@ export const manufacturingContent = {
       {
         name: "13485:<span class='text-primary'>2016</span>",
         icon: "/images/vanguard/manufacturing/iso-icon-2.jpg",
+        url: "/pdfs/manufactures/ISO-13485-2016-certificate.pdf",
       },
       {
         name: "9001:<span class='text-primary'>2015</span>",
         icon: "/images/vanguard/manufacturing/iso-icon-2.jpg",
+        url: "/pdfs/manufactures/ISO-9001-2015-certificate-28.02.25.pdf",
       },
       {
         name: "14001:<span class='text-primary'>2015</span>",
         icon: "/images/vanguard/manufacturing/iso-icon-2.jpg",
+        url: "/pdfs/manufactures/ISO-14001-2015-certificate-23.01.25.pdf",
       },
-      { icon: "/images/vanguard/manufacturing/certification-icon-7.png" },
+      {
+        icon: "/images/vanguard/manufacturing/certification-icon-7.png",
+        url: "/pdfs/manufactures/CE-Certificate-Class-B-ICS-18.12.2024.pdf",
+      },
     ],
     banner: {
       image: "/images/vanguard/manufacturing/certification-1.png",
@@ -767,12 +790,64 @@ export const specificProductsContent = {
     intro: {
       title: "Hematology Controls",
       icon: "/images/homepage/quality-icon-1.png",
-      image:
-        "/images/vanguard/hematology-controls-products-1.jpg",
+      image: "/images/vanguard/hematology-controls-products-1.jpg",
       paragraphs: [
-        'Vanguard Diagnostics, in partnership with Diagon of Hungary, offers exceptional 3-part and 5-part <strong class="text-[#222222] font-bold">Hematology Controls</strong>, positioning us as leaders in quality control. Diagon is one of only two manufacturers of <strong class="text-[#222222] font-bold">Hematology Controls</strong> globally. Our joint efforts have revolutionized the field with controls boasting unprecedented shelf lives and open vial stabilities. This advancement enables labs of all sizes in India to achieve highly reliable results comparable to international standards.',
+        '<a href="/products-solutions/hematology-controls" class="text-primary font-bold">Hematology controls</a> are crucial for accurate and reliable blood counts and tests in clinical labs. Vanguard Diagnostics, in partnership with Diagon of Hungary, offers exceptional 3-part and 5-part <strong class="text-[#222222] font-bold">Hematology Controls</strong>, positioning us as leaders in quality control. Diagon is one of only two manufacturers of <strong class="text-[#222222] font-bold">Hematology Controls</strong> globally. Our joint efforts have revolutionized the field with controls boasting unprecedented shelf lives and open vial stabilities. This advancement enables labs of all sizes in India to achieve highly reliable results comparable to international standards.',
         'Vanguard Diagnostics’ dedication to quality control in hematology is evident through our 3-part controls, now with an extended six-month shelf life, surpassing competitors’ three-month offering. Likewise, our 5-part controls offer a significant advantage with a four-month shelf life, compared to competitors’ two months. These achievements establish Vanguard Diagnostics as a reputable leader, delivering premium <strong class="text-[#222222] font-bold">Hematology Controls</strong> to clinical labs worldwide.',
+        
+      ],
+    },
+    whyNeeded: {
+      paragraphs: [
         "Hematology, a branch of medicine concerned with the study of blood, its diseases, and the involved organs and tissues, demands precise and accurate results for optimal patient care. Central to achieving this precision in laboratories are hematology controls.",
+      ],
+      title: "Why Hematology Controls are needed?",
+      items: [
+        {
+          label: "Quality Assurance",
+          description:
+            "Hematology controls are essential to ensuring that hematology analyzers are working correctly. These controls contain known amounts of different blood components, and when tested, they should produce consistent results if the machine is working accurately.",
+        },
+        {
+          label: "Accuracy and Precision",
+          description:
+            "To ensure that the results produced by hematology analyzers are both accurate (close to the true value) and precise (reproducible), controls are used regularly. Any deviation from expected results can indicate a problem with the instrument or the procedure.",
+        },
+        {
+          label: "Regulatory Compliance",
+          description:
+            "Clinical laboratories are subjected to stringent standards and regulations. Using controls ensures that these laboratories comply with the guidelines set by regulatory bodies, ensuring patient safety.",
+        },
+        {
+          label: "Cost Efficiency",
+          description:
+            "Inaccurate results can lead to misdiagnoses and mistreatments, which can be costly. By using hematology controls, laboratories can potentially save on costs related to retesting and reduce the chances of misdiagnoses.",
+        },
+      ],
+    },
+    importance: {
+      title: "Importance of Hematology Controls",
+      items: [
+        {
+          label: "Patient Safety",
+          description:
+            "At the core of medical diagnostics is the well-being of the patient. Hematology controls provide a safeguard against inaccurate results, which can lead to incorrect treatment plans, jeopardizing patient health.",
+        },
+        {
+          label: "Lab Credibility",
+          description:
+            "Regular use of controls establishes the credibility of a laboratory. When clinicians and patients trust the accuracy of lab results, it fosters a positive reputation for the facility and ensures continued patronage.",
+        },
+        {
+          label: "Early Detection of Instrument Issues",
+          description:
+            "Regular use of hematology controls can detect issues with analyzers early on, allowing for timely maintenance or calibration, ensuring that the machines function optimally.",
+        },
+        {
+          label: "Consistency Across Shifts",
+          description:
+            "Different technicians might work at different times in a laboratory. Using controls ensures that irrespective of who operates the equipment, the results produced remain consistent and reliable.",
+        },
       ],
     },
     ifus: [
@@ -865,52 +940,52 @@ export const termsConditionsContent = {
   title: "Terms and Conditions",
   sections: [
     {
+      heading: "1. ACCEPTANCE OF TERMS",
       paragraphs: [
-        "Welcome to Vanguard Diagnostics. These terms and conditions outline the rules and regulations for the use of Vanguard Diagnostics India Pvt. Ltd.'s Website.",
-        "By accessing this website we assume you accept these terms and conditions. Do not continue to use Vanguard Diagnostics if you do not agree to take all of the terms and conditions stated on this page.",
+        "By accessing or using the Vanguard Diagnostics.in website and subscribing to our services, you agree to comply with and be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our Site.",
       ],
     },
     {
-      heading: "LICENSE",
+      heading: "2. PAYMENT",
       paragraphs: [
-        "Unless otherwise stated, Vanguard Diagnostics India Pvt. Ltd. and/or its licensors own the intellectual property rights for all material on Vanguard Diagnostics. All intellectual property rights are reserved. You may access this from Vanguard Diagnostics for your own personal use subjected to restrictions set in these terms and conditions.",
-        "You must not:",
-      ],
-      list: [
-        "Republish material from Vanguard Diagnostics",
-        "Sell, rent or sub-license material from Vanguard Diagnostics",
-        "Reproduce, duplicate or copy material from Vanguard Diagnostics",
-        "Redistribute content from Vanguard Diagnostics",
+        "Subscribers agree to pay the amount as per their selected plan. Payments are processed securely through our designated payment gateway. Amount is non-refundable.",
       ],
     },
     {
-      heading: "USER COMMENTS",
+      heading: "3. USER RESPONSIBILITIES",
       paragraphs: [
-        "Certain parts of this website offer the opportunity for users to post and exchange opinions and information in certain areas of the website. Vanguard Diagnostics India Pvt. Ltd. does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Vanguard Diagnostics India Pvt. Ltd., its agents and/or affiliates.",
+        "3.1 Account Information: Users are responsible for providing accurate and current information during the site process. Vanguard will be responsible for maintaining the confidentiality of your account information.",
+        "3.2 Prohibited Activities: Users agree not to engage in any activity that disrupts the Site's operation, violates any laws, or infringes upon the rights of others. Prohibited activities include, but are not limited to, unauthorized access, data mining, and the use of malicious software.",
       ],
     },
     {
-      heading: "HYPERLINKING TO OUR CONTENT",
+      heading: "4. PRODUCT LISTINGS AND PURCHASES",
       paragraphs: [
-        "The following organizations may link to our Website without prior written approval:",
-      ],
-      list: [
-        "Government agencies;",
-        "Search engines;",
-        "News organizations;",
-        "Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses.",
+        "4.1 Product Information: Vanguard Diagnostics will be responsible for the accuracy of product as per specifications.",
       ],
     },
     {
-      heading: "DISCLAIMER",
+      heading: "5. INTELLECTUAL PROPERTY",
       paragraphs: [
-        "To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.",
+        "5.1 Ownership: Vanguard Diagnostics retains ownership of the Site and its content, including but not limited to text, graphics, logos, and software.",
       ],
     },
     {
-      heading: "CONTACT INFORMATION",
+      heading: "6. DISCLAIMER OF WARRANTIES",
       paragraphs: [
-        "If you have any queries regarding any of our terms, please contact us using the details published in the contact page.",
+        "Vanguard Diagnostics provides the Site and its services on an \"as is\" basis. We make no warranties, expressed or implied, regarding the accuracy, completeness, or reliability of the Site.",
+      ],
+    },
+    {
+      heading: "7. LIMITATION OF LIABILITY",
+      paragraphs: [
+        "Vanguard Diagnostics is not liable for any direct, indirect, incidental, consequential, or special damages arising out of or in any way connected with the use of the Site or the products purchased through the Site.",
+      ],
+    },
+    {
+      heading: "8. CHANGES TO TERMS AND CONDITIONS",
+      paragraphs: [
+        "Vanguard Diagnostics reserves the right to update or modify these Terms and Conditions at any time. Subscribers will be notified of changes, and continued use of the Site after modifications constitute acceptance of the revised terms.",
       ],
     },
   ] as PolicySection[],

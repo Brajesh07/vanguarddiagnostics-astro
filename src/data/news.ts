@@ -115,7 +115,7 @@ export const newsItems: NewsItem[] = [
   {
     date: "May 2021",
     publication: "Forbes India",
-    link: "#",
+    link: "/pdfs/forbes-news.pdf",
     logo: "Forbes-India-300x126.jpg",
   },
   {

@@ -67,16 +67,6 @@ const navLinks = [
         internal: true,
       },
       {
-        text: "Webinars",
-        href: "/news#webinars",
-        internal: true,
-      },
-      {
-        text: "News",
-        href: "/news#news",
-        internal: true,
-      },
-      {
         text: "Blogs & Resources",
         href: "/blogs",
         internal: true,

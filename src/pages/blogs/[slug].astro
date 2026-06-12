@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import CommentForm from "../../components/CommentForm";
+// import CommentForm from "../../components/CommentForm";
+import GSCommentForm from "../../components/GSCommentForm";
 import PostNavigation from "../../components/blog/PostNavigation.astro";
 
 export async function getStaticPaths() {
@@ -108,7 +109,8 @@ const pageSchema = [
         Your email address will not be published. Required fields are marked *
       </p>
 
-      <CommentForm client:load postSlug={post.id} />
+      {/* <CommentForm client:load postSlug={post.id} /> */}
+      <GSCommentForm client:load postSlug={post.id} />
     </div>
   </main>
 </Layout>

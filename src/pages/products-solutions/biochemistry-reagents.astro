@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import PDFDocumentGrid from "../../components/PDFFlipbook/PDFDocumentGrid.jsx";
+import PDFLinkGrid from "../../components/ui/PDFLinkGrid.astro";
 
 const title = "Reliable Biochemistry Reagents | Vanguard Diagnostics";
 const description =
@@ -11,22 +11,33 @@ const allBiochemistryProducts = [
     label: "Albumin with human protein calibrator",
     href: "/pdfs/Albumin-IFU.pdf",
   },
+  { label: "Immunoturbidity Method CRP", href: "/pdfs/CRP-Insert_Final.pdf" },
   {
     label: "Alkaline Phosphatase, Liquid Stable",
     href: "/pdfs/Alkaline-Phosphatase-IFU.pdf",
   },
+  { label: "Immunoturbidity Method ASO", href: "/pdfs/ASO-Insert_Final.pdf" },
   { label: "Amylase, Single Reagent", href: "/pdfs/Amylase-IFU.pdf" },
+  {
+    label: "LDL Cholesterol Direct, Enzymatic",
+    href: "/pdfs/LDL-Cholesterol-IFU.pdf",
+  },
   { label: "Ammonia, Liquid Stable", href: "/pdfs/Ammonia-IFU.pdf" },
+  { label: "Lipase", href: "/pdfs/Lipase-IFU.pdf" },
   { label: "Adenosine Deaminase Liquid Stable", href: "/pdfs/ADA-IFU.pdf" },
+  { label: "Lactate Dehydrogenase Liquid Stable", href: "/pdfs/LDH-IFU.pdf" },
   {
     label: "Bilirubin, Total & Direct",
     href: "/pdfs/VDx-Bilirubin-TD-Insert-4-reagents.pdf",
   },
+  { label: "Microprotein, Pyrogallol Red", href: "/pdfs/Microprotein-IFU.pdf" },
   {
-    label: "Calcium, Arsenazo III (available in micro-vials also)",
+    label: "Calcium, Arsenazo III (available in mono-vials also)",
     href: "/pdfs/Calcium-IFU.pdf",
   },
+  { label: "Magnesium, Single Reagent", href: "/pdfs/Magnesium-IFU.pdf" },
   { label: "Cholesterol, Single Reagent", href: "/pdfs/Cholesterol-IFU.pdf" },
+  { label: "Phosphorus, Single Reagent", href: "/pdfs/Phosphorus-IFU.pdf" },
   {
     label: "Creatinine, Single Reagent & Two Reagents",
     href: "/pdfs/Creatinine-IFU.pdf",
@@ -42,16 +53,6 @@ const allBiochemistryProducts = [
     href: "/pdfs/HDL-cholesterol-IFU.pdf",
   },
   { label: "Immunoturbidity Method RF", href: "/pdfs/RF-Insert_Final.pdf" },
-  { label: "Immunoturbidity Method CRP", href: "/pdfs/CRP-Insert_Final.pdf" },
-  { label: "Immunoturbidity Method ASO", href: "/pdfs/ASO-Insert_Final.pdf" },
-  {
-    label: "LDL Cholesterol Direct, Enzymatic",
-    href: "/pdfs/LDL-Cholesterol-IFU.pdf",
-  },
-  { label: "Lipase", href: "/pdfs/Lipase-IFU.pdf" },
-  { label: "Microprotein, Pyrogallol Red", href: "/pdfs/Microprotein-IFU.pdf" },
-  { label: "Magnesium, Single Reagent", href: "/pdfs/Magnesium-IFU.pdf" },
-  { label: "Phosphorus, Single Reagent", href: "/pdfs/Phosphorus-IFU.pdf" },
   { label: "Potassium, Single Reagent", href: "/pdfs/Potassium-IFU.pdf" },
   { label: "SGOT, Highly stable NADH based", href: "/pdfs/SGOT-AST-IFU.pdf" },
   { label: "SGPT, Highly stable NADH based", href: "/pdfs/SGPT-ALT-IFU.pdf" },
@@ -81,7 +82,7 @@ const technicalReports = [
 ---
 
 <Layout title={title} description={description}>
-  <main class="bg-[#efefef] text-foreground pb-20">
+  <main class="bg-[#efefef] text-foreground">
     <!-- Hero Banner -->
     <section class="bg-white pt-6">
       <video
@@ -116,16 +117,20 @@ const technicalReports = [
       <!-- Introduction -->
       <div class="text-[15px] leading-7 text-[#555555] space-y-5 mb-14">
         <p>
-          Vanguard Diagnostics, a renowned name in the <strong
-            class="text-[#222222]">diagnostics sector</strong
+          Vanguard Diagnostics, a renowned name in the <a
+            href="/contact-us"
+            class="text-primary">diagnostics sector</a
           >, offers a variety of high-quality
-          <strong class="text-primary">Biochemistry Reagents</strong>. These
+          <strong class="text-[#222222]">Biochemistry Reagents</strong>. These
           products offer single reagents in the liquid stable format. We offer
-          <strong class="text-[#222222]">human serum calibrators</strong> in place
-          of simple standards in order to ensure matrix parity and accuracy of results.
+          <a
+            href="https://pubmed.ncbi.nlm.nih.gov/6705186/"
+            class="text-primary">human serum calibrators</a
+          > in place of simple standards in order to ensure matrix parity and accuracy
+          of results.
         </p>
         <p>
-          Our <strong class="text-primary">Biochemistry Reagents</strong> are rigorously
+          Our <strong class="text-[#222222]">Biochemistry Reagents</strong> are rigorously
           formulated and quality tested, often surpassing industry standards. They
           are crucial for determining biochemical markers for diabetes, lipid profile,
           liver function, kidney function amongst others. Vanguard Diagnostics' Reagents
@@ -208,41 +213,57 @@ const technicalReports = [
       </div>
 
       <!-- Product List -->
-      <div
-        class="bg-white rounded-xl border border-gray-100 shadow-sm p-8 mb-16"
-      >
-        <h2
-          class="text-2xl font-bold text-[#222222] mb-8 flex items-center gap-3"
-        >
-          Our Products
-          <div class="h-px flex-1 bg-gray-100"></div>
+      <div>
+        <h2 class="text-[17px] font-bold text-[#222222] mb-6">
+          Vanguard brand Biochemistry Reagents for all open/ partially open
+          models
         </h2>
 
-        <div class="flex flex-col lg:flex-row gap-12">
-          <!-- Two-column product grid -->
+        <div class="flex flex-col lg:flex-row gap-10">
+          <!-- Two-column text link list -->
           <div class="flex-1">
-            <PDFDocumentGrid client:load docs={allBiochemistryProducts} />
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2">
+              {
+                allBiochemistryProducts.map((doc) => (
+                  <li class="flex items-start gap-2">
+                    <img
+                      class="mt-[5px] shrink-0 w-[14px] h-[14px] inline-block"
+                      src="/images/vanguard/shared/bullets-1.png"
+                    />
+                    <a
+                      href={doc.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-base underline hover:text-[#008a96] leading-snug"
+                    >
+                      {doc.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
           </div>
 
-          <!-- Side image -->
-          <div class="lg:w-[260px] shrink-0 flex items-start justify-center">
+          <!-- Side image with teal border -->
+          <div
+            class="w-full max-w-[382px] shrink-0 flex items-center justify-center"
+          >
             <img
-              src="/images/vanguard/uploads/new-img-open-models.png"
+              src="/images/vanguard/products-solutions/new-img-open-models.png"
               alt="biochemistry reagents"
-              class="w-full max-w-[260px] h-auto object-contain"
+              class="w-full max-w-[382px] h-auto object-contain rounded-xl"
             />
           </div>
         </div>
       </div>
 
       <!-- Technical Reports -->
-      <div class="bg-gray-50 rounded-xl p-8">
-        <h2 class="text-[22px] font-bold text-[#222222] mb-8">
-          Technical Reports <span class="text-primary"
-            >(Accuracy, Precision, Performance, Accelerated Stability)</span
-          >
+      <div class="py-8">
+        <h2 class="text-3xl text-center font-bold text-primary mb-8">
+          Technical Reports (Accuracy, Precision, Performance, Accelerated
+          Stability)
         </h2>
-        <PDFDocumentGrid client:load docs={technicalReports} />
+        <PDFLinkGrid docs={technicalReports} />
       </div>
     </section>
   </main>
