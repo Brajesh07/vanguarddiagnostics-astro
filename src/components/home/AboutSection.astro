@@ -4,11 +4,13 @@ import { homeContent } from "../../data/content";
 const { about } = homeContent;
 const { cards } = about;
 
-const popupData = cards.filter(card => card.popupHeading).map(card => ({
-  id: card.id,
-  heading: card.popupHeading,
-  para: card.popupPara
-}));
+const popupData = cards
+  .filter((card) => card.popupHeading)
+  .map((card) => ({
+    id: card.id,
+    heading: card.popupHeading,
+    para: card.popupPara,
+  }));
 ---
 
 <!-- About section -->
@@ -16,14 +18,17 @@ const popupData = cards.filter(card => card.popupHeading).map(card => ({
   <div
     class="vanguard-shell grid gap-8 md:grid-cols-[448px_1fr] md:items-start"
   >
-    <div class="border-l-[3px] border-l-primary pl-3 flex h-full">
+    <div class="border-l-[3px] border-l-primary pl-3">
       <div class="w-full overflow-hidden border border-[#d6dce0] bg-black">
-        <iframe
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          class="h-full w-full"
-          src={`https://www.youtube.com/embed/${about.youtubeId}?controls=1&rel=0`}
-          title="Vanguard coverage"></iframe>
+        <div class="relative w-full" style="padding-bottom: 56.25%;">
+          <iframe
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="absolute inset-0 h-full w-full"
+            src={`https://www.youtube.com/embed/${about.youtubeId}?controls=1&rel=0`}
+            title="Vanguard coverage"
+            loading="lazy"></iframe>
+        </div>
       </div>
     </div>
 
@@ -32,7 +37,8 @@ const popupData = cards.filter(card => card.popupHeading).map(card => ({
         {about.subtitle}
       </p>
       <p class="text-3xl font-medium leading-[1.2] text-black">
-        {about.title.split(' ')[0]} <span class="ml-2 text-primary">{about.title.split(' ')[1]}</span>
+        {about.title.split(" ")[0]}
+        <span class="ml-2 text-primary">{about.title.split(" ")[1]}</span>
       </p>
       <p class="mt-3 text-[16px] leading-[1.65] text-muted-foreground">
         {about.definitionTitle}
@@ -70,12 +76,15 @@ const popupData = cards.filter(card => card.popupHeading).map(card => ({
       <p class="font-sans text-base font-medium leading-[1.2] text-primary">
         {about.awardsSection.title}
       </p>
-      <iframe
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        class="h-full w-full"
-        src={`https://www.youtube.com/embed/${about.awardsSection.youtubeId}?si=y3YnhhLnWz5fA7pA`}
-        title="Vanguard award"></iframe>
+      <div class="relative w-full" style="padding-bottom: 56.25%;">
+        <iframe
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="absolute inset-0 h-full w-full"
+          src={`https://www.youtube.com/embed/${about.awardsSection.youtubeId}?si=y3YnhhLnWz5fA7pA`}
+          title="Vanguard award"
+          loading="lazy"></iframe>
+      </div>
     </div>
   </div>
 </section>

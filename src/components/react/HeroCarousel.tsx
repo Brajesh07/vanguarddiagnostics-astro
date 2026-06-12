@@ -43,22 +43,22 @@ export default function HeroCarousel() {
                 src={hero.slides[0].bg}
               />
               <div className="flex w-full lg:w-[1200px] h-fit shrink-0 items-center lg:items-end gap-8 p-6 md:p-10 flex-col lg:flex-row">
-                <div className="overflow-hidden">
+                <div className="overflow-hidden max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-none w-full">
                   <img
                     alt="Vanscan product"
                     className="h-full w-full object-cover"
                     src={hero.slides[0].productImg}
                   />
                 </div>
-                <div className="max-w-full md:max-w-[460px] xl:max-w-[540px]">
+                <div className="max-w-full md:max-w-[460px] xl:max-w-[540px] text-center lg:text-left">
                   <img
                     alt="Vanguard Diagnostics"
-                    className="ml-auto h-8 w-auto md:h-12"
+                    className="mx-auto lg:ml-auto h-8 w-auto md:h-12"
                     src={hero.slides[0].vanguardLogo}
                   />
                   <img
                     alt="Launched Vanscan"
-                    className="mt-6 h-auto w-[260px] max-w-full"
+                    className="mt-6 h-auto w-[260px] max-w-full mx-auto lg:mx-0"
                     src={hero.slides[0].launchBadge}
                   />
                   <h2 className="mt-4 text-2xl font-bold leading-[1.02] text-[#3f434a] md:text-5xl">
@@ -83,6 +83,7 @@ export default function HeroCarousel() {
                 </div>
               </div>
             </article>
+
 
             {/* Slide 2: Video Banner */}
             <article className="relative w-full shrink-0 overflow-hidden bg-white">
