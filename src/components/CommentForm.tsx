@@ -42,7 +42,7 @@ export default function CommentForm({ postSlug }: CommentFormProps) {
         name="comment"
         rows={6}
         placeholder="Type here..."
-        className="w-full border border-border p-3 text-[14px] focus:outline-none focus:border-primary transition-colors resize-y bg-[#fafafa]"
+        className="w-full border border-border p-3 text-base focus:outline-none focus:border-primary transition-colors resize-y bg-[#fafafa]"
         required
       ></textarea>
       
@@ -51,21 +51,21 @@ export default function CommentForm({ postSlug }: CommentFormProps) {
           name="name"
           type="text"
           placeholder="Name*"
-          className="border border-border p-3 text-[14px] focus:outline-none focus:border-primary transition-colors bg-[#fafafa]"
+          className="border border-border p-3 text-base focus:outline-none focus:border-primary transition-colors bg-[#fafafa]"
           required
         />
         <input
           name="email"
           type="email"
           placeholder="Email*"
-          className="border border-border p-3 text-[14px] focus:outline-none focus:border-primary transition-colors bg-[#fafafa]"
+          className="border border-border p-3 text-base focus:outline-none focus:border-primary transition-colors bg-[#fafafa]"
           required
         />
         <input
           name="website"
           type="url"
           placeholder="Website"
-          className="border border-border p-3 text-[14px] focus:outline-none focus:border-primary transition-colors bg-[#fafafa]"
+          className="border border-border p-3 text-base focus:outline-none focus:border-primary transition-colors bg-[#fafafa]"
         />
       </div>
 
@@ -79,7 +79,7 @@ export default function CommentForm({ postSlug }: CommentFormProps) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`bg-primary text-white font-medium text-[14px] px-6 py-2.5 w-fit hover:bg-primary/90 transition-colors mt-2${
+        className={`bg-primary text-white font-medium text-base px-6 py-2.5 w-fit hover:bg-primary/90 transition-colors mt-2${
           isSubmitting ? " opacity-70 cursor-not-allowed" : ""
         }`}
       >

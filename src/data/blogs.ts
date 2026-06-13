@@ -112,6 +112,17 @@ export const blogPosts: BlogPost[] = [
     link: "/blogs/automated-hematology-analyzer",
     image: "/images/vanguard/blogs/Hematology-Analyzers-300x300.webp",
   },
+  {
+    slug: "Automated Hematology Analyser",
+    title: "Automated Hematology Analyser",
+    date: "2023-06-01",
+    dateLabel: "June 2023",
+    category: "Blogs",
+    author: "admin",
+    excerpt: "Automated Hematology Analyzers, also known as hematology cell counters, are sophisticated laboratory instruments that play a vital role in diagnosing and monitoring various blood-related disorders. These automated machines have transformed the field of hematology by providing accurate complete blood count (CBC) results rapidly, reducing manual errors and improving diagnostic throughput.",
+    link: "/blogs/automated-hematology-analyser",
+    image: "/images/vanguard/blogs/default_image.png",
+  }
 ];
 
 export const recentPosts: { title: string; link: string }[] = blogPosts

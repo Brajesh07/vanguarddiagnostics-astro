@@ -18,30 +18,34 @@ const pageSchema = [
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Vanguard Diagnostics Product Categories",
-    "itemListElement": productsContent.categories.map((cat, index) => ({
+    name: "Vanguard Diagnostics Product Categories",
+    itemListElement: productsContent.categories.map((cat, index) => ({
       "@type": "ListItem",
-      "position": index + 1,
-      "name": cat.name,
-      "url": `${BASE_URL}${cat.href}`,
+      position: index + 1,
+      name: cat.name,
+      url: `${BASE_URL}${cat.href}`,
     })),
   },
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": `${BASE_URL}/`,
+        position: 1,
+        name: "Home",
+        item: `${BASE_URL}/`,
       },
     ],
   },
 ];
 ---
 
-<Layout title={metadata.title} description={metadata.description} pageSchema={pageSchema}>
+<Layout
+  title={metadata.title}
+  description={metadata.description}
+  pageSchema={pageSchema}
+>
   <main class="overflow-x-hidden">
     <!-- Hero carousel (React island — has useState/useEffect) -->
     <HeroCarousel client:load />

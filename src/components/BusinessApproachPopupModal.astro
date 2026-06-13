@@ -1,0 +1,138 @@
+---
+/**
+ * BusinessApproachPopupModal
+ *
+ * Props:
+ *   popupId        – unique id for the <dialog> wrapper
+ *   openBtnId      – id of the trigger button / link on the page
+ *   heading        – main heading text shown in the modal (supports HTML)
+ *   content        – paragraph text below the heading
+ *   backgroundImage – path to the bg image (defaults to home-popup-bg-2.jpg)
+ */
+
+interface Props {
+  popupId: string;
+  openBtnId: string;
+  heading: string;
+  content: string;
+  backgroundImage?: string;
+}
+
+const {
+  popupId,
+  openBtnId,
+  heading,
+  content,
+  backgroundImage = "/images/homepage/home-popup-bg-2.jpg",
+} = Astro.props;
+
+const closeBtnId = `close-${popupId}`;
+const backdropId = `${popupId}-backdrop`;
+const headingId  = `${popupId}-heading`;
+---
+
+<!-- Modal wrapper (hidden by default) -->
+<div
+  id={popupId}
+  class="fixed inset-0 z-[9999] hidden items-center justify-center"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby={headingId}
+>
+  <!-- Backdrop -->
+  <div
+    id={backdropId}
+    class="absolute inset-0 bg-black/60 backdrop-blur-sm"
+  ></div>
+
+  <!-- Modal panel -->
+  <div
+    class="relative w-full aspect-[16/10] max-w-2xl mx-4 rounded-2xl overflow-hidden shadow-2xl"
+    style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
+  >
+    <div class="relative z-10 px-8 py-10 md:px-12 md:py-12 h-full flex flex-col justify-center">
+      <!-- Close button -->
+      <button
+        id={closeBtnId}
+        class="absolute top-4 right-4 text-gray-900 transition-colors"
+        aria-label="Close popup"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-7 h-7"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- Heading -->
+      <h2
+        id={headingId}
+        class="text-2xl md:text-3xl font-bold text-primary leading-snug mb-3"
+        set:html={heading}
+      />
+
+      <!-- Divider -->
+      <div class="h-[3px] w-12 bg-[#4dd9e8] mb-5"></div>
+
+      <!-- Content paragraph -->
+      <p class="text-gray-950 text-base md:text-lg font-semibold leading-relaxed">
+        {content}
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Fade-in animation when popup becomes visible */
+  [id$="-popup"].popup-open .relative {
+    animation: popupFadeIn 0.25s ease;
+  }
+  @keyframes popupFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+</style>
+
+<script define:vars={{ popupId, openBtnId, closeBtnId, backdropId }}>
+  const popup    = document.getElementById(popupId);
+  const openBtn  = document.getElementById(openBtnId);
+  const closeBtn = document.getElementById(closeBtnId);
+  const backdrop = document.getElementById(backdropId);
+
+  function openPopup() {
+    if (!popup) return;
+    popup.classList.remove("hidden");
+    popup.classList.add("flex", "popup-open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePopup() {
+    if (!popup) return;
+    popup.classList.add("hidden");
+    popup.classList.remove("flex", "popup-open");
+    document.body.style.overflow = "";
+  }
+
+  if (openBtn)  openBtn.addEventListener("click", openPopup);
+  if (closeBtn) closeBtn.addEventListener("click", closePopup);
+  if (backdrop) backdrop.addEventListener("click", closePopup);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closePopup();
+  });
+</script>

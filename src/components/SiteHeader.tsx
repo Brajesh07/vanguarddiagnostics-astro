@@ -83,9 +83,16 @@ export default function SiteHeader() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   // Tracks which mobile accordion submenu is expanded
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     setPathname(window.location.pathname);
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -128,7 +135,9 @@ export default function SiteHeader() {
   }
 
   return (
-    <header className="bg-white">
+    <header
+      className={`sticky top-0 z-[100] w-full bg-white transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}
+    >
       <div className="border-b border-border">
         <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-4 py-4 md:px-6">
           <a href="/">
@@ -315,7 +324,7 @@ export default function SiteHeader() {
                         {link.submenu.map((sub) => (
                           <li key={sub.text}>
                             <a
-                              className="flex items-center gap-2 py-2.5 pl-4 text-[14px] text-muted-foreground hover:text-primary"
+                              className="flex items-center gap-2 py-2.5 pl-4 text-base text-muted-foreground hover:text-primary"
                               href={sub.href}
                               {...(!sub.internal
                                 ? {

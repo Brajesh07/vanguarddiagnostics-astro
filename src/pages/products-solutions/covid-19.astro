@@ -1,233 +1,380 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from "../../layouts/Layout.astro";
+import BusinessApproachPopupModal from "../../components/BusinessApproachPopupModal.astro";
 
 const title = "Leading COVID Test Kit Manufacturer | Vanguard Diagnostics";
-const description = "Vanguard Diagnostics: Leading COVID Test Kit Manufacturer for healthcare providers. Explore our innovative solutions for comprehensive disease control.";
+const description =
+  "Vanguard Diagnostics: Leading COVID Test Kit Manufacturer for healthcare providers. Explore our innovative solutions for comprehensive disease control.";
+
+const BASE_URL = "https://vanguarddiagnostics.com";
+
+const pageSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Leading COVID Test Kit Manufacturer | Vanguard Diagnostics",
+    url: `${BASE_URL}/products-solutions/covid-19`,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${BASE_URL}/` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products & Solutions",
+        item: `${BASE_URL}/products-solutions`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Covid-19",
+        item: `${BASE_URL}/products-solutions/covid-19`,
+      },
+    ],
+  },
+];
 ---
 
-<Layout title={title} description={description}>
-  <main class="bg-white text-foreground pb-20">
+<Layout title={title} description={description} pageSchema={pageSchema}>
+  <main class="bg-[#ffffff] text-foreground">
+    <!-- ─── Section 1: Hero – image top, video bottom / text right ─── -->
+    <section class="bg-[#ffffff] pt-20 pb-0">
+      <div class="px-4 md:px-8">
+        <div class="flex flex-col xl:flex-row gap-10 items-start">
+          <!-- Left column: banner image stacked above YouTube embed -->
+          <div class="w-full xl:flex-[1.4] shrink-0 flex flex-col gap-0">
+            <!-- Top: Covid-19 label + decorative illustration -->
+            <div class="relative bg-[#f0f4f8]">
+              <img
+                src="/images/vanguard/products-solutions/covid-19-banner-1.webp"
+                alt="Covid-19 – Vanguard Diagnostics"
+                class="w-full h-auto object-cover"
+              />
+            </div>
 
-    <!-- Hero: Covid-19 Banner -->
-    <section class="bg-white">
-      <img
-        src="/images/vanguard/products-solutions/covid-19-banner-1.webp"
-        alt="COVID Test Kit Manufacturer – Vanguard Diagnostics"
-        class="block w-full h-auto object-cover"
-      />
-    </section>
-
-    <!-- Accent bar -->
-    <div class="h-[3px] bg-primary"></div>
-
-    <!-- Intro section: two-column layout (video left, text right) -->
-    <section class="max-w-[1120px] mx-auto px-4 md:px-8 py-14">
-      <div class="flex flex-col lg:flex-row gap-10 items-start">
-
-        <!-- Left: YouTube embed -->
-        <div class="w-full lg:w-[420px] shrink-0">
-          <div class="relative w-full" style="padding-bottom: 56.25%;">
-            <iframe
-              class="absolute inset-0 w-full h-full rounded-md shadow-md"
-              src="https://www.youtube.com/embed/vHUVhJlktOs?si=vKL9Mia1fIKZLiOq"
-              title="Vanguard Diagnostics – COVID Test Kit Manufacturer"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <!-- Bottom: YouTube embed -->
+            <div class="relative w-full" style="padding-bottom: 56.25%;">
+              <iframe
+                class="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/vHUVhJlktOs?si=vKL9Mia1fIKZLiOq"
+                title="Vanguard Diagnostics – COVID Test Kit Manufacturer"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
           </div>
-        </div>
 
-        <!-- Right: intro text -->
-        <div class="flex-1 text-[15px] leading-7 text-[#555555] space-y-5">
-          <h1 class="text-2xl md:text-3xl font-bold text-[#222222] mb-4">COVID Test Kit Manufacturer</h1>
-          <p>
-            The Covid-19 pandemic has put the technical and scientific abilities of the Indian in-vitro Diagnostics
-            industry to the test, since the beginning of this year. The industry has responded to the need of the hour
-            swiftly, scientifically, strongly, and successfully. Since the month of March this year, the market started
-            buzzing with the launch of novel Indian products for the detection of Covid-19.
-          </p>
-          <p>
-            Today, there are more than 30 Indian IVD companies that have introduced indigenous kits based on the Gold
-            Standard, RT PCR technology, and over 15 companies who have developed the antibody detection tests for Covid-19.
-          </p>
-          <p>
-            With the increasing acceptance and usage of the RT PCR tests, the requirement for the Viral Transport Medium
-            (VTM) to protect the virulence and viability of the virus during transport and storage also registered a
-            massive surge. Large quantities of the VTM kits were initially being imported since there was not a single
-            <strong class="text-[#222222]">covid test kit manufacturer</strong> of throat and nasopharyngeal swabs in the country.
-          </p>
-          <p>
-            With the encouragement and guidance from the Govt. of India, a couple of local
-            <strong class="text-[#222222]">covid test kit manufacturers</strong> emerged for these swabs. Presently, there are over
-            20 local <strong class="text-[#222222]">covid test kit manufacturers</strong> of VTM kits in India.
-          </p>
+          <!-- Right column: heading + paragraphs -->
+          <div class="flex-1 py-4 px-4 xl:pr-28">
+            <h1
+              class="text-[28px] md:text-[32px] font-bold text-[#222222] mb-6 leading-snug"
+            >
+              COVID Test Kit Manufacturer
+            </h1>
+            <div
+              class="text-[15px] leading-7 text-[#555555] space-y-5 text-justify"
+            >
+              <p>
+                The Covid-19 pandemic has put the technical and scientific
+                abilities of the Indian in-vitro Diagnostics industry to the
+                test, since the beginning of this year. The industry has
+                responded to the need of the hour swiftly, scientifically,
+                strongly, and successfully. Since the month of March this year,
+                the market started buzzing with the launch of novel Indian
+                products for the detection of Covid-19.
+              </p>
+              <p>
+                Today, there are more than 30 Indian IVD companies that have
+                introduced indigenous kits based on the Gold Standard, RT PCR
+                technology, and over 15 companies who have developed the
+                antibody detection tests for Covid-19.
+              </p>
+              <p>
+                With the increasing acceptance and usage of the RT PCR tests,
+                the requirement for the Viral Transport Medium (VTM) to protect
+                the virulence and viability of the virus during transport and
+                storage also registered a massive surge. Large quantities of the
+                VTM kits were initially being imported since there was not a
+                single
+                <strong class="text-[#222222]"
+                  >covid test kit manufacturer</strong
+                > of throat and nasopharyngeal swabs in the country.
+              </p>
+              <p>
+                With the encouragement and guidance from the Govt. of India, a
+                couple of local
+                <strong class="text-[#222222]"
+                  >covid test kit manufacturers</strong
+                > emerged for these swabs. Presently, there are over 20 local <strong
+                  class="text-[#222222]">covid test kit manufacturers</strong
+                > of VTM kits in India.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Business Approach Banner -->
-    <section class="w-full">
+    <!-- ─── Section 2: Business Approach Banner ─── -->
+    <section class="w-full mt-10 flex">
+      <div class="md:flex w-full flex-1 hidden"></div>
       <img
+        id="business-approach-trigger"
         src="/images/vanguard/products-solutions/business-approach-1.jpg"
         alt="The renewed business approach of Vanguard Diagnostics"
-        class="block w-full h-auto object-cover"
+        class="flex flex-[2] w-full h-auto object-cover cursor-pointer"
       />
     </section>
 
-    <!-- Product Sections -->
-    <section class="max-w-[1120px] mx-auto px-4 md:px-8 py-14 space-y-16">
-
-      <!-- 1. Viral Transport Medium (VTM) -->
-      <div class="flex flex-col md:flex-row gap-10 items-start">
-        <!-- Image -->
-        <div class="w-full md:w-[280px] shrink-0">
+    <!-- ─── Section 3–6: Product Cards ─── -->
+    <section class="max-w-[1120px] mx-auto px-4 md:px-8 py-14 space-y-14">
+      <!-- ── 1. Viral Transport Medium (VTM) ── -->
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <!-- Left: product image -->
+        <div class="w-full md:w-[45%] shrink-0">
           <img
             src="/images/vanguard/products-solutions/Viral-Transport-Medium-banner-1.jpg"
             alt="Viral Transport Medium (VTM) – Made in India"
-            class="w-full h-auto object-contain rounded-md"
+            class="w-full h-auto object-contain rounded-sm"
           />
         </div>
-        <!-- Content -->
+        <!-- Right: content -->
         <div class="flex-1">
-          <h2 class="text-[20px] font-bold text-[#222222] mb-1 flex items-center gap-2">
-            Viral Transport Medium (VTM),
+          <h2 class="text-[20px] font-bold leading-snug mb-1">
+            <span class="text-primary">Viral Transport Medium</span>
+            <span class="text-[#222222]"> (VTM),</span><br />
             <span class="text-primary">'Made in India'</span>
-            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full border-2 border-primary text-primary shrink-0 ml-1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            <!-- PDF download circle-arrow icon -->
+            <a
+              href="/pdfs/covid-19/VTM.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download VTM PDF"
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-primary hover:text-white transition-colors align-middle shrink-0"
+            >
+              <!-- Circle arrow right icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-3.5 h-3.5"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
-            </span>
+            </a>
           </h2>
-          <div class="h-[2px] w-12 bg-primary mb-5"></div>
-          <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+          <div class="h-[2px] w-10 bg-primary mt-2 mb-5"></div>
+          <div
+            class="text-[15px] leading-7 text-[#555555] space-y-4 text-justify"
+          >
             <p>
-              Our technical team took less than a week to develop a highly stable and robust viral transport medium kit,
-              for the safe transport and storage of Covid-19 clinical samples. All the raw materials and accessories were
-              sourced locally thereby delivering a product which was truly 'Made in India'. Soon thereafter, we received
-              the ICMR approval for the same.
+              Our technical team took less than a week to develop a highly
+              stable and robust viral transport medium kit, for the safe
+              transport and storage of Covid-19 clinical samples. All the raw
+              materials and accessories were sourced locally thereby delivering
+              a product which was truly 'Made in India'. Soon thereafter, we
+              received the ICMR approval for the same.
             </p>
             <p>
-              We then ramped up our installed manufacturing capacity by four times to meet the market demand for this product.
+              We then ramped up our installed manufacturing capacity by four
+              times to meet the market demand for this product.
             </p>
           </div>
         </div>
       </div>
 
       <!-- Divider -->
-      <div class="border-t border-gray-100"></div>
+      <div class="border-t border-gray-200"></div>
 
-      <!-- 2. Viral Lysis Transport Medium (VLTM) Kit -->
-      <div class="flex flex-col md:flex-row gap-10 items-start">
-        <!-- Image -->
-        <div class="w-full md:w-[280px] shrink-0">
+      <!-- ── 2. Viral Lysis Transport Medium (VLTM) Kit ── -->
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <!-- Left: product image -->
+        <div class="w-full md:w-[45%] shrink-0">
           <img
             src="/images/vanguard/products-solutions/Viral-Lysis-Transport-Medium-2.jpg"
             alt="Viral Lysis Transport Medium (VLTM) Kit"
-            class="w-full h-auto object-contain rounded-md"
+            class="w-full h-auto object-contain rounded-sm"
           />
         </div>
-        <!-- Content -->
+        <!-- Right: content -->
         <div class="flex-1">
-          <h2 class="text-[20px] font-bold text-[#222222] mb-1 flex items-center gap-2">
-            Viral Lysis Transport Medium (VLTM) Kit
-            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full border-2 border-primary text-primary shrink-0 ml-1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          <h2 class="text-[20px] font-bold leading-snug mb-1">
+            <span class="text-primary">Viral Lysis Transport</span><br />
+            <span class="text-primary">Medium</span>
+            <span class="text-[#222222]"> (VLTM) Kit</span>
+            <!-- PDF download circle-arrow icon -->
+            <a
+              href="/pdfs/covid-19/VLTM-Kit.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download VLTM Kit PDF"
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-primary hover:text-white transition-colors align-middle shrink-0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-3.5 h-3.5"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
-            </span>
+            </a>
           </h2>
-          <div class="h-[2px] w-12 bg-primary mb-5"></div>
-          <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+          <div class="h-[2px] w-10 bg-primary mt-2 mb-5"></div>
+          <div
+            class="text-[15px] leading-7 text-[#555555] space-y-4 text-justify"
+          >
             <p>
-              VDx Viral Lysis Transport Medium (VLTM) Kit is used for the collection and transport of clinical specimens
-              of Covid-19 and other viruses.
+              VDx Viral Lysis Transport Medium (VLTM) Kit is used for the
+              collection and transport of clinical specimens of Covid-19 and
+              other viruses.
             </p>
             <p>
-              VDx VLTM Kit is a specially designed product for the collection and transport of Covid-19 specimens.
-              It is designed to lyse and maintain optimum conditions for the transport of the viral sample.
+              VDx VLTM Kit is a specially designed product for the collection
+              and transport of Covid-19 specimens. It is designed to lyse and
+              maintain optimum conditions for the transport of the viral sample.
             </p>
           </div>
         </div>
       </div>
 
       <!-- Divider -->
-      <div class="border-t border-gray-100"></div>
+      <div class="border-t border-gray-200"></div>
 
-      <!-- 3. Technical Collaboration with IIT Delhi / DRDO -->
-      <div class="flex flex-col md:flex-row gap-10 items-start">
-        <!-- Image -->
-        <div class="w-full md:w-[280px] shrink-0">
+      <!-- ── 3. COVID Test Kit Manufacturer – Technical Collaboration ── -->
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <!-- Left: product image -->
+        <div class="w-full md:w-[45%] shrink-0">
           <img
             src="/images/vanguard/products-solutions/Technical-collaboration-2.jpg"
             alt="Technical collaboration with IIT Delhi and DIPAS/DRDO – ICMR approved"
-            class="w-full h-auto object-contain rounded-md"
+            class="w-full h-auto object-contain rounded-sm"
           />
         </div>
-        <!-- Content -->
+        <!-- Right: content -->
         <div class="flex-1">
-          <h2 class="text-[20px] font-bold text-[#222222] mb-1 flex items-start gap-2">
-            <span>
-              COVID Test Kit Manufacturer &ndash; Technical collaboration with IIT Delhi and DIPAS/DRDO&mdash;ICMR approved
-            </span>
-            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full border-2 border-primary text-primary shrink-0 mt-[3px]">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          <h2 class="text-[20px] font-bold leading-snug mb-1">
+            <span class="text-[#222222]"
+              >COVID Test Kit Manufacturer &ndash;Technical collaboration with</span
+            ><br />
+            <span class="text-[#222222]">IIT Delhi and DIPAS/DRDO-</span><br />
+            <span class="text-[#222222]">ICMR approved</span>
+            <!-- PDF download circle-arrow icon -->
+            <a
+              href="/pdfs/covid-19/VDxBrochure-July2021.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download VDx Brochure PDF"
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-primary hover:text-white transition-colors align-middle shrink-0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-3.5 h-3.5"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
-            </span>
+            </a>
           </h2>
-          <div class="h-[2px] w-12 bg-primary mb-5"></div>
-          <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+          <div class="h-[2px] w-10 bg-primary mt-2 mb-5"></div>
+          <div
+            class="text-[15px] leading-7 text-[#555555] space-y-4 text-justify"
+          >
             <p>
-              Vanguard Diagnostics has also collaborated with IIT Delhi on a project funded by BIRAC, for an aptamer
-              based novel test for the detection of Covid-19 antigen.
+              Vanguard Diagnostics has also collaborated with IIT Delhi on a
+              project funded by BIRAC, for an aptamer based novel test for the
+              detection of Covid-19 antigen.
             </p>
             <p>
-              Vanguard Diagnostics has also collaborated with DIPAS/DRDO (Defence Research and Development Organisation)
-              for the development of an ELISA test for the detection of IgG antibody to Covid-19.
+              Vanguard Diagnostics has also collaborated with DIPAS/DRDO
+              (Defence Research and Development Organisation) for the
+              development of an ELISA test for the detection of IgG antibody to
+              Covid-19.
             </p>
           </div>
         </div>
       </div>
 
       <!-- Divider -->
-      <div class="border-t border-gray-100"></div>
+      <div class="border-t border-gray-200"></div>
 
-      <!-- 4. Antibody Test for IgM / IgG -->
-      <div class="flex flex-col md:flex-row gap-10 items-start">
-        <!-- Image -->
-        <div class="w-full md:w-[280px] shrink-0">
+      <!-- ── 4. Antibody Test for IgM / IgG ── -->
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <!-- Left: product image -->
+        <div class="w-full md:w-[45%] shrink-0">
           <img
             src="/images/vanguard/products-solutions/Antibody-Test-for-IgM-1.jpg"
             alt="COVID-19 IgM/IgG Antibody Detection Card Test"
-            class="w-full h-auto object-contain rounded-md"
+            class="w-full h-auto object-contain rounded-sm"
           />
         </div>
-        <!-- Content -->
+        <!-- Right: content -->
         <div class="flex-1">
-          <h2 class="text-[20px] font-bold text-[#222222] mb-1 flex items-center gap-2">
-            Antibody Test for IgM/ IgG
-            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full border-2 border-primary text-primary shrink-0 ml-1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          <h2 class="text-[20px] font-bold leading-snug mb-1">
+            <span class="text-[#222222]">Antibody Test</span>
+            <span class="text-primary"> for IgM/ IgG</span>
+            <!-- PDF download circle-arrow icon -->
+            <a
+              href="/pdfs/covid-19/Antibody-tests-ICMR.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download Antibody Test ICMR PDF"
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-primary hover:text-white transition-colors align-middle shrink-0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-3.5 h-3.5"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
-            </span>
+            </a>
           </h2>
-          <div class="h-[2px] w-12 bg-primary mb-5"></div>
-          <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+          <div class="h-[2px] w-10 bg-primary mt-2 mb-5"></div>
+          <div
+            class="text-[15px] leading-7 text-[#555555] space-y-4 text-justify"
+          >
             <p>
-              Vanguard Diagnostics was amongst the first few companies in India to obtain the NIV/ICMR validation
-              approval for its rapid card test for the detection of IgM and IgG antibodies against the Corona virus.
+              Vanguard Diagnostics was amongst the first few companies in India
+              to obtain the NIV/ICMR validation approval for its rapid card test
+              for the detection of IgM and IgG antibodies against the Corona
+              virus.
             </p>
             <p>
-              We were the first company to obtain a license from the CDSCO for the manufacturing of this product.
+              We were the first company to obtain a license from the CDSCO for
+              the manufacturing of this product.
             </p>
           </div>
         </div>
       </div>
-
     </section>
-
   </main>
+
+  <BusinessApproachPopupModal
+    popupId="business-approach-popup"
+    openBtnId="business-approach-trigger"
+    heading="Renewed Business Approach of <br/> Vanguard Diagnostics"
+    content="In the face of the Covid-19 challenge, we at Vanguard Diagnostics decided to channelize our efforts and energies towards developing high quality solutions for the laboratory diagnosis of Covid-19."
+  />
 </Layout>

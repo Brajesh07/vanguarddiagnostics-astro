@@ -33,7 +33,7 @@ export default function HeroCarousel() {
       <div className="relative">
         <div className="relative overflow-hidden">
           <div
-            className="flex transition-transform duration-500 ease-out"
+            className="flex transition-transform duration-500 ease-out lg:h-[calc(100vh-296px)] lg:min-h-[520px]"
             style={{ transform: `translateX(-${activeSlide * 100}%)` }}
           >
             {/* Slide 1: Image Banner */}

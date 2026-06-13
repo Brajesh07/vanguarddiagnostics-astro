@@ -108,9 +108,7 @@ const {
           set:html={certifications.title}
         />
 
-        <div
-          class="flex flex-wrap items-center justify-center gap-8 md:gap-16 mb-16"
-        >
+        <div class="flex items-center justify-center gap-8 md:gap-16 mb-16">
           {
             certifications.items.map((cert) => (
               <CertificationItem
@@ -141,7 +139,7 @@ const {
         <div class="flex flex-col gap-5 justify-center">
           {
             process.tiles.map((title) => (
-              <div class="flex items-center justify-center border-t-4 border-b-2 border-l border-r border-[#008E9E] bg-[#f5f5f5] p-6 text-center shadow-md transition-transform hover:-translate-y-1">
+              <div class="flex items-center justify-center border-b-4 border-b-[#008E9E] bg-[#f5f5f5] p-9 text-center shadow-[0px_0px_10px_0px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-1">
                 <span
                   class="text-[20px] font-bold text-[#3a3a3a]"
                   set:html={title}

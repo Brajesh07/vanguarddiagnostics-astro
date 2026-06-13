@@ -1,92 +1,74 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { careerContent } from '../data/content';
-import GSCareerForm from '../components/GSCareerForm';
+import Layout from "../layouts/Layout.astro";
+import { careerContent } from "../data/content";
+import GSCareerForm from "../components/GSCareerForm";
+import CareerPopupModal from "../components/CareerPopupModal.astro";
 
 const { metadata, hero, application, openings } = careerContent;
 ---
 
-<Layout
-  title={metadata.title}
-  description={metadata.description}
->
+<Layout title={metadata.title} description={metadata.description}>
   <main class="text-foreground">
-
     <!-- Hero banner -->
     <section class="border-b-[3px] border-primary">
-      <img
-        alt={hero.alt}
-        class="h-auto w-full object-cover"
-        src={hero.image}
-      />
+      <img alt={hero.alt} class="h-auto w-full object-cover" src={hero.image} />
     </section>
 
     <!-- Application form -->
-    <section class="bg-[#efefef] py-10 md:py-14">
-      <div class="mx-auto w-full max-w-[760px] px-4 text-center md:px-6">
-        <p class="text-[14px] leading-7 text-[#555555]" set:html={application.p1} />
-        <p class="mt-4 text-[14px] leading-7 text-[#555555]" set:html={application.p2} />
+    <section class="bg-[#efefef] py-10 md:py-14 text-left">
+      <div class="mx-auto w-full max-w-[760px] px-4 md:px-6">
+        <p
+          class="text-base leading-7 text-[#555555]"
+          set:html={application.p1}
+        />
+        <p
+          class="mt-4 text-base leading-7 text-[#555555]"
+          set:html={application.p2}
+        />
 
         <img
           alt="Career figure"
-          class="mx-auto mt-6 h-[100px] w-auto"
+          class="mt-6 h-[100px] w-auto"
           src={application.icon}
         />
-
-        {/* Static form commented out — replaced by GSCareerForm below
-        <form class="mt-6 text-left">
-          <div class="grid gap-x-8 gap-y-5 md:grid-cols-2">
-            {application.fields.map((field) => (
-              <div>
-                <label for={field.id} class="mb-1 block text-[13px] text-foreground">
-                  {field.label}
-                </label>
-                <input
-                  id={field.id}
-                  class="h-9 w-full border border-border bg-white px-3 text-[13px] text-[#333333] outline-none focus:border-primary"
-                  type={field.type}
-                />
-              </div>
-            ))}
-          </div>
-
-          <div class="mt-5">
-            <input
-              class="block w-full border border-border bg-white px-3 py-2 text-[13px] text-[#555555]"
-              type="file"
-            />
-          </div>
-
-          <div class="mt-4">
-            <button
-              type="submit"
-              class="inline-flex items-center justify-center rounded bg-primary px-6 py-2 text-[13px] font-medium text-white transition-colors hover:bg-[#017d8c]"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-        */}
         <GSCareerForm client:load fields={application.fields} />
       </div>
     </section>
 
     <!-- Open Positions -->
-    <section class="bg-[#f5f5f5] py-10 md:py-14">
-      <div class="mx-auto w-full max-w-[1120px] px-4 text-center md:px-6">
-        <h2 class="text-[28px] font-semibold text-[#3a3a3a] md:text-[32px]">
+    <section class="bg-[#f5f5f5] py-10 md:py-14 text-left">
+      <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
+        <h2
+          class="text-[28px] font-semibold text-[#3a3a3a] md:text-[32px] text-left"
+        >
           Current <span class="text-primary">Open Positions</span>
         </h2>
 
-        <div class="mt-8 grid gap-4 md:grid-cols-4">
-          {openings.items.map((position) => (
-            <div class="border border-border bg-white px-4 py-8 text-[14px] font-semibold leading-snug text-[#3b3b3b]">
-              {position}
-            </div>
-          ))}
+        <div class="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+          {
+            openings.popup.map((item, idx) => {
+              const popupId = `career-popup-${idx}`;
+              const openBtnId = `open-career-popup-${idx}`;
+              return (
+                <>
+                  <div
+                    id={openBtnId}
+                    class="cursor-pointer group flex flex-col items-center justify-center gap-4 border-b-4 border-b-primary bg-white p-5 text-center shadow-[0_3px_10px_rgba(0,0,0,0.08)] transition-all hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.12)] min-h-36"
+                  >
+                    {item.heading}
+                  </div>
+                  <CareerPopupModal
+                    popupId={popupId}
+                    openBtnId={openBtnId}
+                    heading={item.heading}
+                    items={item.para}
+                  />
+                </>
+              );
+            })
+          }
         </div>
       </div>
     </section>
-
   </main>
 </Layout>

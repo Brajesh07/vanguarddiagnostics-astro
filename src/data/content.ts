@@ -581,12 +581,12 @@ export const careerContent = {
   },
   openings: {
     title: "Current Open Positions",
-    items: [
-      "Manager Finance & Accounts",
-      "Zonal Manager Sales & Service for the Coagulation/ Hemostasis range",
-      "Quality Executive",
-      "Production Manager",
-    ],
+    popup: [
+      {heading: "Manager - Finance and Accounts", para: ["<strong>Qualifications required:</strong>", "Chartered Accountant", "<strong>Minimum Experience Required:</strong>", "3 to 5 years preferably in a manufacturing organization."]},
+      {heading: "Zonal Manager - Sales & Service for the Coagulation/ Hemostasis range", para: ["<strong>Two positions: New Delhi and Bangalore.</strong>", "<strong>Qualifications required: Degree in Biomedical engineering/ relevant stream.</strong>", "Minimum Experience Required: 3 to 5 years’ experience in sales, service and application of Coagulation instruments and reagents."]},
+      {heading: "Quality Executive", para: ["<strong>Qualifications required:</strong>", "MSc in Biochemistry/Immunology/ Biotechnology/Microbiology/ relevant science.", "<strong>Minimum Experience Required:</strong>", "2 to 3 years’ experience in the quality control/quality assurance of diagnostics products e.g. Hematology Reagents, Clinical Chemistry Reagents, Rapid Card Tests, ELISAs, Raw Materials , Packaging Materials  etc. "]},
+      {heading: "Production Manager", para: ["<strong>Qualifications required:</strong>", "BSc/ MSc in Biochemistry/Immunology/ Biotechnology/Microbiology/ relevant science.", "<strong>Minimum Experience Required:</strong>", "3 to 5 years’ experience in the manufacturing of diagnostics products e.g. Rapid Card Tests, ELISAs, Hematology Reagents, Clinical Chemistry Reagents etc." ]},
+    ]
   },
 } as const;
 

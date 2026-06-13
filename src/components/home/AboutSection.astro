@@ -14,7 +14,7 @@ const popupData = cards
 ---
 
 <!-- About section -->
-<section class="py-12 md:py-14">
+<section class="py-12 md:py-14" id="Vision">
   <div
     class="vanguard-shell grid gap-8 md:grid-cols-[448px_1fr] md:items-start"
   >
@@ -65,7 +65,7 @@ const popupData = cards
 </section>
 
 <!-- Awards mid section -->
-<section class="pb-10 md:pb-14">
+<section class="pb-10 md:pb-14" id="Mission">
   <div class="vanguard-shell grid gap-4 md:grid-cols-2">
     <img
       alt="ET Now award"
@@ -90,7 +90,7 @@ const popupData = cards
 </section>
 
 <!-- Cards section -->
-<section class="pb-14 md:pb-18">
+<section class="pb-14 hidden md:block md:pb-18" id="Team">
   <div class="vanguard-shell grid gap-4 md:grid-cols-2">
     {
       cards.slice(0, 2).map((card) => (
