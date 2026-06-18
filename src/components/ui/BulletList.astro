@@ -1,4 +1,6 @@
 ---
+import { images } from "../../data/images";
+
 export interface Props {
   items: readonly string[];
   class?: string;
@@ -11,7 +13,7 @@ const { items, class: className = '' } = Astro.props;
   {items.map((item) => (
     <li class="flex items-start gap-2">
       <img
-        src="/images/vanguard/shared/bullets-1.png"
+        src={images.bulletIcon}
         alt=""
         class="mt-1 h-4 w-4 shrink-0"
         aria-hidden="true"

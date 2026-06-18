@@ -1,5 +1,7 @@
 ---
 import { homeContent } from "../../data/content";
+import { YouTube } from "@astro-community/astro-embed-youtube";
+import { images } from "../../data/images";
 
 const { about } = homeContent;
 const { cards } = about;
@@ -20,15 +22,7 @@ const popupData = cards
   >
     <div class="border-l-[3px] border-l-primary pl-3">
       <div class="w-full overflow-hidden border border-[#d6dce0] bg-black">
-        <div class="relative w-full" style="padding-bottom: 56.25%;">
-          <iframe
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            class="absolute inset-0 h-full w-full"
-            src={`https://www.youtube.com/embed/${about.youtubeId}?controls=1&rel=0`}
-            title="Vanguard coverage"
-            loading="lazy"></iframe>
-        </div>
+        <YouTube id={about.youtubeId} title="Vanguard coverage" />
       </div>
     </div>
 
@@ -54,8 +48,8 @@ const popupData = cards
       </p>
       <a
         href={about.cta.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={about.cta.href === "#" ? undefined : "_blank"}
+        rel={about.cta.href === "#" ? undefined : "noopener noreferrer"}
         class="mt-5 inline-flex items-center justify-center rounded border border-primary px-6 py-3 font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
       >
         {about.cta.text}
@@ -76,15 +70,7 @@ const popupData = cards
       <p class="font-sans text-base font-medium leading-[1.2] text-primary">
         {about.awardsSection.title}
       </p>
-      <div class="relative w-full" style="padding-bottom: 56.25%;">
-        <iframe
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          class="absolute inset-0 h-full w-full"
-          src={`https://www.youtube.com/embed/${about.awardsSection.youtubeId}?si=y3YnhhLnWz5fA7pA`}
-          title="Vanguard award"
-          loading="lazy"></iframe>
-      </div>
+      <YouTube id={about.awardsSection.youtubeId} title="Vanguard award" />
     </div>
   </div>
 </section>
@@ -149,7 +135,7 @@ const popupData = cards
   <div
     data-popup-box
     class="relative w-full max-w-[800px] h-[500px] mx-4 overflow-hidden rounded-sm shadow-2xl"
-    style="background-image: url('/images/homepage/home-popup-bg-2.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+    style={`background-image: url('${images.homePopupBg}'); background-size: cover; background-position: center; background-repeat: no-repeat;`}
   >
     <!-- Close button -->
     <button

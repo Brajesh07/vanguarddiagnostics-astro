@@ -10,7 +10,7 @@ const { name, icon, url = "#" } = Astro.props;
 
 <div class="flex items-center flex-col md:flex-row gap-4">
   <figure>
-    <a href={url} target="_blank">
+    <a href={url} target={url === "#" ? undefined : "_blank"}>
       <img
         src={icon}
         alt={name || "Certification"}
@@ -23,7 +23,7 @@ const { name, icon, url = "#" } = Astro.props;
       <h2 class="m-0">
         <a
           href={url}
-          target="_blank"
+          target={url === "#" ? undefined : "_blank"}
           class="text-base font-medium text-black leading-[1.3em] hover:text-[#008E9E] transition-colors no-underline font-sans"
           set:html={name}
         />

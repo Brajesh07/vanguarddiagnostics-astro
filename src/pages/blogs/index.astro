@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import VanguardButton from "../../components/ui/VanguardButton.astro";
 import { blogPosts } from "../../data/blogs";
+import { images } from "../../data/images";
 
 const BASE_URL = "https://vanguarddiagnostics.com";
 
@@ -110,7 +111,7 @@ const pageSchema = [
                   >
                     <img
                       src={
-                        post.image || "/images/vanguard/blogs/default_image.png"
+                        post.image || images.blogs.default
                       }
                       alt={post.title}
                       class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"

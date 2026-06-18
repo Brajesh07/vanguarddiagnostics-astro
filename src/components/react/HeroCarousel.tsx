@@ -11,9 +11,64 @@ export default function HeroCarousel() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const totalSlides = hero.slides.length;
 
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+  const touchEndY = useRef<number | null>(null);
+
   const handleSlideChange = (nextIndex: number) => {
     const normalized = (nextIndex + totalSlides) % totalSlides;
     setActiveSlide(normalized);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchStartX.current = touch.clientX;
+    touchStartY.current = touch.clientY;
+    // Set initial end position in case the user lifts their finger without moving
+    touchEndX.current = touch.clientX;
+    touchEndY.current = touch.clientY;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchEndX.current = touch.clientX;
+    touchEndY.current = touch.clientY;
+  };
+
+  const handleTouchEnd = () => {
+    if (
+      touchStartX.current === null ||
+      touchStartY.current === null ||
+      touchEndX.current === null ||
+      touchEndY.current === null
+    ) {
+      return;
+    }
+
+    const diffX = touchStartX.current - touchEndX.current;
+    const diffY = touchStartY.current - touchEndY.current;
+
+    const absDiffX = Math.abs(diffX);
+    const absDiffY = Math.abs(diffY);
+
+    // Only change slides if the horizontal swipe is clearly dominant over vertical scrolling
+    // and exceeds the minimum threshold of 50px
+    if (absDiffX > absDiffY && absDiffX > 50) {
+      if (diffX > 0) {
+        // Swiped left -> next slide
+        handleSlideChange(activeSlide + 1);
+      } else {
+        // Swiped right -> previous slide
+        handleSlideChange(activeSlide - 1);
+      }
+    }
+
+    // Reset touch coordinates
+    touchStartX.current = null;
+    touchStartY.current = null;
+    touchEndX.current = null;
+    touchEndY.current = null;
   };
 
   useEffect(() => {
@@ -35,6 +90,9 @@ export default function HeroCarousel() {
           <div
             className="flex transition-transform duration-500 ease-out lg:h-[calc(100vh-296px)] lg:min-h-[520px]"
             style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {/* Slide 1: Image Banner */}
             <article className="min-h-[520px] w-full shrink-0 flex justify-center items-center">
@@ -85,9 +143,9 @@ export default function HeroCarousel() {
 
 
             {/* Slide 2: Video Banner */}
-            <article className="relative w-full shrink-0 overflow-hidden bg-white">
+            <article className="relative flex w-full shrink-0 overflow-hidden bg-white">
               <video
-                className="h-[calc(100vh-96px)] min-h-[520px] w-full md:w-[1200px] mx-auto object-contain"
+                className="w-full md:w-[1200px] mx-auto object-contain"
                 poster={hero.slides[1].poster}
                 preload="metadata"
                 ref={videoRef}
@@ -108,7 +166,7 @@ export default function HeroCarousel() {
         <div className="absolute inset-0 w-full pointer-events-none">
           <button
             aria-label="Previous slide"
-            className="absolute left-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#339cae]/70 text-xl text-white transition hover:bg-[#339cae] md:left-4 cursor-pointer pointer-events-auto"
+            className="hidden md:block absolute left-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#339cae]/70 text-xl text-white transition hover:bg-[#339cae] md:left-4 cursor-pointer pointer-events-auto"
             onClick={() => handleSlideChange(activeSlide - 1)}
             type="button"
           >
@@ -116,7 +174,7 @@ export default function HeroCarousel() {
           </button>
           <button
             aria-label="Next slide"
-            className="absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#339cae]/70 text-xl text-white transition hover:bg-[#339cae] md:right-4 cursor-pointer pointer-events-auto"
+            className="hidden md:block absolute right-2 top-1/2 h-10 w-10 -translate-y-1/2 rounded-sm bg-[#339cae]/70 text-xl text-white transition hover:bg-[#339cae] md:right-4 cursor-pointer pointer-events-auto"
             onClick={() => handleSlideChange(activeSlide + 1)}
             type="button"
           >

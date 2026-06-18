@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import PDFLinkGrid from "../../components/ui/PDFLinkGrid.astro";
+import { images } from "../../data/images";
 
 const title = "Reliable Biochemistry Reagents | Vanguard Diagnostics";
 const description =
@@ -25,7 +26,7 @@ const allBiochemistryProducts = [
   { label: "Ammonia, Liquid Stable", href: "/pdfs/Ammonia-IFU.pdf" },
   { label: "Lipase", href: "/pdfs/Lipase-IFU.pdf" },
   { label: "Adenosine Deaminase Liquid Stable", href: "/pdfs/ADA-IFU.pdf" },
-  { label: "Lactate Dehydrogenase Liquid Stable", href: "/pdfs/LDH-IFU.pdf" },
+  { label: "Lactate Dehydrogenase Liquid Stable", href: "#" },
   {
     label: "Bilirubin, Total & Direct",
     href: "/pdfs/VDx-Bilirubin-TD-Insert-4-reagents.pdf",
@@ -90,10 +91,19 @@ const technicalReports = [
         loop
         muted
         playsinline
-        class="block h-auto w-full"
-        src="/images/vanguard/products-solutions/vanguarddiagnostics-product-page-banner.mp4"
-      ></video>
+        preload="metadata"
+        poster={images.heroPoster}
+        class="hero-video block h-auto w-full"
+        src={images.productPageBannerVideo}></video>
     </section>
+
+    <style>
+      @media (max-width: 768px) {
+        .hero-video {
+          display: none;
+        }
+      }
+    </style>
 
     <!-- Accent bar -->
     <div class="h-[3px] bg-primary"></div>
@@ -104,7 +114,7 @@ const technicalReports = [
       <div class="flex flex-col items-start mb-10">
         <div class="flex items-center gap-4 mb-4">
           <img
-            src="/images/vanguard/product-clinical-chemistry-icon-2.png"
+            src={images.biochemistry.productIcon}
             alt="Biochemistry Reagents Icon"
             class="w-16 h-auto object-contain"
           />
@@ -228,12 +238,12 @@ const technicalReports = [
                   <li class="flex items-start gap-2">
                     <img
                       class="mt-[5px] shrink-0 w-[14px] h-[14px] inline-block"
-                      src="/images/vanguard/shared/bullets-1.png"
+                      src={images.bulletIcon}
                     />
                     <a
                       href={doc.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={doc.href === "#" ? undefined : "_blank"}
+                      rel={doc.href === "#" ? undefined : "noopener noreferrer"}
                       class="text-base underline hover:text-[#008a96] leading-snug"
                     >
                       {doc.label}
@@ -249,7 +259,7 @@ const technicalReports = [
             class="w-full max-w-[382px] shrink-0 flex items-center justify-center"
           >
             <img
-              src="/images/vanguard/products-solutions/new-img-open-models.png"
+              src={images.biochemistry.newImgModels}
               alt="biochemistry reagents"
               class="w-full max-w-[382px] h-auto object-contain rounded-xl"
             />

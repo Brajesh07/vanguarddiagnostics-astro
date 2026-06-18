@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { images } from "../data/images";
 
 const navLinks = [
   { text: "Home", href: "/", internal: true },
@@ -8,11 +9,6 @@ const navLinks = [
     href: "/products-solutions",
     internal: true,
     submenu: [
-      {
-        text: "Products & Solutions",
-        href: "/products-solutions",
-        internal: true,
-      },
       {
         text: "Hematology Reagents",
         href: "/products-solutions/hematology-reagents",
@@ -62,25 +58,19 @@ const navLinks = [
     internal: true,
     submenu: [
       {
-        text: "News & Webinars",
-        href: "/news",
-        internal: true,
-      },
-      {
         text: "Blogs & Resources",
         href: "/blogs",
         internal: true,
       },
     ],
   },
-  { text: "Career", href: "/career", internal: true },
+  { text: "Careers", href: "/career", internal: true },
   { text: "Contact Us", href: "/contact-us", internal: true },
 ];
 
 export default function SiteHeader() {
   const [pathname, setPathname] = useState("/");
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   // Tracks which mobile accordion submenu is expanded
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -113,23 +103,6 @@ export default function SiteHeader() {
     };
   }, [mobileOpen]);
 
-  // Close desktop dropdown on outside click
-  useEffect(() => {
-    if (!openDropdown) return;
-    function handleOutsideClick(e: MouseEvent) {
-      const target = e.target as Element;
-      if (!target.closest("[data-dropdown]")) {
-        setOpenDropdown(null);
-      }
-    }
-    document.addEventListener("click", handleOutsideClick);
-    return () => document.removeEventListener("click", handleOutsideClick);
-  }, [openDropdown]);
-
-  function toggleDropdown(key: string) {
-    setOpenDropdown((prev) => (prev === key ? null : key));
-  }
-
   function toggleMobileAccordion(key: string) {
     setMobileAccordion((prev) => (prev === key ? null : key));
   }
@@ -144,7 +117,7 @@ export default function SiteHeader() {
             <img
               alt="Vanguard Diagnostics"
               className="max-h-8 w-auto lg:max-h-12"
-              src="/images/vanguard/logo.png"
+              src={images.logo}
             />
           </a>
 
@@ -159,24 +132,19 @@ export default function SiteHeader() {
                       pathname.startsWith(link.href + "/")
                   : false;
 
-                const isOpen = openDropdown === link.text;
-
                 return (
                   <div
                     className="group relative"
                     key={link.text}
                     data-dropdown=""
                   >
-                    <button
+                    <a
                       className={`flex items-center gap-1 py-2 text-[15px] font-normal transition-colors whitespace-nowrap ${isActive ? "text-primary" : "text-black hover:text-primary"}`}
-                      onClick={() => toggleDropdown(link.text)}
-                      aria-expanded={isOpen}
-                      aria-haspopup="true"
-                      type="button"
+                      href={link.href}
                     >
                       {link.text}
                       <svg
-                        className={`h-4 w-4 transition-transform duration-200 ${isOpen ? "rotate-180" : "group-hover:rotate-180"}`}
+                        className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -188,32 +156,26 @@ export default function SiteHeader() {
                           strokeWidth={2}
                         />
                       </svg>
-                    </button>
+                    </a>
                     <div
-                      className={`absolute left-0 top-full z-50 min-w-[200px] bg-white p-2 shadow-lg transition-all duration-150 ${
-                        isOpen
-                          ? "visible translate-y-0 opacity-100"
-                          : "invisible translate-y-2 opacity-0 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"
-                      }`}
+                      className="absolute left-0 top-full z-50 min-w-[200px] w-fit bg-white p-2 shadow-lg transition-all duration-150 invisible translate-y-2 opacity-0 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"
                     >
                       {link.submenu.map((sub) =>
                         sub.internal ? (
                           <a
-                            className="block px-4 py-2 text-[15px] font-normal text-black hover:bg-[#f3f5f6] hover:text-primary"
+                            className="block px-4 py-2 text-[15px] font-normal text-black hover:bg-[#f3f5f6] hover:text-primary whitespace-nowrap"
                             href={sub.href}
                             key={sub.text}
-                            onClick={() => setOpenDropdown(null)}
                           >
                             {sub.text}
                           </a>
                         ) : (
                           <a
-                            className="block px-4 py-2 text-[15px] font-normal text-black hover:bg-[#f3f5f6] hover:text-primary"
+                            className="block px-4 py-2 text-[15px] font-normal text-black hover:bg-[#f3f5f6] hover:text-primary whitespace-nowrap"
                             href={sub.href}
                             key={sub.text}
                             rel="noopener noreferrer"
                             target="_blank"
-                            onClick={() => setOpenDropdown(null)}
                           >
                             {sub.text}
                           </a>
@@ -294,7 +256,13 @@ export default function SiteHeader() {
                     <>
                       <button
                         className="flex w-full items-center justify-between py-3.5 text-[15px] font-medium text-foreground"
-                        onClick={() => toggleMobileAccordion(link.text)}
+                        onClick={() => {
+                          if (accordionOpen) {
+                            window.location.href = link.href;
+                          } else {
+                            toggleMobileAccordion(link.text);
+                          }
+                        }}
                         aria-expanded={accordionOpen}
                         type="button"
                       >

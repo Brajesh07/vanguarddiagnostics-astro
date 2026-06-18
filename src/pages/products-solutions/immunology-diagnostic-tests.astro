@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { images } from "../../data/images";
 
 const title = "Immunology Diagnostic Tests | Vanguard Diagnostics";
 const description =
@@ -44,10 +45,20 @@ const elisaProducts = [
         loop
         muted
         playsinline
-        class="block h-auto w-full"
-        src="/images/vanguard/products-solutions/vanguarddiagnostics-product-page-banner.mp4"
+        preload="metadata"
+        poster={images.heroPoster}
+        class="hero-video block h-auto w-full"
+        src={images.productPageBannerVideo}
       ></video>
     </section>
+
+    <style>
+      @media (max-width: 768px) {
+        .hero-video {
+          display: none;
+        }
+      }
+    </style>
 
     <!-- Accent bar -->
     <div class="h-[3px] bg-primary"></div>
@@ -57,7 +68,7 @@ const elisaProducts = [
       <!-- Page Title -->
       <div class="flex flex-col gap-4 mb-8">
         <img
-          src="/images/vanguard/uploads/product-immunology-icon-2.png"
+          src={images.immunology.productIcon}
           alt="Immunology Diagnostic Tests Icon"
           class="w-14 h-auto object-contain"
         />
@@ -215,7 +226,7 @@ const elisaProducts = [
                 rapidCardTests.map((test) => (
                   <li class="flex items-center gap-2 text-base text-[#555555]">
                     <img
-                      src="/images/vanguard/shared/bullets-1.png"
+                      src={images.bulletIcon}
                       alt="Check"
                     />
                     {test}
@@ -228,7 +239,7 @@ const elisaProducts = [
           <!-- Right: product image -->
           <div class="w-full max-w-[550px] shrink-0">
             <img
-              src="/images/vanguard/products-solutions/Immunology-pic-1.png"
+              src={images.immunology.pic1}
               alt="Rapid Card Test products – Malaria, Dengue, Chikungunya, Typhoid kits"
               class="w-full h-auto object-contain rounded-lg"
             />
@@ -243,7 +254,7 @@ const elisaProducts = [
               elisaTests.map((test) => (
                 <li class="flex items-center gap-2 text-base text-[#555555]">
                   <img
-                    src="/images/vanguard/shared/bullets-1.png"
+                    src={images.bulletIcon}
                     alt="Check"
                   />
                   {test}
@@ -257,7 +268,7 @@ const elisaProducts = [
     <!-- ELISA Product Showcase -->
     <div class="px-4">
       <img
-        src="/images/vanguard/products-solutions/Immunology-pic-2.webp"
+        src={images.immunology.pic2}
         alt="Microwell ELISA products – HIV Gen 4, HBsAg, HCV and Dengue NS1 rapid card test"
         class="w-full h-auto object-contain rounded-lg"
       />

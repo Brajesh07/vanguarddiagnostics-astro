@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import TrainingNavCard from "../../components/TrainingNavCard.astro";
 import TrainingPopupModal from "../../components/TrainingPopupModal.astro";
+import { images } from "../../data/images";
 
 const title = "Training | Vanguard Diagnostics";
 const description =
@@ -58,13 +59,13 @@ const kpiPoints = [
 const heroNavCards = [
   {
     href: "#training-academy",
-    src: "/images/vanguard/products-solutions/training-academy.jpg",
+    src: images.training.academy,
     alt: "Training Academy",
     label: "Training Academy",
   },
   {
     href: "#training-capsules",
-    src: "/images/vanguard/products-solutions/Training-Capsules.jpg",
+    src: images.training.capsules,
     alt: "Training Capsules",
     label: "Training Capsules",
   },
@@ -73,25 +74,25 @@ const heroNavCards = [
 const sectionNavCards = [
   {
     href: "#our-training-model",
-    src: "/images/vanguard/products-solutions/Training-Model.jpg",
+    src: images.training.model,
     alt: "Our Training Model",
     label: "Our Training Model",
   },
   {
     href: "#performance-indicators",
-    src: "/images/vanguard/products-solutions/Performance-Indicators.jpg",
+    src: images.training.performanceIndicators,
     alt: "Our Performance Indicators",
     label: "Our Performance Indicators",
   },
   {
     href: "#training-programs",
-    src: "/images/vanguard/products-solutions/Training-Programs-150x150.jpg",
+    src: images.training.programs150,
     alt: "Training Programs",
     label: "Training Programs",
   },
   {
     href: "#benefits",
-    src: "/images/vanguard/products-solutions/Training-Programs-Benefits-1.jpg",
+    src: images.training.programsBenefits,
     alt: "Benefits of Training Programs",
     label: "Benefits of Training Programs",
   },
@@ -101,39 +102,37 @@ const capsules = [
   {
     number: "1",
     label: "Product & Benefit Selling",
-    image: "/images/vanguard/products-solutions/Product-Benefit-Selling-1.jpg",
+    image: images.training.benefitSelling,
   },
   {
     number: "2",
     label: "Customer Relationship Management",
-    image:
-      "/images/vanguard/products-solutions/Technical-hands-on-training-1.jpg",
+    image: images.training.technicalHandsOn,
   },
   {
     number: "3",
     label: "Territory Management",
-    image: "/images/vanguard/products-solutions/Soft-skills-development-1.jpg",
+    image: images.training.softSkills,
   },
   {
     number: "4",
     label: "Channel & Distribution Management",
-    image:
-      "/images/vanguard/products-solutions/Channel-distributor-management-1.jpg",
+    image: images.training.channelDistributorManagement,
   },
   {
     number: "5",
     label: "The Art of Selling & Sales Process",
-    image: "/images/vanguard/products-solutions/The-art-of-selling-1.jpg",
+    image: images.training.artOfSelling,
   },
   {
     number: "6",
     label: "Finance for non-finance",
-    image: "/images/vanguard/products-solutions/Finance-for-non-finance-1.jpg",
+    image: images.training.financeNonFinance,
   },
   {
     number: "7",
     label: "cGMP, Quality Systems, Cold Chain & Logistics",
-    image: "/images/vanguard/products-solutions/Logistics-1.jpg",
+    image: images.training.logistics,
   },
 ];
 ---
@@ -143,7 +142,7 @@ const capsules = [
     <!-- Hero Banner: "Good training doesn't cost, it pays." -->
     <section class="bg-white">
       <img
-        src="/images/vanguard/products-solutions/training-banner-top.jpg"
+        src={images.training.bannerTop}
         alt="Good training doesn't cost, it pays – Vanguard Diagnostics Training"
         class="block w-full h-auto object-cover"
       />
@@ -180,7 +179,7 @@ const capsules = [
           <!-- Left: photo -->
           <div class="w-full md:max-w-[600px] shrink-0">
             <img
-              src="/images/vanguard/products-solutions/training-academy-1.jpg"
+              src={images.training.academy1}
               alt="Training Academy – classroom session"
               class="w-full h-auto object-cover rounded-lg shadow-sm"
             />
@@ -190,7 +189,7 @@ const capsules = [
           <div class="flex-1">
             <div class="flex flex-col gap-3 mb-4">
               <img
-                src="/images/vanguard/products-solutions/training-academy.jpg"
+                src={images.training.academy}
                 alt="Training Academy icon"
                 class="w-24 h-auto object-contain"
               />
@@ -210,7 +209,7 @@ const capsules = [
                 trainingAcademyBullets.map((item) => (
                   <li class="flex items-start gap-2 text-base text-[#555]">
                     <img
-                      src="/images/vanguard/shared/bullets-1.png"
+                      src={images.bulletIcon}
                       alt="Check icon"
                       class="w-4 h-4 object-contain"
                     />
@@ -229,7 +228,7 @@ const capsules = [
       <div class="max-w-[1120px] mx-auto px-4 md:px-8">
         <div class="flex flex-col gap-3 mb-2">
           <img
-            src="/images/vanguard/products-solutions/Training-Capsules.jpg"
+            src={images.training.capsules}
             alt="Training Capsules icon"
             class="w-24 h-auto object-contain"
           />
@@ -271,7 +270,7 @@ const capsules = [
             capsulesBullets.map((item) => (
               <li class="flex items-center gap-4 text-base text-[#555]">
                 <img
-                  src="/images/vanguard/shared/bullets-1.png"
+                  src={images.bulletIcon}
                   alt="Check icon"
                   class="w-4 h-4 object-contain"
                 />
@@ -318,7 +317,7 @@ const capsules = [
           <!-- Left: large walking-figure banner -->
           <div class="w-full max-w-[690px] shrink-0">
             <img
-              src="/images/vanguard/products-solutions/training-banner-3.jpg"
+              src={images.training.banner3}
               alt="Training model – connected professional"
               class="w-full h-auto object-contain"
             />
@@ -328,7 +327,7 @@ const capsules = [
           <div class="w-full max-w-[800px]">
             <div class="flex flex-col gap-3 mb-2">
               <img
-                src="/images/vanguard/products-solutions/Training-Model-1.jpg"
+                src={images.training.model1}
                 alt="Training Model icon"
                 class="w-24 h-auto object-contain"
               />
@@ -382,7 +381,7 @@ const capsules = [
           <div class="flex-1">
             <div class="flex flex-col gap-3 mb-2">
               <img
-                src="/images/vanguard/products-solutions/Performance-Indicators-1.jpg"
+                src={images.training.performanceIndicators1}
                 alt="Key Performance Indicators icon"
                 class="w-24 h-auto object-contain"
               />
@@ -422,7 +421,7 @@ const capsules = [
           <!-- Right: graph image -->
           <div class="w-full lg:w-[380px] shrink-0">
             <img
-              src="/images/vanguard/products-solutions/Performance-Indicators-banner-1.jpg"
+              src={images.training.performanceIndicatorsBanner}
               alt="Performance Indicators – growth chart"
               class="w-full h-auto object-contain"
             />
@@ -440,7 +439,7 @@ const capsules = [
             class="bg-white rounded-lg border border-gray-300 flex flex-col items-center justify-center text-center px-6 py-10 min-h-[220px]"
           >
             <img
-              src="/images/vanguard/products-solutions/Training-Programs-1.jpg"
+              src={images.training.programs1}
               alt="Training Programs"
               class="w-28 h-28 object-contain mb-5"
             />
@@ -497,7 +496,7 @@ const capsules = [
     <section
       id="benefits"
       class="relative overflow-hidden py-16"
-      style="background-image: url('/images/vanguard/products-solutions/training-bg-2.jpg'); background-size: cover; background-position: center;"
+      style={`background-image: url('${images.training.bg2}'); background-size: cover; background-position: center;`}
     >
       <!-- subtle white overlay to lighten bg slightly -->
       <div class="absolute inset-0 bg-white/40 pointer-events-none"></div>
@@ -506,7 +505,7 @@ const capsules = [
         <!-- Checkmark icon -->
         <div class="flex justify-center mb-4">
           <img
-            src="/images/vanguard/products-solutions/Training-Programs-Benefits-1.jpg"
+            src={images.training.programsBenefits}
             alt="Benefits checkmark"
             class="w-20 h-20 object-contain"
           />

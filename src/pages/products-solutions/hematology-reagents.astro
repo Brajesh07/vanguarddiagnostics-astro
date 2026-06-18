@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { specificProductsContent } from "../../data/content";
 import PDFLinkGrid from "../../components/ui/PDFLinkGrid.astro";
-import { PDFDocumentGrid } from "../../components/PDFFlipbook";
+import { images } from "../../data/images";
 
 const { hematologyReagents } = specificProductsContent;
 const { intro, threePart, fivePart, ifus, technicalReports } =
@@ -16,13 +16,26 @@ const { intro, threePart, fivePart, ifus, technicalReports } =
   <main class="text-foreground">
     <!-- Hero Section -->
     <section class="w-full">
-      <video autoplay loop muted playsinline class="w-full h-auto block">
-        <source
-          src="/images/vanguard/products-solutions/vanguarddiagnostics-product-page-banner.mp4"
-          type="video/mp4"
-        />
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        poster={images.heroPoster}
+        class="hero-video w-full h-auto block"
+      >
+        <source src={images.productPageBannerVideo} type="video/mp4" />
       </video>
     </section>
+
+    <style>
+      @media (max-width: 768px) {
+        .hero-video {
+          display: none;
+        }
+      }
+    </style>
 
     <!-- Teal accent bar -->
     <div class="h-[3px] w-full bg-primary"></div>

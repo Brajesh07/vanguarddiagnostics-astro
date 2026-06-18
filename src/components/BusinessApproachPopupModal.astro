@@ -10,6 +10,8 @@
  *   backgroundImage – path to the bg image (defaults to home-popup-bg-2.jpg)
  */
 
+import { images } from "../data/images";
+
 interface Props {
   popupId: string;
   openBtnId: string;
@@ -23,7 +25,7 @@ const {
   openBtnId,
   heading,
   content,
-  backgroundImage = "/images/homepage/home-popup-bg-2.jpg",
+  backgroundImage = images.homePopupBg,
 } = Astro.props;
 
 const closeBtnId = `close-${popupId}`;

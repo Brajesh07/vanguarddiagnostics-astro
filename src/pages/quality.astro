@@ -2,7 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import SectionHeading from "../components/ui/SectionHeading.astro";
 import BulletList from "../components/ui/BulletList.astro";
+import { Image } from "astro:assets";
 import { qualityContent } from "../data/content";
+import { qualityIcon, qualityBanner, qualityFooter1, qualityFooter2, qualityFooter3 } from "../assets/images";
 
 const { metadata, intro, norms, insights } = qualityContent;
 ---
@@ -15,11 +17,21 @@ const { metadata, intro, norms, insights } = qualityContent;
         muted
         loop
         playsinline
-        class="w-full h-full object-cover"
+        preload="metadata"
+        poster="/images/hero-poster.webp"
+        class="hero-video w-full h-full object-cover"
         src="/images/vanguard/products-solutions/Vanguard-Quality-banner-new.mp4"
       >
       </video>
     </section>
+
+    <style>
+      @media (max-width: 768px) {
+        .hero-video {
+          display: none;
+        }
+      }
+    </style>
 
     <!-- Quality intro + image -->
     <section class="border-t-2 border-primary bg-[#efefef] py-10">
@@ -27,17 +39,19 @@ const { metadata, intro, norms, insights } = qualityContent;
         class="mx-auto grid w-full max-w-[1120px] gap-7 px-4 md:grid-cols-[1fr_430px] md:items-start md:px-6"
       >
         <article>
-          <img alt="Quality icon" class="h-[68px] w-auto" src={intro.icon} />
+          <Image alt="Quality icon" class="h-[68px] w-auto" src={qualityIcon} width={114} height={135} />
           <SectionHeading class="mt-2">{intro.title}</SectionHeading>
           <p class="mt-4 text-[15px] leading-7 text-[#555555]">
             {intro.description}
           </p>
           <BulletList class="mt-5" items={intro.checks} />
         </article>
-        <img
+        <Image
           alt="Quality checks"
           class="h-auto w-full object-cover"
-          src={intro.image}
+          src={qualityBanner}
+          width={455}
+          height={300}
         />
       </div>
     </section>
@@ -60,12 +74,18 @@ const { metadata, intro, norms, insights } = qualityContent;
         class="mx-auto grid w-full max-w-[1120px] gap-6 px-4 md:grid-cols-3 md:px-6"
       >
         {
-          insights.map((item) => (
+          [
+            { title: insights[0].title, body: insights[0].body, img: qualityFooter1, width: 630, height: 387 },
+            { title: insights[1].title, body: insights[1].body, img: qualityFooter2, width: 630, height: 387 },
+            { title: insights[2].title, body: insights[2].body, img: qualityFooter3, width: 630, height: 387 },
+          ].map((item) => (
             <article class="bg-white">
-              <img
+              <Image
                 alt={item.title}
                 class="h-auto w-full object-cover"
-                src={item.image}
+                src={item.img}
+                width={item.width}
+                height={item.height}
               />
               <p class="px-4 py-4 text-base leading-6 text-[#555555]">
                 <strong>{item.title}</strong> {item.body}

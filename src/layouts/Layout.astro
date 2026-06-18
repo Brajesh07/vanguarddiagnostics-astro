@@ -3,17 +3,20 @@ import "../styles/globals.css";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter.astro";
 import { siteData } from "../data/site";
+import { images } from "../data/images";
 
 export interface Props {
   title?: string;
   description?: string;
   pageSchema?: object | object[];
+  ogImage?: string;
 }
 
 const {
   title = "Vanguard Diagnostics",
   description = "Vanguard Diagnostics – Manufacturing high-quality diagnostic products at affordable prices.",
   pageSchema,
+  ogImage = images.ogImage,
 } = Astro.props;
 
 const BASE_URL = "https://vanguarddiagnostics.com";
@@ -50,7 +53,7 @@ const pageSchemas = pageSchema
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/png" href="/images/vanguard/favicon.png" />
+    <link rel="icon" type="image/png" href={images.favicon} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -69,6 +72,22 @@ const pageSchemas = pageSchema
         <script type="application/ld+json" set:html={JSON.stringify(schema)} />
       ))
     }
+
+    <!-- Canonical -->
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
   </head>
   <body>
     <SiteHeader client:load />

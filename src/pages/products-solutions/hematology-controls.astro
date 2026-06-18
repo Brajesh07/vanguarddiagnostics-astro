@@ -5,6 +5,7 @@ import PDFLinkGrid from "../../components/ui/PDFLinkGrid.astro";
 import BrochureImageWithPopup from "../../components/PDFFlipbook/BrochureImageWithPopup.jsx";
 import ImageGalleryWithPopup from "../../components/react/ImageGalleryWithPopup.jsx";
 import PDFThumbnailWithPopup from "../../components/PDFFlipbook/PDFThumbnailWithPopup.jsx";
+import { images } from "../../data/images";
 
 const { hematologyControls } = specificProductsContent;
 const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
@@ -22,9 +23,19 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
         loop
         muted
         playsinline
-        class="block h-auto w-full"
+        preload="metadata"
+        poster={images.heroPoster}
+        class="hero-video block h-auto w-full"
         src={hero.video}></video>
     </section>
+
+    <style>
+      @media (max-width: 768px) {
+        .hero-video {
+          display: none;
+        }
+      }
+    </style>
 
     <!-- Accent bar -->
     <div class="h-[3px] bg-primary"></div>
@@ -33,7 +44,7 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
       <!-- Page Title -->
       <div class="flex flex-col items-center mb-12">
         <img
-          src="/images/vanguard/uploads/product-hematology-controls-icon-2.jpg"
+          src={images.hematologyControls.productIcon}
           alt="India Map"
           class="w-20 mb-3"
         />
@@ -99,7 +110,7 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[800px]">
           <BrochureImageWithPopup
             client:load
-            imageSrc="/images/vanguard/uploads/hematology-controls-3.jpg"
+            imageSrc={images.hematologyControls.controls3}
             imageAlt="Hematology Controls Brochure 1"
             pdfUrl="/pdfs/Product-Brochure-Hematology-Controls.pdf"
           />
@@ -109,7 +120,7 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
             class="w-full h-auto object-contain"
           />
           <img
-            src="/images/vanguard/uploads/hematology-controls-4.jpg"
+            src={images.hematologyControls.controls4}
             alt="Hematology Controls Brochure 2"
             class="w-full h-auto object-contain"
           />
@@ -125,32 +136,32 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
           client:load
           images={[
             {
-              src: "/images/vanguard/hematology/D-Check-D.jpg",
+              src: images.hematologyControls.dCheckD,
               alt: "D-Check D",
               title: "quality control in hematology",
             },
             {
-              src: "/images/vanguard/hematology/D-Check-D-Plus.jpg",
+              src: images.hematologyControls.dCheckDPlus,
               alt: "D-Check D Plus",
               title: "quality control in hematology",
             },
             {
-              src: "/images/vanguard/hematology/D-Check-5Diff.jpg",
+              src: images.hematologyControls.dCheck5Diff,
               alt: "D-Check 5Diff",
               title: "quality control in hematology",
             },
             {
-              src: "/images/vanguard/hematology/D-Check-5Diff-Plus.jpg",
+              src: images.hematologyControls.dCheck5DiffPlus,
               alt: "D-Check 5Diff Plus",
               title: "quality control in hematology",
             },
             {
-              src: "/images/vanguard/hematology/5-Open-Vial-Stability.jpg",
+              src: images.hematologyControls.openVial5,
               alt: "Shelf Life (D-Cell 60) - WBC Change",
               title: "quality control in hematology",
             },
             {
-              src: "/images/vanguard/hematology/6-Open-Vial-Stability.jpg",
+              src: images.hematologyControls.openVial6,
               alt: "Open Vial Stability (D-Cell 60) - HGB Change",
               title: "quality control in hematology",
             },

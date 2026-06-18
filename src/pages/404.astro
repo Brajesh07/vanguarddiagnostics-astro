@@ -1,13 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import VanguardButton from "../components/ui/VanguardButton.astro";
+import { images } from "../data/images";
 ---
 
 <Layout title="404 - Page Not Found | Vanguard Diagnostics">
   <main class="flex min-h-[70vh] flex-col items-center justify-center px-4 text-center">
     <div class="mb-8">
       <img
-        src="/images/vanguard/logo.png"
+        src={images.logo}
         alt="Vanguard Diagnostics"
         class="mx-auto h-16 w-auto md:h-20"
       />

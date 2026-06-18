@@ -39,6 +39,9 @@ graphicPlaceholders:
         Impact: "Delayed treatment, higher complication risk"
 ---
 
+import { Image } from 'astro:assets';
+import { typhoidTestImage } from '../../assets/images';
+
 # Diagnostic Challenges of Typhoid Fever
 
 ## Unmasking the Diagnostic Challenges of Typhoid Fever
@@ -173,7 +176,7 @@ The development of the VANSCAN Typhoid RT PCR Test stems from a collaborative ef
 
   </div>
   <div style="flex-shrink: 0; width: 260px;">
-    <img src="/images/vanguard/blogs/Typhoid-Testing-2.png" alt="VANSCAN Typhoid RT-PCR Test" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);" />
+    <Image src={typhoidTestImage} alt="VANSCAN Typhoid RT-PCR Test" width={400} height={340} style="width: 100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);" />
   </div>
 </div>
 

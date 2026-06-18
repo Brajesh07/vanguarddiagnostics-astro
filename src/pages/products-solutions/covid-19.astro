@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import BusinessApproachPopupModal from "../../components/BusinessApproachPopupModal.astro";
+import { YouTube } from "@astro-community/astro-embed-youtube";
+import { images } from "../../data/images";
 
 const title = "Leading COVID Test Kit Manufacturer | Vanguard Diagnostics";
 const description =
@@ -48,23 +50,14 @@ const pageSchema = [
             <!-- Top: Covid-19 label + decorative illustration -->
             <div class="relative bg-[#f0f4f8]">
               <img
-                src="/images/vanguard/products-solutions/covid-19-banner-1.webp"
+                src={images.covid19.banner}
                 alt="Covid-19 – Vanguard Diagnostics"
                 class="w-full h-auto object-cover"
               />
             </div>
 
-            <!-- Bottom: YouTube embed -->
-            <div class="relative w-full" style="padding-bottom: 56.25%;">
-              <iframe
-                class="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/vHUVhJlktOs?si=vKL9Mia1fIKZLiOq"
-                title="Vanguard Diagnostics – COVID Test Kit Manufacturer"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-            </div>
+            <!-- Bottom: YouTube lite embed -->
+            <YouTube id="vHUVhJlktOs" title="Vanguard Diagnostics – COVID Test Kit Manufacturer" />
           </div>
 
           <!-- Right column: heading + paragraphs -->
@@ -123,7 +116,7 @@ const pageSchema = [
       <div class="md:flex w-full flex-1 hidden"></div>
       <img
         id="business-approach-trigger"
-        src="/images/vanguard/products-solutions/business-approach-1.jpg"
+        src={images.covid19.businessApproach}
         alt="The renewed business approach of Vanguard Diagnostics"
         class="flex flex-[2] w-full h-auto object-cover cursor-pointer"
       />
@@ -136,7 +129,7 @@ const pageSchema = [
         <!-- Left: product image -->
         <div class="w-full md:w-[45%] shrink-0">
           <img
-            src="/images/vanguard/products-solutions/Viral-Transport-Medium-banner-1.jpg"
+            src={images.covid19.viralTransport}
             alt="Viral Transport Medium (VTM) – Made in India"
             class="w-full h-auto object-contain rounded-sm"
           />
@@ -198,7 +191,7 @@ const pageSchema = [
         <!-- Left: product image -->
         <div class="w-full md:w-[45%] shrink-0">
           <img
-            src="/images/vanguard/products-solutions/Viral-Lysis-Transport-Medium-2.jpg"
+            src={images.covid19.viralLysis}
             alt="Viral Lysis Transport Medium (VLTM) Kit"
             class="w-full h-auto object-contain rounded-sm"
           />
@@ -257,7 +250,7 @@ const pageSchema = [
         <!-- Left: product image -->
         <div class="w-full md:w-[45%] shrink-0">
           <img
-            src="/images/vanguard/products-solutions/Technical-collaboration-2.jpg"
+            src={images.covid19.technicalCollab}
             alt="Technical collaboration with IIT Delhi and DIPAS/DRDO – ICMR approved"
             class="w-full h-auto object-contain rounded-sm"
           />
@@ -319,7 +312,7 @@ const pageSchema = [
         <!-- Left: product image -->
         <div class="w-full md:w-[45%] shrink-0">
           <img
-            src="/images/vanguard/products-solutions/Antibody-Test-for-IgM-1.jpg"
+            src={images.covid19.antibodyTest}
             alt="COVID-19 IgM/IgG Antibody Detection Card Test"
             class="w-full h-auto object-contain rounded-sm"
           />

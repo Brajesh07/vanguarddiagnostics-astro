@@ -4,6 +4,7 @@ import BulletList from "../components/ui/BulletList.astro";
 import VanguardButton from "../components/ui/VanguardButton.astro";
 import ContentWithImage from "../components/ui/ContentWithImage.astro";
 import { aboutContent } from "../data/content";
+import { images } from "../data/images";
 
 const {
   metadata,
@@ -71,7 +72,7 @@ const pageSchema = [
     <section class="relative border-t-2 border-primary pb-10 pt-8">
       <img
         class="absolute top-0 right-0 z-0 object-cover h-auto w-[400px]"
-        src="/images/vanguard/about/about-us-bg-1.png"
+        src={images.about.bg}
         alt=""
       />
       <div
@@ -238,6 +239,7 @@ const pageSchema = [
             ivdIndustry.popup.title.split("Diagnostics Industry")[1]
           }
         </h2>
+        <div style={{ background: "red", width: 500, height: 500 }}></div>
         <div
           class="text-[16px] font-semibold leading-[1.5] text-black text-left"
         >

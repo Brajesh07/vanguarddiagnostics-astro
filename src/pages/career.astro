@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
 import { careerContent } from "../data/content";
 import GSCareerForm from "../components/GSCareerForm";
 import CareerPopupModal from "../components/CareerPopupModal.astro";
+import { careerBanner, certificationIcon } from "../assets/images";
 
 const { metadata, hero, application, openings } = careerContent;
 ---
@@ -11,7 +13,13 @@ const { metadata, hero, application, openings } = careerContent;
   <main class="text-foreground">
     <!-- Hero banner -->
     <section class="border-b-[3px] border-primary">
-      <img alt={hero.alt} class="h-auto w-full object-cover" src={hero.image} />
+      <Image
+        alt={hero.alt}
+        class="h-auto w-full object-cover"
+        src={careerBanner}
+        width={1920}
+        height={900}
+      />
     </section>
 
     <!-- Application form -->
@@ -26,10 +34,12 @@ const { metadata, hero, application, openings } = careerContent;
           set:html={application.p2}
         />
 
-        <img
+        <Image
           alt="Career figure"
           class="mt-6 h-[100px] w-auto"
-          src={application.icon}
+          src={certificationIcon}
+          width={135}
+          height={128}
         />
         <GSCareerForm client:load fields={application.fields} />
       </div>

@@ -1,5 +1,6 @@
 import { siteData } from "./site";
 import { quickLinks, milestoneTimeline, awards, pictureBook } from "./home";
+import { images } from "./images";
 
 /**
  * SHARED INTERFACES
@@ -77,14 +78,14 @@ export const homeContent = {
   hero: {
     slides: [
       {
-        bg: "/images/homepage/banner.jpg",
-        productImg: "/images/homepage/banner-img-part.png",
-        vanguardLogo: "/images/homepage/vanguard-diagnostics.png",
-        launchBadge: "/launch.png",
+        bg: images.heroBanner,
+        productImg: images.heroBannerPart,
+        vanguardLogo: images.heroLogo,
+        launchBadge: "/launch.webp",
         title: "Typhoid RT-PCR Test",
         subtitle: "Fulfilling the Unmet Need",
         description:
-          "First-of-its-kind Patented* RT-PCR Test for the detection of Salmonelia typhi & paratyphi in human blood",
+          "First-of-its-kind Patented* RT-PCR Test for the detection of Salmonella typhi & paratyphi in human blood",
         cta: {
           text: "Read More",
           href: "/products-solutions/typhoid-rt-pcr",
@@ -92,7 +93,7 @@ export const homeContent = {
       },
       {
         video: "/images/homepage/big-banner-video.mp4",
-        poster: "/images/homepage/biggbanner-video-thumbnail.jpeg",
+        poster: images.heroVideoThumbnail,
       },
     ],
   },
@@ -111,28 +112,28 @@ export const homeContent = {
     youtubeId: "zEeRN0iMGng",
     awardsSection: {
       title: "Excellence in Scaling-up of Manufacturing of Covid-19 Demand",
-      image: "/images/vanguard/awards/home-mid-image-3.jpg",
+      image: images.awardsHome,
       youtubeId: "UFgxiaMOj4E",
     },
     cards: [
       {
         id: "Vision",
         title: "Our Vision >>",
-        image: "/images/vanguard/cards/our-vision-home-4.jpg",
+        image: images.cards.vision,
         popupHeading: `Our <br> <span class="text-black">Vision</span>`,
         popupPara: `<p>Our vision at Vanguard Diagnostics is to make India increasingly self-reliant in the <em>in-vitro</em> diagnostics domain.</p>`,
       },
       {
         id: "Mission",
         title: "Our Mission >>",
-        image: "/images/vanguard/cards/our-mission-home-4.jpg",
+        image: images.cards.mission,
         popupHeading: `Our <br> <span class="text-black">Mission</span>`,
         popupPara: `<p>To develop, manufacture & market diagnostic products that stand for Responsibility & Reliability. <br/><br/> We intend to be the first-choice partner, of all non-manufacturing companies based in India and the sub-continent.</p>`,
       },
       {
         id: "Team",
         title: "Our Team >>",
-        image: "/images/vanguard/cards/our-team-home-4.jpg",
+        image: images.cards.team,
         tall: true,
         href: "/about-us",
       },
@@ -140,15 +141,15 @@ export const homeContent = {
   },
   milestones: {
     title: "Our Milestones",
-    icon: "/images/vanguard/nav-icons/milestone-icon-3.png",
+    icon: images.navIcons.milestone,
     p1: "With our major focus on delivering top-notch quality diagnostic products, we have been able to win numerous prestigious awards and international recognition.",
     p2: "Vanguard Diagnostics (P) Limited pioneered the introduction of Rapid Card Typhoid Antigen Detection Test in India to facilitate early, effortless, and accurate diagnosis of Typhoid fever.",
     p3: "We have an exclusive tie-up with Diagon-Hungary for the marketing of Hematology controls in India / Nepal / Bhutan.",
     timeline: milestoneTimeline,
   },
   diagon: {
-    logo: "/images/vanguard/diagon/Diagon-Vanguard-1024x195.jpg",
-    banner: "/images/vanguard/diagon/Diagon-Vanguard-banner-1-1024x423.jpg",
+    logo: images.diagon.logo,
+    banner: images.diagon.banner,
     title: "Diagon, Hungary & Vanguard Diagnostics, India",
     subtitle:
       "Bringing world class coagulation solutions for all types of laboratories in India",
@@ -156,7 +157,7 @@ export const homeContent = {
   awards: awards,
   pictureBook: {
     title: "Picture Book",
-    icon: "/images/vanguard/nav-icons/picture-book-icon-2.png",
+    icon: images.navIcons.pictureBook,
     items: pictureBook,
   },
   quickLinks: quickLinks,
@@ -169,8 +170,8 @@ export const aboutContent = {
       "Vanguard Diagnostics is a creative group active in innovation and application of new concepts and technologies in diagnostics, focusing on high-quality, affordable products.",
   },
   hero: {
-    banner: "/images/vanguard/about/aboutus-banner-1.webp",
-    icon: "/images/vanguard/about/vanguard-diagnostics-site-icon.png",
+    banner: images.about.banner,
+    icon: images.about.siteIcon,
     title: "About Vanguard Diagnostics",
     definition:
       "/vanguard/ noun: Vanguard: A creative group active in innovation and application of new concepts and technologies in a given field.",
@@ -182,7 +183,7 @@ export const aboutContent = {
     },
     popup: {
       title: "About Vanguard Diagnostics",
-      bg: "/images/homepage/home-popup-bg-2.jpg",
+      bg: images.homePopupBg,
       paragraphs: [
         "Founded by a motivated group of professionals with rare skill sets covering the entire value chain of Product and Business – encompassing R&D, Manufacturing, Quality, Marketing, Supply Chain, and Business leadership, the team at the helm of Vanguard Diagnostics has over 100 years of cumulative experience under their belt. We are engaged in the manufacturing of in-vitro diagnostics reagents covering Hematology, Clinical Chemistry, and Immunology segments. In addition, we manufacture Rapid Card Tests for communicable tropical infections like Malaria, Dengue, Chikungunya, Typhoid and Leptospirosis. As it is our endeavor to be on the path of improving healthcare in India, we strive to innovate and shape the future of healthcare.",
         "Today, Vanguard Diagnostics is amongst the leading 10 companies in India that have their own manufacturing unit for medical diagnostic solutions. Playing our part in supporting the ‘Make in India’ campaign towards an ‘Atmanirbhar Bharat’, Vanguard Diagnostics’ endeavor is to fulfil this unmet need of the industry.",
@@ -191,14 +192,14 @@ export const aboutContent = {
   },
   philosophy: {
     title: "Our Team",
-    icon: "/images/vanguard/about/team-icon-2.png",
+    icon: images.about.teamIcon,
   },
   team: [
     {
       id: "veena-kohli",
       name: "Veena Kohli",
       role: "CEO / Founder",
-      image: "/images/vanguard/about/Veena-Kohli.jpg",
+      image: images.about.team.veenaKohli,
       bio: "<span class='text-primary font-medium'>Veena Kohli</span> is an alumnus of the All India Institute of Medical Sciences, New Delhi. She has 30+ years of experience in the domains of Medical Diagnostics, Life Sciences, Chemicals and Animal Health Care. During the course, she had the opportunity to develop rare skill and expertise encompassing the entire value chain of Product & Business, starting from R&D, Manufacturing, Quality, Supply Chain, Product Management and Technical Services to Business Management – Domestic & Global.<br/><br/><strong>Global business leadership</strong><br/><br/>In her earlier avatar, Ms. Kohli was the Vice President and Head of the Global Diagnostics Business Unit at Avantor Performance Materials, a US based Diagnostics and Fine Chemicals organization. She was responsible for business strategy formulation, product road map, driving business",
       hasPopup: true,
       extraBio:
@@ -208,7 +209,7 @@ export const aboutContent = {
       id: "rp-tiwari",
       name: "Dr. R.P. Tiwari",
       role: "Director Technical",
-      image: "/images/vanguard/about/Dr-RP-Tiwari.jpg",
+      image: images.about.team.drRpTiwari,
       bio: "<span class='text-primary font-medium'>Dr. R.P. Tiwari</span> holds a doctorate degree in Biotechnology from Barkatullah University, Bhopal, MP, India and has been awarded with American, European, Indian patents and World Intellectual Property Copyright from the World Intellectual Property Organization on his PhD work on a diagnostic kit for detecting pulmonary and extra-pulmonary tuberculosis.<br/><br/>The fundamental research work done by Dr. Tiwari during his PhD has been appreciated and funded by the Department of Biotechnology, Ministry of Science & Technology, Govt. of India for developing the TB screen test for the detection and diagnosis of M. Tuberculosis. He has worked as a scientific advisor cum external collaborator in the above research program for the development of a diagnostic kit for early and rapid detection of pulmonary and extra-pulmonary tuberculosis and for its evaluation in health centers. He has guided more than 15 post",
       hasPopup: true,
       extraBio:
@@ -217,19 +218,19 @@ export const aboutContent = {
     {
       name: "Anil K Virmani",
       role: "Director Sales",
-      image: "/images/vanguard/about/Anil-K-Virmani.jpg",
+      image: images.about.team.anilVirmani,
       bio: "<span class='text-primary font-medium'>Anil K Virmani</span> is an experienced business professional with over 36 years of experience in spearheading strategies and business development. He has been a high-performing professional, meeting ambitious customer acquisitions both in the Government and Private sectors.<br/><br/>He has been responsible for developing and implementing business strategies to achieve organizational objectives on a sustained basis.<br/><br/>Anil has a special acumen for identifying, nurturing and growing key talent in the organization and commercial accounts.<br/><br/>Before becoming a part of the Vanguard Diagnostics, Anil had held several senior roles at Avantor Performance Materials India Ltd., RFCL & Godrej Industries Limited.",
     },
     {
       name: "Rahul Thakur",
       role: "Director Sales",
-      image: "/images/vanguard/about/Rahul-Thakur.jpg",
+      image: images.about.team.rahulThakur,
       bio: "<span class='text-primary font-medium'>Rahul Thakur</span> has a Masters in Business Administration and 16+ years of successful sales experience, consistently meeting and exceeding targets.<br/><br/>He has a natural and outstanding flair for effective team management and customer engagement.<br/><br/>Rahul has demonstrable experience in developing client-focused, differentiated and achievable solutions. He has been responsible for developing and executing key growth sales strategies, tactics and action plans required to achieve financial targets.<br/><br/>Rahul has successfully managed senior sales and commercial roles throughout his career.",
     },
     {
       name: "Vinod Kumar",
       role: "Director Corporate Affairs",
-      image: "/images/vanguard/about/Vinod-Kumar.jpg",
+      image: images.about.team.vinodKumar,
       bio: "An alumnus of IIT-Delhi, <span class='text-primary font-medium'>Vinod Kumar</span> holds 38 years of work experience in senior management positions with the longest at BHEL – a Maharatna company, largest engineering enterprise with a product portfolio of nearly 200 and an enviable record of profit making without a break for more than 30 years.<br/><br/>His areas of expertise include Corporate Affairs, Marketing and Project Development, Project Engineering, System Design and Integration, Erection & Commissioning of plants.<br/><br/>Currently he is CEO, Atal Incubation Centre supported by NITI Aayog, Govt of India under the Atal Innovation Mission, to support start ups in Health Tech, Agri Tech, Renewable Energy and Clean Mobility.",
     },
   ] as TeamMember[],
@@ -249,7 +250,7 @@ export const aboutContent = {
         `Additionally, the disease burden of India has come to resemble that of the West, with more and more Indians suffering from lifestyle related diseases like Diabetes mellitus, Cardiovascular disease and Cancer. It is seven times more expensive to diagnose, treat or monitor a lifestyle related disease as compared to an infectious disease. Hematology, Clinical Chemistry and Immunology segments constitute more than 80% of the total diagnostics market.`,
       ],
       image: {
-        src: "/images/vanguard/about/Vanguard-Diagnostics-Lab-2.jpg",
+        src: images.about.labOne,
         alt: "Vanguard diagnostics lab",
       },
       button: {
@@ -261,7 +262,7 @@ export const aboutContent = {
       title: `Our <span class="text-primary">Niche</span>`,
       titleAlign: "center",
       titleImg: {
-        src: "/images/vanguard/about/our-niche-icon-1.png",
+        src: images.about.nicheIcon,
         alt: "Our Niche Icon",
       },
       paragraphs: [
@@ -271,7 +272,7 @@ export const aboutContent = {
         "Vanguard Diagnostics also runs its Training Academy. The only diagnostics company offering this service.",
       ],
       image: {
-        src: "/images/vanguard/about/Vanguard-Diagnostics-Lab-2.jpg",
+        src: images.about.labTwo,
         alt: "Vanguard diagnostics lab",
       },
     },
@@ -279,7 +280,7 @@ export const aboutContent = {
       title: `<span class="text-primary">Quality</span>`,
       titleAlign: "center",
       titleImg: {
-        src: "/images/vanguard/about/quality-icon-1.png",
+        src: images.about.qualityIcon,
         alt: "Quality Icon",
       },
       paragraphs: ["We follow the most stringent quality norms:"],
@@ -289,7 +290,7 @@ export const aboutContent = {
         "Real Time Stability Studies",
       ],
       image: {
-        src: "/images/vanguard/about/Vanguard-Diagnostics-Lab-2.jpg",
+        src: images.about.LabThree,
         alt: "Vanguard diagnostics quality",
       },
       footerParagraphs: [
@@ -300,7 +301,7 @@ export const aboutContent = {
   ivdIndustry: {
     popup: {
       title: "in-vitro Diagnostics Industry Today In India",
-      bg: "/images/homepage/home-popup-bg-2.jpg",
+      bg: images.homePopupBg,
       paragraphs: [
         "These companies constitute 15% of the total number of players, however, they hold more than 50% of the total market share owing to their high end and high priced automated analyzers and reagents. Their products dominate the Tier 1 pathology laboratories and hospitals of our country.",
         "The highest percentage is that of local importers and distributors of instruments and reagents, constituting 45% of the total players.",
@@ -310,7 +311,7 @@ export const aboutContent = {
     },
   },
   servingBanner:
-    "/images/vanguard/about/about-vanguarddiagnostics-serving-1.webp",
+    images.about.servingBanner,
 } as const;
 
 export const productsContent = {
@@ -326,8 +327,8 @@ export const productsContent = {
     title: "Products Manufactured by Vanguard Diagnostics",
     description:
       "At Vanguard Diagnostics, we strive to enrich our portfolio continuously.",
-    image:
-      "/images/vanguard/products-solutions/vanguard-diagnostics-product-image-1.jpg",
+      image:
+        images.products.heroImage,
     bullets: [
       "Our flagship product line is Hematology wherein we offer a complete solution to the customer constituting reagents, controls, calibrators and an analyzer.",
       "We have developed, manufactured and marketed reagents over 20 models of Hematology analyzers, in a short span of five years.",
@@ -335,7 +336,7 @@ export const productsContent = {
     ],
     popup: {
       title: "Products Manufactured by Vanguard Diagnostics",
-      bg: "/images/homepage/home-popup-bg-2.jpg",
+      bg: images.homePopupBg,
       list: [
         "In addition, we manufacture rapid card tests for communicable tropical infections like Malaria, Dengue, Chikungunya, Typhoid and Leptospirosis.",
         "Our passion for branching into the adjacent space, led us to become the singular company in India that provides high-caliber, equivalent solutions for Flow Cytometers.",
@@ -346,43 +347,43 @@ export const productsContent = {
   categories: [
     {
       name: "Hematology Reagents",
-      icon: `/images/vanguard/products-solutions/product-hematology-reagents-icon.jpg`,
+      icon: images.products.categoryIcons.hematologyReagents,
       href: "/products-solutions/hematology-reagents",
     },
     {
       name: "Hematology Controls",
-      icon: `/images/vanguard/products-solutions/product-hematology-controls-icon.jpg`,
+      icon: images.products.categoryIcons.hematologyControls,
       href: "/products-solutions/hematology-controls",
     },
     {
       name: "Biochemistry Reagents",
-      icon: `/images/vanguard/products-solutions/product-clinical-chemistry-icon.jpg`,
+      icon: images.products.categoryIcons.biochemistry,
       href: "/products-solutions/biochemistry-reagents",
     },
     {
       name: "Immunology Diagnostic Tests",
-      icon: `/images/vanguard/products-solutions/product-immunology-icon.jpg`,
+      icon: images.products.categoryIcons.immunology,
       href: "/products-solutions/immunology-diagnostic-tests",
     },
     {
       name: "Covid-19",
-      icon: `/images/vanguard/products-solutions/product-Covid-19-icon.jpg`,
+      icon: images.products.categoryIcons.covid19,
       href: "/products-solutions/covid-19",
     },
     {
       name: "Training",
-      icon: `/images/vanguard/products-solutions/product-training-icon.jpg`,
+      icon: images.products.categoryIcons.training,
       href: "/products-solutions/training",
     },
     {
       name: "Typhoid RT PCR",
-      icon: `/images/vanguard/products-solutions/product-hematology-reagents-icon.jpg`,
+      icon: images.products.categoryIcons.hematologyReagents,
       href: "/products-solutions/typhoid-rt-pcr",
     },
   ] as ProductCategory[],
   covid19: {
     title: "Covid-19",
-    image: "/images/vanguard/products-solutions/recent-product-3.png",
+    image: images.products.recentProduct,
     p1: "The Covid-19 pandemic has put the technical and scientific abilities of the Indian in-vitro Diagnostics (IVD) industry to the test, since March, 2020. The industry has responded to the need of the hour swiftly, scientifically, strongly and successfully.",
     p2: "Since the month of March this year, the market started buzzing with the launch of novel Indian products for the detection of Covid-19. Today there are more than 30 Indian IVD companies that have introduced indigenous kits based on the Gold Standard, RT PCR technology and over 15 companies who have developed the antibody detection tests for Covid-19.",
     cta: {
@@ -392,7 +393,7 @@ export const productsContent = {
   },
   dengueElisa: {
     title: "Microwell ELISA for the detection of Dengue Antigen NS1",
-    image: "/images/vanguard/products-solutions/recent-product-3.png",
+    image: images.products.recentProduct,
     intro:
       "Vanguard Diagnostics is one of the few Indian manufacturers of this product.",
     bullets: [
@@ -406,24 +407,20 @@ export const productsContent = {
     title: "Flow Cytometry",
     subtitle: "We are the only Indian company to offer domestic reagents for",
     location: "In India",
-    bg: "/images/vanguard/products-solutions/product-bg-2.jpg",
-    image: "/images/vanguard/products-solutions/Flow-Cytometry-img-2.png",
+    bg: images.products.flowCytometryBg,
+    image: images.products.flowCytometryImg,
   },
   quote: {
     text: "We Provide Customized Solutions To Our Customers & Forge Long Term & Stable Business Relationships.",
-    icon1: "/images/vanguard/products-solutions/quote-1.png",
-    icon2: "/images/vanguard/products-solutions/quote-2.png",
-    bg: "/images/vanguard/products-solutions/product-bg-2.jpg",
+    icon1: images.products.quoteIcon1,
+    icon2: images.products.quoteIcon2,
+    bg: images.products.flowCytometryBg,
   },
   manufacturing: {
     title: "Manufacturing",
     subtitle:
       "Click on the videos below for a glimpse of our manufacturing capability",
-    images: Array.from(
-      { length: 13 },
-      (_, i) =>
-        `/images/vanguard/products-solutions/manufacturing-${i + 1}.jpg`,
-    ),
+    images: images.products.manufacturing,
   },
 } as const;
 
@@ -435,7 +432,7 @@ export const manufacturingContent = {
   },
   hero: {
     video: "/images/vanguard/manufacturing/Manufacturing-banner.mp4",
-    backgroundImage: "/images/vanguard/manufacturing/manufacturing-bg-1.png",
+    backgroundImage: images.manufacturing.bg,
     sloganTeal1: "Capacity to manufacture",
     sloganBlack: "1.5 million liters",
     sloganTeal2: "of reagents per year",
@@ -453,7 +450,7 @@ export const manufacturingContent = {
       "We have introduced world's most stable and reliable Hematology Controls in India. This will enable all sizes of Indian labs to produce results comparable in reliability with International labs.",
       "We target to automate operations so that we could work with a small team of efficient people.",
     ],
-    image: "/images/vanguard/manufacturing/7.jpg",
+    image: images.manufacturing.image,
   },
   technology: {
     title:
@@ -467,34 +464,34 @@ export const manufacturingContent = {
   },
   certifications: {
     title: "Our <span class='text-primary'>Certifications</span>",
-    topIcon: "/images/vanguard/manufacturing/certification-icon-1.png",
+    topIcon: images.manufacturing.topIcon,
     items: [
       {
         name: "13485:<span class='text-primary'>2016</span>",
-        icon: "/images/vanguard/manufacturing/iso-icon-2.jpg",
+        icon: images.manufacturing.isoIcon,
         url: "/pdfs/manufactures/ISO-13485-2016-certificate.pdf",
       },
       {
         name: "9001:<span class='text-primary'>2015</span>",
-        icon: "/images/vanguard/manufacturing/iso-icon-2.jpg",
+        icon: images.manufacturing.isoIcon,
         url: "/pdfs/manufactures/ISO-9001-2015-certificate-28.02.25.pdf",
       },
       {
         name: "14001:<span class='text-primary'>2015</span>",
-        icon: "/images/vanguard/manufacturing/iso-icon-2.jpg",
+        icon: images.manufacturing.isoIcon,
         url: "/pdfs/manufactures/ISO-14001-2015-certificate-23.01.25.pdf",
       },
       {
-        icon: "/images/vanguard/manufacturing/certification-icon-7.png",
+        icon: images.manufacturing.certIcon7,
         url: "/pdfs/manufactures/CE-Certificate-Class-B-ICS-18.12.2024.pdf",
       },
     ],
     banner: {
-      image: "/images/vanguard/manufacturing/certification-1.png",
+      image: images.manufacturing.certBanner,
     },
   },
   process: {
-    image: "/images/vanguard/manufacturing/manufacturing-img-2-2.jpg",
+    image: images.manufacturing.img2,
     tiles: [
       "Hematology Manufacturing",
       "Reagent Filtration System",
@@ -511,11 +508,11 @@ export const qualityContent = {
       "At Vanguard Diagnostics, our Quality Management System ensures that every batch of our product passes through a rigorous quality check, before being released",
   },
   intro: {
-    icon: "/images/vanguard/quality/quality-icon-1.png",
+    icon: images.quality.icon,
     title: "Quality",
     description:
       "At Vanguard Diagnostics, our Quality Management System ensures that every batch of our product passes through a rigorous quality check, before being released in the market.",
-    image: "/images/vanguard/quality/quality-banner-2.jpg",
+    image: images.quality.banner,
     checks: [
       "Every incoming RM & PM is tested against a standard testing procedure.",
       "Only those complying with laid down specifications are used in manufacturing.",
@@ -539,17 +536,17 @@ export const qualityContent = {
     {
       title: "Accelerated stability",
       body: "studies at 37C/45C / high humidity to ascertain performance under stressful conditions",
-      image: "/images/vanguard/quality/quality-footer-1.jpg",
+      image: images.quality.footer1,
     },
     {
       title: "Real time stability",
       body: "studies to ascertain performance under real field conditions.",
-      image: "/images/vanguard/quality/quality-footer-2.jpg",
+      image: images.quality.footer2,
     },
     {
       title: "Post marketing",
       body: "surveillance to ascertain performance during stressful weather conditions.",
-      image: "/images/vanguard/quality/quality-footer-3.jpg",
+      image: images.quality.footer3,
     },
   ] as QualityInsight[],
 } as const;
@@ -561,13 +558,13 @@ export const careerContent = {
       "Vanguard Diagnostics is a manufacturing and marketing organization based at New Delhi. Our niche lies in our talented and passionate team.",
   },
   hero: {
-    image: "/images/vanguard/career/career-banner-1.webp",
+    image: images.career.banner,
     alt: "Join Our Mission — Career at Vanguard Diagnostics",
   },
   application: {
     p1: "<strong>Vanguard Diagnostics</strong><br />is a manufacturing and marketing organization based at New Delhi.<br />Our niche lies in our talented and passionate team.",
     p2: "We are seeking great people to join our company on its journey towards excellence.<br />To apply for an opportunity in Vanguard Diagnostics, fill in the Form and Submit.<br />We will revert to you within two weeks.",
-    icon: "/images/vanguard/career/certification-icon-5.jpg",
+    icon: images.career.icon,
     fields: [
       { label: "Name", type: "text", id: "name" },
       { label: "Email", type: "email", id: "email" },
@@ -596,11 +593,11 @@ export const contactContent = {
     description: "Get in touch with Vanguard Diagnostics. Contact us at our facility in New Delhi.",
   },
   hero: {
-    image: "/images/vanguard/contact/contact-banner-1.jpg",
+    image: images.contact.banner,
     title: "Contact Us",
   },
   getInTouch: {
-    icon: "/images/vanguard/contact/get-in-touch-icon-2.jpg",
+    icon: images.contact.getInTouchIcon,
     title: "Get In Touch",
     form: {
       nameLabel: "Your name",
@@ -611,9 +608,9 @@ export const contactContent = {
     },
   },
   addressSection: {
-    icon: "/images/vanguard/contact/location-icon-2.jpg",
+    icon: images.contact.locationIcon,
     title: "Postal Address",
-    divider: "/images/vanguard/contact/hr-line-2.jpg",
+    divider: images.contact.hrLine,
     address: siteData.address,
     phone: siteData.phoneMobile,
     phoneLink: siteData.phoneMobileLink,
@@ -630,7 +627,7 @@ export const specificProductsContent = {
       "Vanguard Diagnostics excels in diagnostics, offering precise and reliable Hematology Reagents for effective blood analysis and disorder detection.",
     intro: {
       title: "Hematology Reagents",
-      icon: "/images/homepage/quality-icon-1.png",
+      icon: images.specificProducts.qualityIcon,
       paragraphs: [
         'Vanguard Diagnostics is a renowned entity in the diagnostic sector, offering a wide selection of <strong class="font-semibold text-black">Hematology Reagents</strong> – a key component for any lab focusing on blood analysis and associated disorders. These reagents are used to determine conditions like anemia, leukemia, and infections; our reagents stand out due to their precision and reliability.',
         'Quality is paramount at Vanguard Diagnostics, which is why our <strong class="font-semibold text-black">Hematology Reagents</strong> are produced under strict quality control protocols. Meeting and often surpassing industry standards, they offer consistent results that <a href="/contact-us" class="text-primary hover:underline">healthcare providers</a> can rely on.',
@@ -643,7 +640,7 @@ export const specificProductsContent = {
       description:
         "3 Part Differential Reagents under Vanguard Brand/ OEM/ Third Party arrangements for leading models",
       image:
-        "/images/vanguard/products-solutions/3-Part-Hematology-Reagents-2.png",
+        images.specificProducts.hemaReagents3Part,
       items: [
         "Mindray 3 part analyzers",
         "Prokan 3 part analyzer",
@@ -660,7 +657,7 @@ export const specificProductsContent = {
       description:
         '5 Part differential reagents with Vanguard brand name, under license from <a href="http://www.diagon.com/en/home/" class="text-primary hover:underline">Diagon, Hungary</a>.',
       image:
-        "/images/vanguard/products-solutions/5-Part-Hematology-Reagents-3.png",
+        images.specificProducts.hemaReagents5Part,
       items: [
         { instrument: "Mindray", models: "Models : 5000/5150, 5300, 5800" },
         { instrument: "Sysmex", models: "Models : XS 800 i, XS 1000 i" },
@@ -789,8 +786,8 @@ export const specificProductsContent = {
     },
     intro: {
       title: "Hematology Controls",
-      icon: "/images/homepage/quality-icon-1.png",
-      image: "/images/vanguard/hematology-controls-products-1.jpg",
+      icon: images.specificProducts.qualityIcon,
+      image: images.specificProducts.hematologyProducts,
       paragraphs: [
         '<a href="/products-solutions/hematology-controls" class="text-primary font-bold">Hematology controls</a> are crucial for accurate and reliable blood counts and tests in clinical labs. Vanguard Diagnostics, in partnership with Diagon of Hungary, offers exceptional 3-part and 5-part <strong class="text-[#222222] font-bold">Hematology Controls</strong>, positioning us as leaders in quality control. Diagon is one of only two manufacturers of <strong class="text-[#222222] font-bold">Hematology Controls</strong> globally. Our joint efforts have revolutionized the field with controls boasting unprecedented shelf lives and open vial stabilities. This advancement enables labs of all sizes in India to achieve highly reliable results comparable to international standards.',
         'Vanguard Diagnostics’ dedication to quality control in hematology is evident through our 3-part controls, now with an extended six-month shelf life, surpassing competitors’ three-month offering. Likewise, our 5-part controls offer a significant advantage with a four-month shelf life, compared to competitors’ two months. These achievements establish Vanguard Diagnostics as a reputable leader, delivering premium <strong class="text-[#222222] font-bold">Hematology Controls</strong> to clinical labs worldwide.',
@@ -851,8 +848,8 @@ export const specificProductsContent = {
       ],
     },
     ifus: [
-      { label: "D Check D", href: "/pdfs/D-Check-D.pdf" },
-      { label: "D check 5Diff", href: "/pdfs/D-check-5Diff.pdf" },
+      { label: "D Check D", href: "/pdfs/IFU-D-Check_D-EN-20161104.pdf" },
+      { label: "D check 5Diff", href: "/pdfs/IFU-D-Check_5Diff-EN-20161104.pdf" },
     ],
   },
   biochemistryReagents: {

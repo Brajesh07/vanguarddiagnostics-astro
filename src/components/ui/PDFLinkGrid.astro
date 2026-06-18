@@ -5,9 +5,21 @@ export interface Props {
     href: string;
   }>;
   class?: string;
+  /**
+   * Controls the rendered size of the PDF icon.
+   * Width = size, Height = size × (64/50) to preserve the natural aspect ratio.
+   * e.g. size={74} → width=74, height=94.72
+   */
+  size?: number;
 }
 
-const { docs = [], class: className = "" } = Astro.props;
+const { docs = [], class: className = "", size = 84 } = Astro.props;
+
+// Preserve the SVG's natural 50 : 64 (width : height) aspect ratio.
+const SVG_NATIVE_W = 50;
+const SVG_NATIVE_H = 64;
+const svgWidth = size;
+const svgHeight = Math.round((size / SVG_NATIVE_W) * SVG_NATIVE_H * 100) / 100;
 ---
 
 <div class={`flex flex-wrap gap-x-8 gap-y-10 justify-center ${className}`}>
@@ -15,18 +27,18 @@ const { docs = [], class: className = "" } = Astro.props;
     docs.map((doc) => (
       <a
         href={doc.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={doc.href === "#" ? undefined : "_blank"}
+        rel={doc.href === "#" ? undefined : "noopener noreferrer"}
         class="group flex flex-col items-center text-center transition-transform hover:-translate-y-1 w-[120px]"
       >
         <div class="relative mb-3">
           <svg
-            width="50"
-            height="64"
+            width={svgWidth}
+            height={svgHeight}
             viewBox="0 0 50 64"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class="mx-auto h-[60px] w-auto text-[#ed1c24]"
+            class="mx-auto text-[#ed1c24]"
           >
             <path
               d="M10 2H30L46 18V60C46 61.1046 45.1046 62 44 62H10C8.89543 62 8 61.1046 8 60V4C8 2.89543 8.89543 2 10 2Z"
