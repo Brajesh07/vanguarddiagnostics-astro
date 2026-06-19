@@ -30,7 +30,7 @@ const {
 
 const closeBtnId = `close-${popupId}`;
 const backdropId = `${popupId}-backdrop`;
-const headingId  = `${popupId}-heading`;
+const headingId = `${popupId}-heading`;
 ---
 
 <!-- Modal wrapper (hidden by default) -->
@@ -42,17 +42,17 @@ const headingId  = `${popupId}-heading`;
   aria-labelledby={headingId}
 >
   <!-- Backdrop -->
-  <div
-    id={backdropId}
-    class="absolute inset-0 bg-black/60 backdrop-blur-sm"
-  ></div>
+  <div id={backdropId} class="absolute inset-0 bg-black/60 backdrop-blur-sm">
+  </div>
 
   <!-- Modal panel -->
   <div
-    class="relative w-full aspect-[16/10] max-w-2xl mx-4 rounded-2xl overflow-hidden shadow-2xl"
+    class="relative w-full md:aspect-[16/10] max-w-2xl mx-4 rounded-2xl overflow-hidden shadow-2xl"
     style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
   >
-    <div class="relative z-10 px-8 py-10 md:px-12 md:py-12 h-full flex flex-col justify-center">
+    <div
+      class="relative z-10 px-8 py-10 md:px-12 md:py-12 h-full flex flex-col justify-center"
+    >
       <!-- Close button -->
       <button
         id={closeBtnId}
@@ -70,8 +70,7 @@ const headingId  = `${popupId}-heading`;
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          ></path>
+            d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
 
@@ -86,7 +85,9 @@ const headingId  = `${popupId}-heading`;
       <div class="h-[3px] w-12 bg-[#4dd9e8] mb-5"></div>
 
       <!-- Content paragraph -->
-      <p class="text-gray-950 text-base md:text-lg font-semibold leading-relaxed">
+      <p
+        class="text-gray-950 text-base md:text-lg font-semibold leading-relaxed"
+      >
         {content}
       </p>
     </div>
@@ -111,8 +112,8 @@ const headingId  = `${popupId}-heading`;
 </style>
 
 <script define:vars={{ popupId, openBtnId, closeBtnId, backdropId }}>
-  const popup    = document.getElementById(popupId);
-  const openBtn  = document.getElementById(openBtnId);
+  const popup = document.getElementById(popupId);
+  const openBtn = document.getElementById(openBtnId);
   const closeBtn = document.getElementById(closeBtnId);
   const backdrop = document.getElementById(backdropId);
 
@@ -130,7 +131,7 @@ const headingId  = `${popupId}-heading`;
     document.body.style.overflow = "";
   }
 
-  if (openBtn)  openBtn.addEventListener("click", openPopup);
+  if (openBtn) openBtn.addEventListener("click", openPopup);
   if (closeBtn) closeBtn.addEventListener("click", closePopup);
   if (backdrop) backdrop.addEventListener("click", closePopup);
 

@@ -18,9 +18,11 @@ function ytThumb(id: string): string {
     <section class="py-7">
       <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
         <img
-          alt="News & Webinars banner"
+          alt="Vanguard Diagnostics News and Webinars"
           class="h-auto w-full object-cover"
           src={images.news.banner}
+          width={1120}
+          height={400}
         />
       </div>
     </section>
@@ -43,6 +45,7 @@ function ytThumb(id: string): string {
                 href={item.link}
                 target={item.link === "#" ? undefined : "_blank"}
                 rel={item.link === "#" ? undefined : "noopener noreferrer"}
+                aria-label={`Watch webinar: ${item.title}`}
                 class="group block overflow-hidden border border-border bg-white shadow-sm transition-shadow hover:shadow-md"
               >
                 <!-- Thumbnail / Placeholder -->
@@ -50,9 +53,11 @@ function ytThumb(id: string): string {
                   {thumb ? (
                     <img
                       src={thumb}
-                      alt={item.title}
+                      alt=""
                       class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
+                      width={480}
+                      height={360}
                     />
                   ) : (
                     <div class="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary/10 to-accent/20">
@@ -79,7 +84,7 @@ function ytThumb(id: string): string {
                   <p class="text-[10px] font-semibold uppercase tracking-widest text-primary">
                     {item.date}
                   </p>
-                  <p class="mt-1 line-clamp-2 text-[13px] font-medium leading-[1.45] text-gray-800 group-hover:text-primary transition-colors">
+                  <p class="mt-1 line-clamp-2 text-[13px] font-medium leading-[1.45] text-black group-hover:text-primary transition-colors">
                     {item.title}
                   </p>
                 </div>
@@ -106,14 +111,17 @@ function ytThumb(id: string): string {
               href={item.link}
               target={item.link === "#" ? undefined : "_blank"}
               rel={item.link === "#" ? undefined : "noopener noreferrer"}
+              aria-label={`Read news from ${item.publication}`}
               class="group flex flex-col items-center border border-border bg-white text-center shadow-sm transition-all duration-200 hover:shadow-md hover:border-primary/30 overflow-hidden"
             >
               <!-- Full-width publication image -->
               <img
                 src={`/images/news/${item.logo}`}
-                alt={item.publication}
+                alt=""
                 class="w-full object-contain transition-opacity duration-200 group-hover:opacity-80"
                 loading="lazy"
+                width={360}
+                height={240}
               />
 
               <!-- Date I Publication label -->

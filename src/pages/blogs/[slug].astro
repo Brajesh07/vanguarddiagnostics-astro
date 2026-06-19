@@ -80,6 +80,21 @@ const pageSchema = [
     ],
   },
 ];
+
+if (frontmatter.faq && Array.isArray(frontmatter.faq) && frontmatter.faq.length > 0) {
+  pageSchema.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: frontmatter.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  });
+}
 ---
 
 <Layout
@@ -91,7 +106,7 @@ const pageSchema = [
     <div class="mx-auto w-full max-w-[1150px] bg-white p-8 md:p-14 shadow-sm">
       {/* Render the MDX/Markdown Content */}
       <article
-        class="prose max-w-none text-gray-700 prose-headings:text-primary prose-a:text-primary hover:prose-a:text-primary/80 prose-li:my-1 prose-ul:my-4 prose-p:my-4 prose-h2:mt-8 prose-h2:mb-4 prose-h3:mt-6 prose-h3:mb-3 prose-img:rounded-xl prose-img:shadow-md prose-img:mx-auto"
+        class="prose max-w-none text-gray-700 prose-headings:text-primary prose-a:text-primary hover:prose-a:text-[#005a66] prose-li:my-1 prose-ul:my-4 prose-p:my-4 prose-h2:mt-8 prose-h2:mb-4 prose-h3:mt-6 prose-h3:mb-3 prose-img:rounded-xl prose-img:shadow-md prose-img:mx-auto"
       >
         <Content />
       </article>
@@ -105,7 +120,7 @@ const pageSchema = [
       class="bg-white rounded-md border border-[#f9f9f9] mx-auto w-full max-w-[1150px] p-8 md:p-14 shadow-sm mt-4"
     >
       <h3 class="text-xl font-semibold text-gray-800 mb-2">Leave a Comment</h3>
-      <p class="text-[13px] text-gray-500 mb-6">
+      <p class="text-[13px] text-[#4b5563] mb-6">
         Your email address will not be published. Required fields are marked *
       </p>
 

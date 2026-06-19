@@ -53,6 +53,8 @@ const pageSchema = [
                 src={images.covid19.banner}
                 alt="Covid-19 – Vanguard Diagnostics"
                 class="w-full h-auto object-cover"
+                width={800}
+                height={450}
               />
             </div>
 
@@ -63,12 +65,12 @@ const pageSchema = [
           <!-- Right column: heading + paragraphs -->
           <div class="flex-1 py-4 px-4 xl:pr-28">
             <h1
-              class="text-[28px] md:text-[32px] font-bold text-[#222222] mb-6 leading-snug"
+              class="text-[28px] md:text-[32px] font-bold text-[#1a1a1a] mb-6 leading-snug"
             >
               COVID Test Kit Manufacturer
             </h1>
             <div
-              class="text-[15px] leading-7 text-[#555555] space-y-5 text-justify"
+              class="text-[15px] leading-7 text-[#4b5563] space-y-5 text-justify"
             >
               <p>
                 The Covid-19 pandemic has put the technical and scientific
@@ -90,19 +92,18 @@ const pageSchema = [
                 the requirement for the Viral Transport Medium (VTM) to protect
                 the virulence and viability of the virus during transport and
                 storage also registered a massive surge. Large quantities of the
-                VTM kits were initially being imported since there was not a
-                single
-                <strong class="text-[#222222]"
+                VTM kits were initially being imported since there was not a single
+                <strong class="text-black"
                   >covid test kit manufacturer</strong
                 > of throat and nasopharyngeal swabs in the country.
               </p>
               <p>
                 With the encouragement and guidance from the Govt. of India, a
                 couple of local
-                <strong class="text-[#222222]"
+                <strong class="text-black"
                   >covid test kit manufacturers</strong
                 > emerged for these swabs. Presently, there are over 20 local <strong
-                  class="text-[#222222]">covid test kit manufacturers</strong
+                  class="text-black">covid test kit manufacturers</strong
                 > of VTM kits in India.
               </p>
             </div>
@@ -119,6 +120,12 @@ const pageSchema = [
         src={images.covid19.businessApproach}
         alt="The renewed business approach of Vanguard Diagnostics"
         class="flex flex-[2] w-full h-auto object-cover cursor-pointer"
+        width={1200}
+        height={400}
+        role="button"
+        tabindex="0"
+        aria-label="View our renewed business approach"
+        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); this.click();}"
       />
     </section>
 
@@ -132,13 +139,15 @@ const pageSchema = [
             src={images.covid19.viralTransport}
             alt="Viral Transport Medium (VTM) – Made in India"
             class="w-full h-auto object-contain rounded-sm"
+            width={500}
+            height={350}
           />
         </div>
         <!-- Right: content -->
         <div class="flex-1">
           <h2 class="text-[20px] font-bold leading-snug mb-1">
             <span class="text-primary">Viral Transport Medium</span>
-            <span class="text-[#222222]"> (VTM),</span><br />
+            <span class="text-[#1a1a1a]"> (VTM),</span><br />
             <span class="text-primary">'Made in India'</span>
             <!-- PDF download circle-arrow icon -->
             <a
@@ -146,7 +155,7 @@ const pageSchema = [
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download VTM PDF"
-              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-primary hover:text-white transition-colors align-middle shrink-0"
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-[#005a66] hover:border-[#005a66] hover:text-white transition-colors align-middle shrink-0"
             >
               <!-- Circle arrow right icon -->
               <svg
@@ -165,7 +174,7 @@ const pageSchema = [
           </h2>
           <div class="h-[2px] w-10 bg-primary mt-2 mb-5"></div>
           <div
-            class="text-[15px] leading-7 text-[#555555] space-y-4 text-justify"
+            class="text-[15px] leading-7 text-[#4b5563] space-y-4 text-justify"
           >
             <p>
               Our technical team took less than a week to develop a highly
@@ -194,6 +203,8 @@ const pageSchema = [
             src={images.covid19.viralLysis}
             alt="Viral Lysis Transport Medium (VLTM) Kit"
             class="w-full h-auto object-contain rounded-sm"
+            width={500}
+            height={350}
           />
         </div>
         <!-- Right: content -->
@@ -201,14 +212,14 @@ const pageSchema = [
           <h2 class="text-[20px] font-bold leading-snug mb-1">
             <span class="text-primary">Viral Lysis Transport</span><br />
             <span class="text-primary">Medium</span>
-            <span class="text-[#222222]"> (VLTM) Kit</span>
+            <span class="text-[#1a1a1a]"> (VLTM) Kit</span>
             <!-- PDF download circle-arrow icon -->
             <a
               href="/pdfs/covid-19/VLTM-Kit.pdf"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download VLTM Kit PDF"
-              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-primary hover:text-white transition-colors align-middle shrink-0"
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-[#005a66] hover:border-[#005a66] hover:text-white transition-colors align-middle shrink-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -226,7 +237,7 @@ const pageSchema = [
           </h2>
           <div class="h-[2px] w-10 bg-primary mt-2 mb-5"></div>
           <div
-            class="text-[15px] leading-7 text-[#555555] space-y-4 text-justify"
+            class="text-[15px] leading-7 text-[#4b5563] space-y-4 text-justify"
           >
             <p>
               VDx Viral Lysis Transport Medium (VLTM) Kit is used for the
@@ -253,23 +264,25 @@ const pageSchema = [
             src={images.covid19.technicalCollab}
             alt="Technical collaboration with IIT Delhi and DIPAS/DRDO – ICMR approved"
             class="w-full h-auto object-contain rounded-sm"
+            width={500}
+            height={350}
           />
         </div>
         <!-- Right: content -->
         <div class="flex-1">
           <h2 class="text-[20px] font-bold leading-snug mb-1">
-            <span class="text-[#222222]"
+            <span class="text-[#1a1a1a]"
               >COVID Test Kit Manufacturer &ndash;Technical collaboration with</span
             ><br />
-            <span class="text-[#222222]">IIT Delhi and DIPAS/DRDO-</span><br />
-            <span class="text-[#222222]">ICMR approved</span>
+            <span class="text-[#1a1a1a]">IIT Delhi and DIPAS/DRDO-</span><br />
+            <span class="text-[#1a1a1a]">ICMR approved</span>
             <!-- PDF download circle-arrow icon -->
             <a
               href="/pdfs/covid-19/VDxBrochure-July2021.pdf"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download VDx Brochure PDF"
-              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-primary hover:text-white transition-colors align-middle shrink-0"
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-[#005a66] hover:border-[#005a66] hover:text-white transition-colors align-middle shrink-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -287,7 +300,7 @@ const pageSchema = [
           </h2>
           <div class="h-[2px] w-10 bg-primary mt-2 mb-5"></div>
           <div
-            class="text-[15px] leading-7 text-[#555555] space-y-4 text-justify"
+            class="text-[15px] leading-7 text-[#4b5563] space-y-4 text-justify"
           >
             <p>
               Vanguard Diagnostics has also collaborated with IIT Delhi on a
@@ -315,12 +328,14 @@ const pageSchema = [
             src={images.covid19.antibodyTest}
             alt="COVID-19 IgM/IgG Antibody Detection Card Test"
             class="w-full h-auto object-contain rounded-sm"
+            width={500}
+            height={350}
           />
         </div>
         <!-- Right: content -->
         <div class="flex-1">
           <h2 class="text-[20px] font-bold leading-snug mb-1">
-            <span class="text-[#222222]">Antibody Test</span>
+            <span class="text-[#1a1a1a]">Antibody Test</span>
             <span class="text-primary"> for IgM/ IgG</span>
             <!-- PDF download circle-arrow icon -->
             <a
@@ -328,7 +343,7 @@ const pageSchema = [
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download Antibody Test ICMR PDF"
-              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-primary hover:text-white transition-colors align-middle shrink-0"
+              class="inline-flex items-center justify-center w-7 h-7 rounded-full border-2 border-primary text-primary ml-2 hover:bg-[#005a66] hover:border-[#005a66] hover:text-white transition-colors align-middle shrink-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -346,7 +361,7 @@ const pageSchema = [
           </h2>
           <div class="h-[2px] w-10 bg-primary mt-2 mb-5"></div>
           <div
-            class="text-[15px] leading-7 text-[#555555] space-y-4 text-justify"
+            class="text-[15px] leading-7 text-[#4b5563] space-y-4 text-justify"
           >
             <p>
               Vanguard Diagnostics was amongst the first few companies in India

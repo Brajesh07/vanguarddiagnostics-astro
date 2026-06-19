@@ -25,17 +25,13 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
         playsinline
         preload="metadata"
         poster={images.heroPoster}
-        class="hero-video block h-auto w-full"
-        src={hero.video}></video>
+        class="hero-video block h-auto w-full aspect-[16/9]"
+        src={hero.video}
+        width={1920}
+        height={1080}
+      >
+      </video>
     </section>
-
-    <style>
-      @media (max-width: 768px) {
-        .hero-video {
-          display: none;
-        }
-      }
-    </style>
 
     <!-- Accent bar -->
     <div class="h-[3px] bg-primary"></div>
@@ -45,8 +41,10 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
       <div class="flex flex-col items-center mb-12">
         <img
           src={images.hematologyControls.productIcon}
-          alt="India Map"
+          alt=""
           class="w-20 mb-3"
+          width={80}
+          height={80}
         />
         <h1 class="text-3xl md:text-4xl font-bold">
           <span class="text-primary">Hematology</span> Controls
@@ -60,24 +58,26 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
             src={intro.image}
             alt="Hematology Controls Tubes"
             class="w-full h-auto object-contain rounded-md"
+            width={400}
+            height={300}
           />
         </div>
-        <div class="md:w-[65%] text-[15px] leading-7 text-[#555555] space-y-5">
+        <div class="md:w-[65%] text-[15px] leading-7 text-[#4b5563] space-y-5">
           {intro.paragraphs.map((p) => <p set:html={p} />)}
         </div>
       </div>
 
       <!-- Why Needed -->
       <div class="mb-14">
-        <p class="mb-6" set:html={whyNeeded.paragraphs[0]} />
-        <h2 class="text-[22px] font-bold text-[#222222] mb-5">
+        <p class="mb-6 text-[#4b5563]" set:html={whyNeeded.paragraphs[0]} />
+        <h2 class="text-[22px] font-bold text-[#1a1a1a] mb-5">
           {whyNeeded.title}
         </h2>
-        <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+        <div class="text-[15px] leading-7 text-[#4b5563] space-y-4">
           {
             whyNeeded.items.map((item) => (
               <p>
-                <strong class="text-[#222222] font-bold">{item.label}:</strong>{" "}
+                <strong class="text-black font-bold">{item.label}:</strong>{" "}
                 {item.description}
               </p>
             ))
@@ -87,14 +87,14 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
 
       <!-- Importance -->
       <div class="mb-16">
-        <h2 class="text-[22px] font-bold text-[#222222] mb-5">
+        <h2 class="text-[22px] font-bold text-[#1a1a1a] mb-5">
           {importance.title}
         </h2>
-        <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+        <div class="text-[15px] leading-7 text-[#4b5563] space-y-4">
           {
             importance.items.map((item) => (
               <p>
-                <strong class="text-[#222222] font-bold">{item.label}:</strong>{" "}
+                <strong class="text-black font-bold">{item.label}:</strong>{" "}
                 {item.description}
               </p>
             ))
@@ -104,7 +104,7 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
 
       <!-- Hematology Controls Product Brochure -->
       <div class="mb-16">
-        <h2 class="text-[24px] font-bold text-[#222222] mb-8">
+        <h2 class="text-[24px] font-bold text-[#1a1a1a] mb-8">
           Hematology Controls Product Brochure
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[800px]">
@@ -115,14 +115,18 @@ const { hero, intro, whyNeeded, importance, ifus } = hematologyControls;
             pdfUrl="/pdfs/Product-Brochure-Hematology-Controls.pdf"
           />
           <img
-            src="https://www.vanguarddiagnostics.com/wp-content/uploads/2021/06/hematology-controls-3.jpg"
+            src={images.hematologyControls.controls3}
             alt="Hematology Controls Brochure 1"
             class="w-full h-auto object-contain"
+            width={300}
+            height={400}
           />
           <img
             src={images.hematologyControls.controls4}
             alt="Hematology Controls Brochure 2"
             class="w-full h-auto object-contain"
+            width={300}
+            height={400}
           />
         </div>
       </div>

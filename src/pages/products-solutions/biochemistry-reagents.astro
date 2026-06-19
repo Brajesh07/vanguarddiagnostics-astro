@@ -93,17 +93,13 @@ const technicalReports = [
         playsinline
         preload="metadata"
         poster={images.heroPoster}
-        class="hero-video block h-auto w-full"
-        src={images.productPageBannerVideo}></video>
+        class="hero-video block h-auto w-full aspect-[16/9]"
+        src={images.productPageBannerVideo}
+        width={1920}
+        height={1080}
+      >
+      </video>
     </section>
-
-    <style>
-      @media (max-width: 768px) {
-        .hero-video {
-          display: none;
-        }
-      }
-    </style>
 
     <!-- Accent bar -->
     <div class="h-[3px] bg-primary"></div>
@@ -115,32 +111,37 @@ const technicalReports = [
         <div class="flex items-center gap-4 mb-4">
           <img
             src={images.biochemistry.productIcon}
-            alt="Biochemistry Reagents Icon"
+            alt=""
             class="w-16 h-auto object-contain"
+            width={64}
+            height={64}
           />
-          <h1 class="text-3xl md:text-4xl font-bold text-[#222222]">
+          <h1 class="text-3xl md:text-4xl font-bold text-[#1a1a1a]">
             Biochemistry Reagents
           </h1>
         </div>
       </div>
 
       <!-- Introduction -->
-      <div class="text-[15px] leading-7 text-[#555555] space-y-5 mb-14">
+      <div class="text-[15px] leading-7 text-[#4b5563] space-y-5 mb-14">
         <p>
           Vanguard Diagnostics, a renowned name in the <a
             href="/contact-us"
-            class="text-primary">diagnostics sector</a
+            class="text-primary hover:text-[#005a66] hover:underline transition-colors"
+            >diagnostics sector</a
           >, offers a variety of high-quality
-          <strong class="text-[#222222]">Biochemistry Reagents</strong>. These
+          <strong class="text-black">Biochemistry Reagents</strong>. These
           products offer single reagents in the liquid stable format. We offer
           <a
             href="https://pubmed.ncbi.nlm.nih.gov/6705186/"
-            class="text-primary">human serum calibrators</a
+            class="text-primary hover:text-[#005a66] hover:underline transition-colors"
+            target="_blank"
+            rel="noopener noreferrer">human serum calibrators</a
           > in place of simple standards in order to ensure matrix parity and accuracy
           of results.
         </p>
         <p>
-          Our <strong class="text-[#222222]">Biochemistry Reagents</strong> are rigorously
+          Our <strong class="text-black">Biochemistry Reagents</strong> are rigorously
           formulated and quality tested, often surpassing industry standards. They
           are crucial for determining biochemical markers for diabetes, lipid profile,
           liver function, kidney function amongst others. Vanguard Diagnostics' Reagents
@@ -160,20 +161,19 @@ const technicalReports = [
 
       <!-- Why are Biochemistry Reagents needed? -->
       <div class="mb-14">
-        <h2 class="text-[22px] font-bold text-[#222222] mb-5">
+        <h2 class="text-[22px] font-bold text-[#1a1a1a] mb-5">
           Why are Biochemistry Reagents needed?
         </h2>
-        <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+        <div class="text-[15px] leading-7 text-[#4b5563] space-y-4">
           <p>
-            <strong class="text-[#222222] font-bold"
-              >Diagnostic Accuracy:</strong
-            > Biochemistry reagents interact with specific compounds in patient samples,
-            allowing for precise measurements. This precision helps healthcare professionals
+            <strong class="text-black font-bold">Diagnostic Accuracy:</strong> Biochemistry
+            reagents interact with specific compounds in patient samples, allowing
+            for precise measurements. This precision helps healthcare professionals
             accurately diagnose a range of conditions, from diabetes to liver and
             kidney disorders, amongst others.
           </p>
           <p>
-            <strong class="text-[#222222] font-bold"
+            <strong class="text-black font-bold"
               >Broad Spectrum Analysis:</strong
             > Modern medicine recognizes the complexity of human health and the myriad
             of factors affecting it. Biochemistry reagents help in analyzing a wide
@@ -183,21 +183,21 @@ const technicalReports = [
             overview.
           </p>
           <p>
-            <strong class="text-[#222222] font-bold">Swift Results:</strong> Quick
-            diagnosis leads to timely treatment. Using these reagents, many automated
-            analyzers can provide rapid results, essential for critical care situations.
+            <strong class="text-black font-bold">Swift Results:</strong> Quick diagnosis
+            leads to timely treatment. Using these reagents, many automated analyzers
+            can provide rapid results, essential for critical care situations.
           </p>
         </div>
       </div>
 
       <!-- Importance of Biochemistry Reagents -->
       <div class="mb-16">
-        <h2 class="text-[22px] font-bold text-[#222222] mb-5">
+        <h2 class="text-[22px] font-bold text-[#1a1a1a] mb-5">
           Importance of Biochemistry Reagents
         </h2>
-        <div class="text-[15px] leading-7 text-[#555555] space-y-4">
+        <div class="text-[15px] leading-7 text-[#4b5563] space-y-4">
           <p>
-            <strong class="text-[#222222] font-bold"
+            <strong class="text-black font-bold"
               >Reliable Health Assessments:</strong
             > The efficacy of Biochemistry reagents ensures that test results are
             consistent and reliable, which is pivotal for accurate health assessments.
@@ -205,7 +205,7 @@ const technicalReports = [
             health.
           </p>
           <p>
-            <strong class="text-[#222222] font-bold"
+            <strong class="text-black font-bold"
               >Informed Clinical Decisions:</strong
             > Clinicians rely on data-driven insights. The results derived from these
             reagents provide crucial biochemical insights, guiding doctors in prescribing
@@ -213,7 +213,7 @@ const technicalReports = [
             changes.
           </p>
           <p>
-            <strong class="text-[#222222] font-bold"
+            <strong class="text-black font-bold"
               >Monitoring Disease Progression:</strong
             > Many conditions, like kidney diseases or certain types of cancers, require
             regular monitoring. Biochemistry reagents offer consistent evaluations,
@@ -224,7 +224,7 @@ const technicalReports = [
 
       <!-- Product List -->
       <div>
-        <h2 class="text-[17px] font-bold text-[#222222] mb-6">
+        <h2 class="text-[17px] font-bold text-[#1a1a1a] mb-6">
           Vanguard brand Biochemistry Reagents for all open/ partially open
           models
         </h2>
@@ -235,16 +235,21 @@ const technicalReports = [
             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2">
               {
                 allBiochemistryProducts.map((doc) => (
-                  <li class="flex items-start gap-2">
+                  <li class="flex items-start gap-2 text-[#4b5563]">
                     <img
                       class="mt-[5px] shrink-0 w-[14px] h-[14px] inline-block"
                       src={images.bulletIcon}
+                      alt=""
+                      aria-hidden="true"
+                      width={14}
+                      height={14}
                     />
                     <a
                       href={doc.href}
                       target={doc.href === "#" ? undefined : "_blank"}
                       rel={doc.href === "#" ? undefined : "noopener noreferrer"}
-                      class="text-base underline hover:text-[#008a96] leading-snug"
+                      aria-label={`Download PDF: ${doc.label}`}
+                      class="text-base text-primary hover:text-[#005a66] hover:underline leading-snug transition-colors"
                     >
                       {doc.label}
                     </a>
@@ -260,8 +265,10 @@ const technicalReports = [
           >
             <img
               src={images.biochemistry.newImgModels}
-              alt="biochemistry reagents"
+              alt="Biochemistry Reagents Display"
               class="w-full max-w-[382px] h-auto object-contain rounded-xl"
+              width={382}
+              height={382}
             />
           </div>
         </div>

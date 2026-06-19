@@ -84,7 +84,7 @@ if (
         button ? (
           <div class="flex flex-col gap-4 flex-1">
             {paragraphs.map((para) => (
-              <p class="text-[15px] leading-7 text-[#555555]" set:html={para} />
+              <p class="text-[15px] leading-7 text-[#4b5563]" set:html={para} />
             ))}
 
             {bullets.length > 0 && (
@@ -94,23 +94,25 @@ if (
             )}
 
             {footerParagraphs.map((para) => (
-              <p class="text-[15px] leading-7 text-[#555555]" set:html={para} />
+              <p class="text-[15px] leading-7 text-[#4b5563]" set:html={para} />
             ))}
 
             {button && (
               <div class="mt-4">
                 {button.triggerId ? (
                   <button
-                    class="inline-flex w-fit items-center justify-center rounded border border-primary px-5 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    class="inline-flex w-fit items-center justify-center rounded border border-primary px-5 py-2 text-sm font-medium text-primary transition-colors hover:bg-[#005a66] hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                     data-team-popup-trigger={button.triggerId === "ivd-industry" ? undefined : button.triggerId}
                     data-industry-popup-trigger={button.triggerId === "ivd-industry" ? "" : undefined}
+                    aria-label={`Read more about ${title?.replace(/<[^>]*>?/gm, '')}`}
                   >
                     {button.text}
                   </button>
                 ) : (
                   <a
                     href={button.href}
-                    class="inline-flex w-fit items-center justify-center rounded border border-primary px-5 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    class="inline-flex w-fit items-center justify-center rounded border border-primary px-5 py-2 text-sm font-medium text-primary transition-colors hover:bg-[#005a66] hover:text-white focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    aria-label={`Read more about ${title?.replace(/<[^>]*>?/gm, '')}`}
                   >
                     {button.text}
                   </a>
@@ -128,6 +130,8 @@ if (
               alt={image.alt}
               class="h-auto w-full object-cover shadow-sm"
               src={image.src}
+              width={600}
+              height={400}
             />
           </div>
         )

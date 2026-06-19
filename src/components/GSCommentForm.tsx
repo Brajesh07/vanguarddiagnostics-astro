@@ -82,7 +82,7 @@ export default function GSCommentForm({ postSlug }: CommentFormProps) {
 
       <div className="flex items-center gap-2 mb-2 mt-2">
         <input type="checkbox" id="save-info" name="save-info" className="accent-primary w-3.5 h-3.5" />
-        <label htmlFor="save-info" className="text-[13px] text-gray-500">
+        <label htmlFor="save-info" className="text-[13px] text-[#4b5563]">
           Save my name, email, and website in this browser for the next time I comment.
         </label>
       </div>
@@ -90,7 +90,7 @@ export default function GSCommentForm({ postSlug }: CommentFormProps) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`bg-primary text-white font-medium text-base px-6 py-2.5 w-fit hover:bg-primary/90 transition-colors mt-2${
+        className={`bg-primary text-white font-medium text-base px-6 py-2.5 w-fit hover:bg-[#005a66] transition-colors mt-2${
           isSubmitting ? " opacity-70 cursor-not-allowed" : ""
         }`}
       >

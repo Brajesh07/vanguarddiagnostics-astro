@@ -110,7 +110,7 @@ export default function GSContactForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`inline-flex items-center justify-center rounded bg-primary px-4 py-2 text-[12px] font-medium text-white transition-colors hover:bg-[#017d8c]${
+          className={`inline-flex items-center justify-center rounded bg-primary px-4 py-2 text-[12px] font-medium text-white transition-colors hover:bg-[#005a66]${
             isSubmitting ? " opacity-70 cursor-not-allowed" : ""
           }`}
         >
@@ -124,7 +124,7 @@ export default function GSContactForm({
         </p>
       )}
       {status === "error" && (
-        <p className="mt-2 text-[12px] text-red-500">
+        <p className="mt-2 text-[12px] text-red-600">
           Something went wrong. Please try again.
         </p>
       )}

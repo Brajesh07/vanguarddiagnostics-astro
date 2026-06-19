@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -16,6 +17,22 @@ interface MilestoneCarouselProps {
 export default function MilestoneCarousel({
   milestones,
 }: MilestoneCarouselProps) {
+  const [autoplayConfig, setAutoplayConfig] = useState<boolean | object>(false);
+
+  useEffect(() => {
+    const idleCallback = (window as any).requestIdleCallback || ((cb: any) => setTimeout(cb, 2000));
+    const handle = idleCallback(() => {
+      setAutoplayConfig({ delay: 3000, disableOnInteraction: false });
+    });
+    return () => {
+      if ((window as any).cancelIdleCallback) {
+        (window as any).cancelIdleCallback(handle);
+      } else {
+        clearTimeout(handle);
+      }
+    };
+  }, []);
+
   return (
     <div className="pb-10">
       <Swiper
@@ -23,7 +40,7 @@ export default function MilestoneCarousel({
         spaceBetween={20}
         slidesPerView={1}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={autoplayConfig}
         breakpoints={{
           640: { slidesPerView: 2 },
           1024: { slidesPerView: 4 },

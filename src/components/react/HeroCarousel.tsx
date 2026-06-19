@@ -100,6 +100,9 @@ export default function HeroCarousel() {
                 alt="Hero background"
                 className="absolute inset-0 h-full w-full object-cover opacity-85 -z-[1]"
                 src={hero.slides[0].bg}
+                fetchPriority="high"
+                width={1920}
+                height={1080}
               />
               <div className="flex w-full lg:w-[1200px] h-fit shrink-0 items-center lg:items-end gap-8 p-6 md:p-10 flex-col lg:flex-row">
                 <div className="overflow-hidden max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-none w-full">
@@ -107,6 +110,8 @@ export default function HeroCarousel() {
                     alt="Vanscan product"
                     className="h-full w-full object-cover"
                     src={hero.slides[0].productImg}
+                    width={500}
+                    height={600}
                   />
                 </div>
                 <div className="max-w-full md:max-w-[460px] xl:max-w-[540px] text-center lg:text-left">
@@ -114,11 +119,15 @@ export default function HeroCarousel() {
                     alt="Vanguard Diagnostics"
                     className="mx-auto lg:ml-auto h-8 w-auto md:h-12"
                     src={hero.slides[0].vanguardLogo}
+                    width={200}
+                    height={48}
                   />
                   <img
                     alt="Launched Vanscan"
                     className="mt-6 h-auto w-[260px] max-w-full mx-auto lg:mx-0"
                     src={hero.slides[0].launchBadge}
+                    width={260}
+                    height={100}
                   />
                   <h2 className="mt-4 text-2xl font-bold leading-[1.02] text-[#3f434a] md:text-5xl">
                     {hero.slides[0].title}
@@ -133,6 +142,7 @@ export default function HeroCarousel() {
                     <VanguardButton
                       href={hero.slides[0].cta?.href || "#"}
                       className="px-6 py-3"
+                      aria-label={`Read more about our ${hero.slides[0].title}`}
                     >
                       {hero.slides[0].cta?.text}
                     </VanguardButton>
@@ -152,6 +162,8 @@ export default function HeroCarousel() {
                 autoPlay
                 muted
                 playsInline
+                width={1200}
+                height={675}
               >
                 <source
                   src={hero.slides[1].video}

@@ -40,22 +40,22 @@ const pageSchema = [
           {title}
         </h1>
 
-        <div class="space-y-6 text-[13px] leading-relaxed text-[#333333]">
+        <div class="space-y-6 text-base leading-relaxed text-[#1a1a1a]">
           {
             sections.map((section) => (
               <>
                 {section.heading && (
-                  <h2 class="mt-8 text-xl font-bold uppercase text-[#000000]">
+                  <h2 class="mt-8 text-xl font-bold uppercase text-black">
                     {section.heading}
                   </h2>
                 )}
                 {section.paragraphs?.map((p) => (
-                  <p class="text-lg">{p}</p>
+                  <p class="text-base">{p}</p>
                 ))}
                 {section.list && (
                   <ul class="list-disc space-y-2 pl-5">
                     {section.list.map((item) => (
-                      <li class="text-lg">{item}</li>
+                      <li class="text-base">{item}</li>
                     ))}
                   </ul>
                 )}

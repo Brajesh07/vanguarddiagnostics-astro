@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -13,10 +14,30 @@ const slides = images.awards.map((img, i) => ({
 }));
 
 export default function AwardsCarousel() {
+  const [autoplayConfig, setAutoplayConfig] = useState(false);
+
+  useEffect(() => {
+    const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 2000));
+    const handle = idleCallback(() => {
+      setAutoplayConfig({
+        delay: 2000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      });
+    });
+    return () => {
+      if (window.cancelIdleCallback) {
+        window.cancelIdleCallback(handle);
+      } else {
+        clearTimeout(handle);
+      }
+    };
+  }, []);
+
   return (
     <section className="awards-section">
       <div className="flex flex-col gap-2 items-center">
-        <img src={images.awardsIcon} alt="Award icon" />
+        <img src={images.awardsIcon} alt="" width={135} height={135} />
         <h2 className="text-3xl font-medium">
           Awards and <span className="text-[#019cad]">Accreditations</span>
         </h2>
@@ -35,11 +56,7 @@ export default function AwardsCarousel() {
             1280: { slidesPerView: 3 },
           }}
           loop={true}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
+          autoplay={autoplayConfig}
           navigation={true}
           coverflowEffect={{
             rotate: 50,
@@ -57,6 +74,8 @@ export default function AwardsCarousel() {
                 alt={`${slide.name} – ${slide.body} ${slide.year}`}
                 className="award-img"
                 loading="lazy"
+                width={300}
+                height={230}
               />
             </SwiperSlide>
           ))}
@@ -84,7 +103,8 @@ export default function AwardsCarousel() {
         .awards-swiper .swiper-slide {
           background: transparent;
           height: auto !important;
-          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.3s ease;
           pointer-events: none;
           display: flex;
           flex-direction: column;
@@ -94,7 +114,7 @@ export default function AwardsCarousel() {
         .awards-swiper .swiper-slide-prev,
         .awards-swiper .swiper-slide-active,
         .awards-swiper .swiper-slide-next {
-          visibility: visible;
+          opacity: 1;
           pointer-events: auto;
         }
 

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -14,6 +15,25 @@ export default function HorizontalCarousel({
   items,
   itemHeight = "h-60 md:h-72",
 }: HorizontalCarouselProps) {
+  const [autoplayConfig, setAutoplayConfig] = useState<boolean | object>(false);
+
+  useEffect(() => {
+    const idleCallback = (window as any).requestIdleCallback || ((cb: any) => setTimeout(cb, 2000));
+    const handle = idleCallback(() => {
+      setAutoplayConfig({
+        delay: 3000,
+        disableOnInteraction: false,
+      });
+    });
+    return () => {
+      if ((window as any).cancelIdleCallback) {
+        (window as any).cancelIdleCallback(handle);
+      } else {
+        clearTimeout(handle);
+      }
+    };
+  }, []);
+
   return (
     <section className="py-10 md:py-14">
       <div>
@@ -21,10 +41,7 @@ export default function HorizontalCarousel({
           modules={[Autoplay, Pagination]}
           spaceBetween={16}
           slidesPerView="auto"
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
+          autoplay={autoplayConfig}
           pagination={{
             clickable: true,
             dynamicBullets: false,

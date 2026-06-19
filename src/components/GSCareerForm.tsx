@@ -100,7 +100,7 @@ export default function GSCareerForm({ fields }: GSCareerFormProps) {
           Resume (PDF, DOC, DOCX)
         </label>
         <input
-          className="block w-full border border-border bg-white px-3 py-2 text-[13px] text-[#555555]"
+          className="block w-full border border-border bg-white px-3 py-2 text-[13px] text-[#4b5563]"
           type="file"
           name="resume"
           accept=".pdf,.doc,.docx"
@@ -111,7 +111,7 @@ export default function GSCareerForm({ fields }: GSCareerFormProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`inline-flex items-center justify-center rounded bg-primary px-6 py-2 text-[13px] font-medium text-white transition-colors hover:bg-[#017d8c]${
+          className={`inline-flex items-center justify-center rounded bg-primary px-6 py-2 text-[13px] font-medium text-white transition-colors hover:bg-[#005a66]${
             isSubmitting ? " opacity-70 cursor-not-allowed" : ""
           }`}
         >

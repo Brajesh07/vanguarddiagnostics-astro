@@ -229,10 +229,12 @@ const capsules = [
         <div class="flex flex-col gap-3 mb-2">
           <img
             src={images.training.capsules}
-            alt="Training Capsules icon"
+            alt=""
             class="w-24 h-auto object-contain"
+            width={96}
+            height={96}
           />
-          <h2 class="text-3xl text-[#222]">
+          <h2 class="text-3xl text-[#1a1a1a]">
             Training <span class="text-primary"
               >Capsules (Customized Programs)</span
             >
@@ -240,7 +242,7 @@ const capsules = [
         </div>
         <div class="h-[2px] w-14 bg-primary mb-6"></div>
 
-        <div class="text-[15px] leading-7 text-[#555] space-y-4 mb-8">
+        <div class="text-[15px] leading-7 text-[#4b5563] space-y-4 mb-8">
           <p>
             in-vitro Diagnostics (IVD) is a part of the healthcare industry with
             a market size of ~$1.3 Bn in 2020 and the year on year growth was
@@ -256,7 +258,7 @@ const capsules = [
             Diagnostics industry, the availability of candidates with desirable
             attributes keen to enter the IVD industry is dwindling.
           </p>
-          <p class="text-primary">
+          <p class="text-primary font-medium">
             Vanguard Diagnostics, through its comprehensive training solutions
             intends to equip the sales team to be able to create value for the
             customers & be future ready thereby ensuring: individual
@@ -268,11 +270,14 @@ const capsules = [
         <ul class="space-y-3">
           {
             capsulesBullets.map((item) => (
-              <li class="flex items-center gap-4 text-base text-[#555]">
+              <li class="flex items-center gap-4 text-base text-[#4b5563]">
                 <img
                   src={images.bulletIcon}
-                  alt="Check icon"
+                  alt=""
+                  aria-hidden="true"
                   class="w-4 h-4 object-contain"
+                  width={16}
+                  height={16}
                 />
                 {item}
               </li>
@@ -281,7 +286,7 @@ const capsules = [
         </ul>
 
         <p
-          class="mt-8 text-xl text-primary italic border-l-8 border-primary pl-5 pb-8"
+          class="mt-8 text-xl text-primary italic border-l-8 border-primary pl-5 pb-8 font-medium"
         >
           Brand building for the organization through the image of a
           professional team.
@@ -506,8 +511,10 @@ const capsules = [
         <div class="flex justify-center mb-4">
           <img
             src={images.training.programsBenefits}
-            alt="Benefits checkmark"
+            alt=""
             class="w-20 h-20 object-contain"
+            width={80}
+            height={80}
           />
         </div>
 
@@ -578,14 +585,14 @@ const capsules = [
           .capsule-number {
             font-size: 92px;
             font-weight: 700;
-            color: #019cad;
+            color: var(--primary);
             line-height: 1;
             flex-shrink: 0;
             font-family: "Roboto", sans-serif;
           }
           .capsule-label {
             font-size: 18px;
-            color: #333;
+            color: #1a1a1a;
             font-weight: 500;
             line-height: 1.4;
             padding-top: 6px;
@@ -593,7 +600,8 @@ const capsules = [
           }
           .capsule-line {
             height: 2px;
-            background-color: rgba(1, 156, 173, 0.35);
+            background-color: var(--primary);
+            opacity: 0.35;
           }
           /* Clickable capsule card */
           .capsule-card-clickable {
@@ -603,11 +611,11 @@ const capsules = [
               transform 0.2s;
           }
           .capsule-card-clickable:hover .capsule-card-inner {
-            border-color: #019cad;
-            box-shadow: 0 2px 12px rgba(1, 156, 173, 0.18);
+            border-color: var(--primary);
+            box-shadow: 0 2px 12px rgba(0, 113, 127, 0.18);
           }
           .capsule-card-clickable:hover .capsule-number {
-            color: #006a76;
+            color: #005a66;
           }
           /* Image lightbox overlay */
           #capsule-lightbox {
@@ -668,11 +676,12 @@ const capsules = [
           .capsules-pagination .swiper-pagination-bullet {
             width: 8px;
             height: 8px;
-            background: rgba(1, 156, 173, 0.3);
-            opacity: 1;
+            background: var(--primary);
+            opacity: 0.3;
           }
           .capsules-pagination .swiper-pagination-bullet-active {
-            background: #ad0118;
+            background: var(--primary);
+            opacity: 1;
           }
         </style>
 
@@ -682,26 +691,31 @@ const capsules = [
           import "swiper/css";
           import "swiper/css/pagination";
 
-          new Swiper(".capsules-swiper", {
-            modules: [Pagination, Autoplay],
-            slidesPerView: 5,
-            spaceBetween: 0,
-            loop: true,
-            autoplay: {
-              delay: 3000,
-              disableOnInteraction: false,
-            },
-            pagination: {
-              el: ".capsules-pagination",
-              clickable: true,
-            },
-            breakpoints: {
-              0: { slidesPerView: 1 },
-              480: { slidesPerView: 2 },
-              768: { slidesPerView: 3 },
-              1024: { slidesPerView: 5 },
-            },
-          });
+          const initSwiper = () => {
+            new Swiper(".capsules-swiper", {
+              modules: [Pagination, Autoplay],
+              slidesPerView: 5,
+              spaceBetween: 0,
+              loop: true,
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+              },
+              pagination: {
+                el: ".capsules-pagination",
+                clickable: true,
+              },
+              breakpoints: {
+                0: { slidesPerView: 1 },
+                480: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 5 },
+              },
+            });
+          };
+
+          const idleCallback = window.requestIdleCallback || ((cb) => setTimeout(cb, 2000));
+          idleCallback(initSwiper);
 
           // ── Capsule image lightbox ──────────────────────────────────────
           const lightbox = document.getElementById("capsule-lightbox");

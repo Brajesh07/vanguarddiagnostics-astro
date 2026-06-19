@@ -2,9 +2,42 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { specificProductsContent } from "../../data/content";
-import { typhoidTopBanner, typhoidTest1, typhoidTestImage } from "../../assets/images";
+import {
+  typhoidTopBanner,
+  typhoidTest1,
+  typhoidTestImage,
+} from "../../assets/images";
+import ProductFAQ from "../../components/ui/ProductFAQ.astro";
 
 const { typhoidRtPcr } = specificProductsContent;
+
+const faqs = [
+  {
+    question: "How accurate is the RT-PCR test for typhoid?",
+    answer:
+      "RT-PCR is a highly sensitive and specific molecular testing method designed to detect Salmonella Typhi genetic material. Accuracy may vary depending on factors such as sample quality, timing of testing, and infection stage. It provides reliable results when performed under appropriate laboratory conditions.",
+  },
+  {
+    question: "What is the turnaround time?",
+    answer:
+      "The typical turnaround time depends on the laboratory workflow and testing setup. In most cases, RT-PCR results can be available within a few hours to a day after sample processing.",
+  },
+  {
+    question: "Is the test patented?",
+    answer:
+      "Yes, VANSCAN Typhoid RT-PCR Test is based on patented technology (Indian Patent No. 355208).",
+  },
+  {
+    question: "What analyzers are compatible?",
+    answer:
+      "The test is designed for use on various real-time PCR platforms. For specific analyzer compatibility, please contact our technical support team.",
+  },
+  {
+    question: "Do you supply outside India?",
+    answer:
+      "Yes, we do supply outside India. Please contact our sales team for more information.",
+  },
+];
 ---
 
 <Layout title={typhoidRtPcr.title} description={typhoidRtPcr.description}>
@@ -23,15 +56,15 @@ const { typhoidRtPcr } = specificProductsContent;
 
     <section class="bg-white py-10 md:py-14 text-center">
       <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
-        <p class="text-[16px] md:text-[18px] font-semibold text-[#333]">
+        <p class="text-[16px] md:text-[18px] font-semibold text-[#1a1a1a]">
           First Typhoid RT PCR Kit based on Patented Technology
         </p>
         <h1 class="text-3xl md:text-4xl font-bold mt-4 mb-3 tracking-wide">
-          <span class="text-primary">VAN</span><span class="text-[#4b4f58]"
+          <span class="text-primary">VAN</span><span class="text-[#1a1a1a]"
             >SCAN TYPHOID RT PCR TEST</span
           >
         </h1>
-        <p class="text-[16px] md:text-[18px] font-semibold text-[#333]">
+        <p class="text-[16px] md:text-[18px] font-semibold text-[#1a1a1a]">
           The new Gold Standard in Typhoid detection
         </p>
       </div>
@@ -51,7 +84,7 @@ const { typhoidRtPcr } = specificProductsContent;
           <div class="w-full md:w-[45%] flex justify-center">
             <Image
               src={typhoidTest1}
-              alt="Typhoid Testing"
+              alt=""
               class="w-full h-auto"
               width={400}
               height={340}
@@ -59,35 +92,37 @@ const { typhoidRtPcr } = specificProductsContent;
           </div>
 
           <div
-            class="w-full md:w-[55%] text-[15px] md:text-[16px] leading-relaxed text-[#333] space-y-5"
+            class="w-full md:w-[55%] text-[15px] md:text-[16px] leading-relaxed text-[#1a1a1a] space-y-5"
           >
             <!-- Direct-answer paragraph for featured snippet / AI engine extraction -->
-            <p class="font-semibold text-[#222]">
+            <p class="font-semibold text-black">
               The VANSCAN Typhoid RT-PCR test is a molecular diagnostic assay
-              that detects <em>Salmonella typhi</em> and <em>Salmonella paratyphi</em>
-              DNA directly from human blood. Based on patented technology
-              (Indian Patent No. 355208), it enables accurate diagnosis from
-              Day 1 of infection — delivering higher sensitivity and specificity
-              than Widal or rapid-card tests.
+              that detects <em>Salmonella typhi</em> and <em
+                >Salmonella paratyphi</em
+              >
+              DNA directly from human blood. Based on patented technology (Indian
+              Patent No. 355208), it enables accurate diagnosis from Day 1 of infection
+              — delivering higher sensitivity and specificity than Widal or rapid-card
+              tests.
             </p>
 
             <p>
               Introducing <span class="text-primary font-bold">VAN</span><span
-                class="text-[#4b4f58] font-bold">SCAN</span
+                class="text-[#1a1a1a] font-bold">SCAN</span
               >
-              <span class="font-bold text-[#4b4f58]">Typhoid RT PCR</span>, the
+              <span class="font-bold text-[#1a1a1a]">Typhoid RT PCR</span>, the
               first-ever patented technology-based <span
-                class="font-bold text-[#4b4f58]">Typhoid RT PCR</span
+                class="font-bold text-[#1a1a1a]">Typhoid RT PCR</span
               > kit by <a
                 href="/contact-us"
-                class="text-primary font-medium hover:underline hover:text-[#018897] transition-colors"
+                class="text-primary font-medium hover:underline hover:text-[#005a66] transition-colors"
                 >Vanguard Diagnostics</a
               >. This innovative test sets a new gold standard for detecting
               Typhoid fever, addressing the long-standing need for reliable and
               rapid detection of Salmonella typhi and paratyphi. Unlike existing
               tests, such as Widal and rapid cards, <span
                 class="text-primary font-bold">VAN</span
-              ><span class="text-[#4b4f58] font-bold">SCAN</span> offers superior
+              ><span class="text-[#1a1a1a] font-bold">SCAN</span> offers superior
               sensitivity and specificity. By enabling early detection on day one
               of infection, this test facilitates timely administration of appropriate
               antibiotics, contributing significantly to combating Antimicrobial Resistance
@@ -102,7 +137,7 @@ const { typhoidRtPcr } = specificProductsContent;
     <section class="py-16 md:py-20 bg-[#eef3f5]">
       <div class="mx-auto w-full max-w-[1120px] px-4 md:px-6">
         <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 md:mb-16">
-          <span class="text-primary">VAN</span><span class="text-[#4b4f58]"
+          <span class="text-primary">VAN</span><span class="text-[#1a1a1a]"
             >SCAN Typhoid RT PCR Test</span
           >
         </h2>
@@ -111,7 +146,7 @@ const { typhoidRtPcr } = specificProductsContent;
           <div class="w-full md:w-[45%] flex justify-center">
             <Image
               src={typhoidTestImage}
-              alt="Typhoid Testing Kit"
+              alt=""
               class="w-full h-auto"
               width={400}
               height={340}
@@ -119,7 +154,7 @@ const { typhoidRtPcr } = specificProductsContent;
           </div>
 
           <div
-            class="w-full md:w-[55%] text-[15px] md:text-[16px] leading-relaxed text-[#333] space-y-6"
+            class="w-full md:w-[55%] text-[15px] md:text-[16px] leading-relaxed text-[#1a1a1a] space-y-6"
           >
             <p>
               It is a nucleic acid-based diagnostic assay for the detection of
@@ -129,7 +164,7 @@ const { typhoidRtPcr } = specificProductsContent;
             </p>
             <p>
               <span class="text-primary font-bold">VAN</span><span
-                class="text-[#4b4f58] font-bold">SCAN</span
+                class="text-[#1a1a1a] font-bold">SCAN</span
               > Typhoid RT PCR Test will ensure the definitive and early detection
               of Typhoid fever thus facilitating the administration of the right antibiotics
               for treatment. This will contribute significantly towards slowing down
@@ -137,17 +172,20 @@ const { typhoidRtPcr } = specificProductsContent;
             </p>
             <p>
               <span class="text-primary font-bold">VAN</span><span
-                class="text-[#4b4f58] font-bold">SCAN</span
+                class="text-[#1a1a1a] font-bold">SCAN</span
               > Typhoid RT PCR Test is an Industry-Academia Collaboration between
               Vanguard Diagnostics and <a
                 href="https://geu.ac.in/"
-                class="text-primary font-medium hover:underline hover:text-[#018897] transition-colors"
-                >Graphic Era University, Dehradun.</a
+                class="text-primary font-medium hover:underline hover:text-[#005a66] transition-colors"
+                target="_blank"
+                rel="noopener noreferrer">Graphic Era University, Dehradun.</a
               >
             </p>
           </div>
         </div>
       </div>
     </section>
+
+    <ProductFAQ faqs={faqs} />
   </main>
 </Layout>

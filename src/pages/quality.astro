@@ -4,7 +4,13 @@ import SectionHeading from "../components/ui/SectionHeading.astro";
 import BulletList from "../components/ui/BulletList.astro";
 import { Image } from "astro:assets";
 import { qualityContent } from "../data/content";
-import { qualityIcon, qualityBanner, qualityFooter1, qualityFooter2, qualityFooter3 } from "../assets/images";
+import {
+  qualityIcon,
+  qualityBanner,
+  qualityFooter1,
+  qualityFooter2,
+  qualityFooter3,
+} from "../assets/images";
 
 const { metadata, intro, norms, insights } = qualityContent;
 ---
@@ -21,17 +27,11 @@ const { metadata, intro, norms, insights } = qualityContent;
         poster="/images/hero-poster.webp"
         class="hero-video w-full h-full object-cover"
         src="/images/vanguard/products-solutions/Vanguard-Quality-banner-new.mp4"
+        width={1920}
+        height={1080}
       >
       </video>
     </section>
-
-    <style>
-      @media (max-width: 768px) {
-        .hero-video {
-          display: none;
-        }
-      }
-    </style>
 
     <!-- Quality intro + image -->
     <section class="border-t-2 border-primary bg-[#efefef] py-10">
@@ -39,7 +39,13 @@ const { metadata, intro, norms, insights } = qualityContent;
         class="mx-auto grid w-full max-w-[1120px] gap-7 px-4 md:grid-cols-[1fr_430px] md:items-start md:px-6"
       >
         <article>
-          <Image alt="Quality icon" class="h-[68px] w-auto" src={qualityIcon} width={114} height={135} />
+          <Image
+            alt="Quality icon"
+            class="h-[68px] w-auto"
+            src={qualityIcon}
+            width={114}
+            height={135}
+          />
           <SectionHeading class="mt-2">{intro.title}</SectionHeading>
           <p class="mt-4 text-[15px] leading-7 text-[#555555]">
             {intro.description}
@@ -75,9 +81,27 @@ const { metadata, intro, norms, insights } = qualityContent;
       >
         {
           [
-            { title: insights[0].title, body: insights[0].body, img: qualityFooter1, width: 630, height: 387 },
-            { title: insights[1].title, body: insights[1].body, img: qualityFooter2, width: 630, height: 387 },
-            { title: insights[2].title, body: insights[2].body, img: qualityFooter3, width: 630, height: 387 },
+            {
+              title: insights[0].title,
+              body: insights[0].body,
+              img: qualityFooter1,
+              width: 630,
+              height: 387,
+            },
+            {
+              title: insights[1].title,
+              body: insights[1].body,
+              img: qualityFooter2,
+              width: 630,
+              height: 387,
+            },
+            {
+              title: insights[2].title,
+              body: insights[2].body,
+              img: qualityFooter3,
+              width: 630,
+              height: 387,
+            },
           ].map((item) => (
             <article class="bg-white">
               <Image

@@ -26,16 +26,16 @@ const { metadata, hero, application, openings } = careerContent;
     <section class="bg-[#efefef] py-10 md:py-14 text-left">
       <div class="mx-auto w-full max-w-[760px] px-4 md:px-6">
         <p
-          class="text-base leading-7 text-[#555555]"
+          class="text-base leading-7 text-[#4b5563]"
           set:html={application.p1}
         />
         <p
-          class="mt-4 text-base leading-7 text-[#555555]"
+          class="mt-4 text-base leading-7 text-[#4b5563]"
           set:html={application.p2}
         />
 
         <Image
-          alt="Career figure"
+          alt=""
           class="mt-6 h-[100px] w-auto"
           src={certificationIcon}
           width={135}
@@ -63,7 +63,11 @@ const { metadata, hero, application, openings } = careerContent;
                 <>
                   <div
                     id={openBtnId}
+                    role="button"
+                    tabindex="0"
+                    aria-label={`View details for ${item.heading}`}
                     class="cursor-pointer group flex flex-col items-center justify-center gap-4 border-b-4 border-b-primary bg-white p-5 text-center shadow-[0_3px_10px_rgba(0,0,0,0.08)] transition-all hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.12)] min-h-36"
+                    onkeydown={`if(event.key==='Enter'||event.key===' '){event.preventDefault(); document.getElementById('${openBtnId}').click();}`}
                   >
                     {item.heading}
                   </div>

@@ -24,18 +24,12 @@ const { intro, threePart, fivePart, ifus, technicalReports } =
         preload="metadata"
         poster={images.heroPoster}
         class="hero-video w-full h-auto block"
+        width={1920}
+        height={1080}
       >
         <source src={images.productPageBannerVideo} type="video/mp4" />
       </video>
     </section>
-
-    <style>
-      @media (max-width: 768px) {
-        .hero-video {
-          display: none;
-        }
-      }
-    </style>
 
     <!-- Teal accent bar -->
     <div class="h-[3px] w-full bg-primary"></div>
@@ -51,9 +45,11 @@ const { intro, threePart, fivePart, ifus, technicalReports } =
           <div class="mb-4">
             <img
               src={intro.icon}
-              alt={intro.title}
+              alt=""
               class="h-20 w-20 object-contain"
               onerror="this.style.display='none'"
+              width={80}
+              height={80}
             />
           </div>
 
@@ -62,7 +58,7 @@ const { intro, threePart, fivePart, ifus, technicalReports } =
             set:html={intro.title}
           />
 
-          <div class="mt-5 space-y-4 text-[15px] leading-[1.8] text-[#555555]">
+          <div class="mt-5 space-y-4 text-[15px] leading-[1.8] text-[#4b5563]">
             {intro.paragraphs.map((p) => <p set:html={p} />)}
           </div>
         </section>
@@ -77,14 +73,14 @@ const { intro, threePart, fivePart, ifus, technicalReports } =
               set:html={threePart.title}
             />
             <p
-              class="mt-4 text-[15px] leading-7 text-[#222222] font-semibold"
+              class="mt-4 text-[15px] leading-7 text-[#1a1a1a] font-semibold"
               set:html={threePart.description}
             />
             <ul class="mt-4 space-y-3">
               {
                 threePart.items.map((item) => (
-                  <li class="flex items-center gap-3 text-[15px] text-[#555555]">
-                    <span class="inline-block h-[14px] w-[14px] shrink-0 rounded-full border-[2px] border-[#019cad]" />
+                  <li class="flex items-center gap-3 text-[15px] text-[#4b5563]">
+                    <span class="inline-block h-[14px] w-[14px] shrink-0 rounded-full border-[2px] border-primary" />
                     <span set:html={item} />
                   </li>
                 ))
@@ -97,6 +93,8 @@ const { intro, threePart, fivePart, ifus, technicalReports } =
               alt={threePart.title}
               class="w-full h-auto object-contain rounded-lg"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              width={450}
+              height={300}
             />
             <div
               class="hidden w-full h-48 bg-gray-200 flex-col items-center justify-center rounded-lg text-gray-500 border border-dashed border-gray-400"
@@ -128,14 +126,14 @@ const { intro, threePart, fivePart, ifus, technicalReports } =
               set:html={fivePart.title}
             />
             <p
-              class="mt-4 text-[15px] leading-7 text-[#222222] font-semibold"
+              class="mt-4 text-[15px] leading-7 text-[#1a1a1a] font-semibold"
               set:html={fivePart.description}
             />
             <ul class="mt-4 space-y-3">
               {
                 fivePart.items.map((item) => (
-                  <li class="flex items-center gap-3 text-[15px] text-[#555555]">
-                    <span class="inline-block h-[14px] w-[14px] shrink-0 rounded-full border-[2px] border-[#019cad]" />
+                  <li class="flex items-center gap-3 text-[15px] text-[#4b5563]">
+                    <span class="inline-block h-[14px] w-[14px] shrink-0 rounded-full border-[2px] border-primary" />
                     <span>
                       Instrument : {item.instrument} {item.models}
                     </span>
@@ -150,6 +148,8 @@ const { intro, threePart, fivePart, ifus, technicalReports } =
               alt={fivePart.title}
               class="w-full h-auto object-contain rounded-lg"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              width={450}
+              height={300}
             />
             <div
               class="hidden w-full h-48 bg-gray-200 flex-col items-center justify-center rounded-lg text-gray-500 border border-dashed border-gray-400"

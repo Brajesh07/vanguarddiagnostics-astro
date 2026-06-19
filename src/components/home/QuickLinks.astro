@@ -14,9 +14,11 @@ const { quickLinks } = homeContent;
           >
             <div class="relative z-10 flex flex-col items-center justify-center gap-4 transition-transform duration-300 group-hover:scale-105">
               <img
-                alt={link.label}
+                alt=""
                 class="h-[74px] w-auto object-contain transition-transform duration-[1500ms] ease-out group-hover:scale-110"
                 src={link.icon}
+                width={74}
+                height={74}
               />
               <span class="text-base font-semibold leading-[1.2] text-black transition-colors duration-300 group-hover:text-primary">
                 {link.label}
