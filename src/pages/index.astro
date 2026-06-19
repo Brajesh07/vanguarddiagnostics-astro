@@ -50,7 +50,10 @@ const pageSchema = [
 >
   <main class="overflow-x-hidden">
     <!-- Visually-hidden H1 for SEO — design is unchanged -->
-    <h1 class="sr-only">Vanguard Diagnostics — Medical Diagnostics &amp; Reagents</h1>
+    {console.log("home content", homeContent)}
+    <h1 class="sr-only">
+      Vanguard Diagnostics — Medical Diagnostics &amp; Reagents
+    </h1>
 
     <!-- Hero carousel (React island — has useState/useEffect) -->
     <HeroCarousel client:load />
