@@ -50,7 +50,13 @@ const pageSchema = [
 >
   <main class="overflow-x-hidden">
     <!-- Visually-hidden H1 for SEO — design is unchanged -->
-    <h1 class="sr-only">Vanguard Diagnostics — Medical Diagnostics &amp; Reagents</h1>
+    {console.log("metadata", metadata.description)}
+    <script>
+      console.log("Code version: 1");
+    </script>
+    <h1 class="sr-only">
+      Vanguard Diagnostics — Medical Diagnostics &amp; Reagents
+    </h1>
 
     <!-- Hero carousel (React island — has useState/useEffect) -->
     <HeroCarousel client:load />
