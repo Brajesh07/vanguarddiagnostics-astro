@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface VanguardButtonProps {
+export interface VanguardButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   variant?: 'solid' | 'outline';
   external?: boolean;
@@ -14,6 +14,7 @@ const VanguardButton: React.FC<VanguardButtonProps> = ({
   external = false,
   className = '',
   children,
+  ...props
 }) => {
   const base = 'inline-flex items-center justify-center rounded font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2';
   const variants = {
@@ -28,6 +29,7 @@ const VanguardButton: React.FC<VanguardButtonProps> = ({
       href={href}
       className={combinedClasses}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      {...props}
     >
       {children}
     </a>

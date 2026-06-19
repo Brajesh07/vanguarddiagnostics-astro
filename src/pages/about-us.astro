@@ -102,6 +102,7 @@ const pageSchema = [
             variant="outline"
             class="px-5 py-2 text-sm w-fit"
             data-about-popup-trigger="true"
+            aria-label="Read more about Vanguard Diagnostics"
           >
             {hero.cta.text}
           </VanguardButton>
@@ -204,6 +205,7 @@ const pageSchema = [
     class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"
     aria-modal="true"
     role="dialog"
+    aria-labelledby="industry-popup-heading"
   >
     <div
       data-industry-popup-box
@@ -234,6 +236,7 @@ const pageSchema = [
 
       <div>
         <h2
+          id="industry-popup-heading"
           class="text-[28px] md:text-[35px] font-semibold leading-[1.3] text-[#00A4B2] mb-6"
         >
           {ivdIndustry.popup.title.split("Industry")[0]}
@@ -269,6 +272,7 @@ const pageSchema = [
     class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"
     aria-modal="true"
     role="dialog"
+    aria-labelledby="about-popup-heading"
   >
     <div
       data-about-popup-box
@@ -299,6 +303,7 @@ const pageSchema = [
 
       <div>
         <h2
+          id="about-popup-heading"
           class="text-[28px] md:text-[35px] font-semibold leading-[1.3] text-[#00A4B2] mb-6"
         >
           {hero.popup.title}
@@ -328,6 +333,7 @@ const pageSchema = [
     class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"
     aria-modal="true"
     role="dialog"
+    aria-label="Team Member Details"
   >
     <div
       data-team-popup-box
@@ -361,7 +367,7 @@ const pageSchema = [
             .filter((m) => m.hasPopup)
             .map((member) => (
               <div data-team-popup-id={member.id} class="hidden">
-                <h2 class="text-[28px] md:text-[34px] font-semibold text-primary mb-6 p-4 bg-[#e5e9ef]">
+                <h2 id={`team-heading-${member.id}`} class="text-[28px] md:text-[34px] font-semibold text-primary mb-6 p-4 bg-[#e5e9ef]">
                   {member.name}
                 </h2>
                 <div
@@ -387,6 +393,9 @@ const pageSchema = [
         overlay.classList.add("opacity-0", "pointer-events-none");
         overlay.classList.remove("opacity-100");
         document.body.style.overflow = "";
+        if (overlay.hasAttribute("data-team-popup-overlay")) {
+          overlay.removeAttribute("aria-labelledby");
+        }
       }
     }
 
@@ -407,6 +416,7 @@ const pageSchema = [
         `[data-team-popup-id="${memberId}"]`,
       );
       active?.classList.remove("hidden");
+      teamOverlay.setAttribute("aria-labelledby", `team-heading-${memberId}`);
       togglePopup(teamOverlay, true);
     }
 
