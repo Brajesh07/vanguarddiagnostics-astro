@@ -51,7 +51,7 @@ const popupData = cards
         target={about.cta.href === "#" ? undefined : "_blank"}
         rel={about.cta.href === "#" ? undefined : "noopener noreferrer"}
         class="mt-5 inline-flex items-center justify-center rounded border border-[#00717f] px-6 py-3 font-semibold text-[#00717f] transition-colors hover:bg-[#00717f] hover:text-white"
-        aria-label="Read more about Vanguard Diagnostics"
+        aria-label="Read more about us"
       >
         {about.cta.text}
       </a>
@@ -133,6 +133,7 @@ const popupData = cards
   class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300"
   aria-modal="true"
   role="dialog"
+  aria-label="Vision and Mission details"
 >
   <div
     data-popup-box
@@ -199,6 +200,8 @@ const popupData = cards
     const active = document.querySelector(`[data-popup-id="${cardId}"]`);
     active?.classList.remove("hidden");
 
+    overlay.setAttribute("aria-labelledby", `popup-heading-${cardId}`);
+
     overlay.classList.remove("opacity-0", "pointer-events-none");
     overlay.classList.add("opacity-100");
     document.body.style.overflow = "hidden";
@@ -208,6 +211,7 @@ const popupData = cards
     overlay.classList.add("opacity-0", "pointer-events-none");
     overlay.classList.remove("opacity-100");
     document.body.style.overflow = "";
+    overlay.removeAttribute("aria-labelledby");
   }
 
   // Card button click handlers
