@@ -55,6 +55,8 @@ export default function MilestoneCarousel({
               className="w-full h-auto object-cover"
               src={milestone.image}
               loading="lazy"
+              width={400}
+              height={300}
             />
           </SwiperSlide>
         ))}

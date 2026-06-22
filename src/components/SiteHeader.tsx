@@ -118,6 +118,9 @@ export default function SiteHeader() {
               alt="Vanguard Diagnostics"
               className="max-h-8 w-auto lg:max-h-12"
               src={images.logo}
+              fetchPriority="high"
+              width={342}
+              height={71}
             />
           </a>
 

@@ -57,6 +57,8 @@ export default function HorizontalCarousel({
                   className={`w-full object-cover ${itemHeight}`}
                   loading="lazy"
                   src={src}
+                  width={360}
+                  height={280}
                 />
               </article>
             </SwiperSlide>

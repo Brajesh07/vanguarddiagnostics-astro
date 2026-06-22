@@ -64,6 +64,9 @@ const pageSchema = [
           alt="About us banner"
           class="h-auto w-full object-cover"
           src={hero.banner}
+          width={1120}
+          height={400}
+          fetchpriority="high"
         />
       </div>
     </section>
@@ -74,6 +77,9 @@ const pageSchema = [
         class="absolute top-0 right-0 z-0 object-cover h-auto w-[400px]"
         src={images.about.bg}
         alt=""
+        width={400}
+        height={400}
+        loading="lazy"
       />
       <div
         class="mx-auto flex w-full max-w-[1120px] gap-8 px-4 flex-col md:px-6"
@@ -82,6 +88,9 @@ const pageSchema = [
           alt="about icon"
           class="h-auto w-20 object-contain"
           src={hero.icon}
+          width={80}
+          height={80}
+          loading="lazy"
         />
         <article class="flex flex-col gap-4">
           <h1 class="text-2xl font-medium">
@@ -118,6 +127,9 @@ const pageSchema = [
           alt="Team icon"
           class="mx-auto h-[82px] w-auto"
           src={philosophy.icon}
+          width={82}
+          height={82}
+          loading="lazy"
         />
         <h2 class="mt-2 text-[30px] font-medium text-black">
           Our <span class="text-primary">Team</span>
@@ -138,6 +150,9 @@ const pageSchema = [
                   alt={member.name}
                   class="h-auto max-w-full md:max-w-[322px] object-cover"
                   src={member.image}
+                  width={322}
+                  height={400}
+                  loading="lazy"
                 />
                 <h3 class="text-[22px] font-semibold text-primary">
                   {member.name}

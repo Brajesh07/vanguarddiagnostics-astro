@@ -51,6 +51,9 @@ const pageSchema = [
         alt="Contact banner"
         class="h-auto w-full object-contain"
         src={hero.image}
+        width={1920}
+        height={800}
+        fetchpriority="high"
       />
     </section>
 
@@ -112,6 +115,9 @@ const pageSchema = [
               alt="Location icon"
               class="h-[46px] w-[46px]"
               src={addressSection.icon}
+              width={71}
+              height={80}
+              loading="lazy"
             />
             <h3 class="text-4xl font-medium leading-none tracking-tight">
               <span class="text-black"
